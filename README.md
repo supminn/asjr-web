@@ -2,18 +2,10 @@
 
 ![Proof HTML](https://github.com/AIR-Hackathon-ASJR/demo-repository/actions/workflows/proof-html.yml/badge.svg)
 
-# Welcome to your organization's demo respository
-This code repository (or "repo") is designed to demonstrate the best GitHub has to offer with the least amount of noise.
+# Welcome to your AIR Hackathon 2025
+This code repository (or "repo") is designed to build an accessible website for ASJR. This is a part of AIR Hackathon 2025.
 
-The repo includes an `index.html` file (so it can render a web page), two GitHub Actions workflows, and a CSS stylesheet dependency.
-
-# Astro Starter Kit: Basics
-
-```sh
-npm create astro@latest -- --template basics
-```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+This project has been created using Astro.
 
 ## 🚀 Project Structure
 
