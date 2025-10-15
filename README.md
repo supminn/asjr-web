@@ -2,6 +2,8 @@
 
 ![Proof HTML](https://github.com/AIR-Hackathon-ASJR/demo-repository/actions/workflows/proof-html.yml/badge.svg)
 
+![Deploy Page](https://github.com/AIR-Hackathon-ASJR/demo-repository/actions/workflows/deploy-pages.yml/badge.svg)
+
 # Welcome to your AIR Hackathon 2025
 This code repository (or "repo") is designed to build an accessible website for ASJR. This is a part of AIR Hackathon 2025.
 
