@@ -1,0 +1,38 @@
+name: Deploy Astro to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Or your default branch name (e.g., master)
+  workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repository
+        uses: actions/checkout@v4
+      - name: Install, build, and upload your site
+        uses: withastro/action@v2
+        with:
+          path: . # The root directory of your Astro project
+          node-version: '20' # Specify a Node.js version compatible with Astro
+          package-manager: 'yarn' # or 'yarn', 'pnpm', 'bun'
+          args: --output docs # Or --output docs if you configured outDir to docs
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./docs # Or ./docs if you configured outDir to docs
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
