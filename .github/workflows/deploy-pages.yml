@@ -31,7 +31,6 @@ jobs:
         with:
           path: .
           package-manager: 'yarn'
-          args: --output docs
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
