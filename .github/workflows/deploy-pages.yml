@@ -18,8 +18,14 @@ jobs:
         with:
           node-version: '20'
           cache: 'yarn'
+      - name: Enable Corepack
+        # Corepack is pre-installed with Node.js 16+ runners.
+        # This command ensures it's active and will use the Yarn version specified in package.json.
+        run: corepack enable
       - name: Install dependencies
-        run: yarn install
+        # This will use the Yarn Berry version configured in your project via Corepack.
+        # --immutable is recommended for CI/CD to ensure reproducible installs.
+        run: yarn install --immutable
       - name: Build and upload your site
         uses: withastro/action@v2
         with:
