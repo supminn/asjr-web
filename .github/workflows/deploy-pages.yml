@@ -13,17 +13,23 @@ jobs:
     steps:
       - name: Checkout your repository
         uses: actions/checkout@v4
-      - name: Install, build, and upload your site
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn install
+      - name: Build and upload your site
         uses: withastro/action@v2
         with:
           path: .
-          node-version: '20'
           package-manager: 'yarn'
-          args: --output docs # Ensure this matches your outDir in astro.config.mjs
+          args: --output docs
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./docs # Ensure this matches your outDir in astro.config.mjs
+          path: ./docs
 
   deploy:
     name: Deploy
