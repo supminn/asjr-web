@@ -26,11 +26,10 @@ jobs:
         # This will use the Yarn Berry version configured in your project via Corepack.
         # --immutable is recommended for CI/CD to ensure reproducible installs.
         run: yarn install --immutable
-      - name: Build and upload your site
-        uses: withastro/action@v2
-        with:
-          path: .
-          package-manager: 'yarn'
+      - name: Build Astro Project # Renamed this step for clarity
+        # Directly run the build command using Yarn.
+        # This will execute the "build": "astro build" script from your package.json.
+        run: yarn build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
