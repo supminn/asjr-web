@@ -1,0 +1,96 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About Us - ASJR">
+  <div class="page-container">
+    <section class="hero">
+      <mdc-text type="heading-xlarge-bold" tagname="h1">
+        About Advocates for Social Justice Reform
+      </mdc-text>
+      <mdc-text type="body-large-regular" tagname="p" class="hero-subtext">
+        Learn about our mission, values, and the people working to transform the criminal legal system in Travis County.
+      </mdc-text>
+    </section>
+
+    <section class="content">
+      <mdc-text type="heading-large-medium" tagname="h2">
+        Our Mission
+      </mdc-text>
+      <mdc-text type="body-large-regular" tagname="p">
+        We are dedicated to creating a more just and equitable criminal legal system that prioritizes rehabilitation, community healing, and human dignity over punishment and incarceration.
+      </mdc-text>
+
+      <mdc-text type="heading-large-medium" tagname="h2">
+        Our Values
+      </mdc-text>
+      <div class="values-grid">
+        <mdc-card card-title="Justice">
+          <mdc-text slot="body" type="body-midsize-regular" tagname="p">
+            We believe in equal treatment under the law and fair processes for all individuals.
+          </mdc-text>
+        </mdc-card>
+        <mdc-card card-title="Compassion">
+          <mdc-text slot="body" type="body-midsize-regular" tagname="p">
+            We approach our work with empathy and understanding for all those affected by the criminal legal system.
+          </mdc-text>
+        </mdc-card>
+        <mdc-card card-title="Reform">
+          <mdc-text slot="body" type="body-midsize-regular" tagname="p">
+            We advocate for systemic changes that address root causes rather than symptoms.
+          </mdc-text>
+        </mdc-card>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .page-container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--mds-color-neutral-200);
+    margin-bottom: 4rem;
+  }
+
+  .hero-subtext {
+    margin-top: 1.5rem;
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  mdc-text[type="heading-xlarge-bold"] {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    line-height: 1.1;
+  }
+
+  mdc-text[type="heading-large-medium"] {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    line-height: 1.25;
+  }
+</style>
+
+<script>
+  import '@momentum-design/components/dist/components/text/index.js';
+  import '@momentum-design/components/dist/components/card/index.js';
+</script>

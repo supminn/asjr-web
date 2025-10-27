@@ -1,0 +1,145 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="What We Do - ASJR">
+  <div class="page-container">
+    <section class="hero">
+      <mdc-text type="heading-xlarge-bold" tagname="h1">
+        What We Do
+      </mdc-text>
+      <mdc-text type="body-large-regular" tagname="p" class="hero-subtext">
+        Our comprehensive approach to criminal justice reform through education, advocacy, and community engagement.
+      </mdc-text>
+    </section>
+
+    <section class="programs">
+      <mdc-text type="heading-large-medium" tagname="h2">
+        Our Programs
+      </mdc-text>
+      
+      <div class="program-grid">
+        <mdc-card card-title="Know Your Rights Education">
+          <mdc-text slot="body" type="body-midsize-regular" tagname="p">
+            We provide comprehensive education about constitutional rights during police encounters, court proceedings, and incarceration.
+          </mdc-text>
+          <mdc-button slot="footer-button-primary" variant="outlined">Learn More</mdc-button>
+        </mdc-card>
+
+        <mdc-card card-title="Court Watching">
+          <mdc-text slot="body" type="body-midsize-regular" tagname="p">
+            Volunteers observe court proceedings to ensure transparency and accountability in the judicial process.
+          </mdc-text>
+          <mdc-button slot="footer-button-primary" variant="outlined">Get Involved</mdc-button>
+        </mdc-card>
+
+        <mdc-card card-title="Policy Advocacy">
+          <mdc-text slot="body" type="body-midsize-regular" tagname="p">
+            We work with lawmakers and community leaders to promote evidence-based criminal justice reforms.
+          </mdc-text>
+          <mdc-button slot="footer-button-primary" variant="outlined">View Positions</mdc-button>
+        </mdc-card>
+
+        <mdc-card card-title="Community Support">
+          <mdc-text slot="body" type="body-midsize-regular" tagname="p">
+            Connecting individuals and families with resources during and after involvement with the criminal legal system.
+          </mdc-text>
+          <mdc-button slot="footer-button-primary" variant="outlined">Find Support</mdc-button>
+        </mdc-card>
+      </div>
+    </section>
+
+    <section class="impact">
+      <mdc-text type="heading-large-medium" tagname="h2">
+        Our Impact
+      </mdc-text>
+      <div class="impact-stats">
+        <div class="stat">
+          <mdc-text type="heading-large-medium" tagname="div" class="stat-number">500+</mdc-text>
+          <mdc-text type="body-midsize-regular" tagname="p">People educated on their rights</mdc-text>
+        </div>
+        <div class="stat">
+          <mdc-text type="heading-large-medium" tagname="div" class="stat-number">50+</mdc-text>
+          <mdc-text type="body-midsize-regular" tagname="p">Court sessions monitored</mdc-text>
+        </div>
+        <div class="stat">
+          <mdc-text type="heading-large-medium" tagname="div" class="stat-number">12</mdc-text>
+          <mdc-text type="body-midsize-regular" tagname="p">Policy reforms supported</mdc-text>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .page-container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--mds-color-neutral-200);
+    margin-bottom: 4rem;
+  }
+
+  .hero-subtext {
+    margin-top: 1.5rem;
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .programs {
+    margin-bottom: 4rem;
+  }
+
+  .program-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .impact {
+    text-align: center;
+    padding: 3rem 0;
+    background-color: var(--mds-color-neutral-50);
+    border-radius: 1rem;
+    margin: 3rem 0;
+  }
+
+  .impact-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-number {
+    color: var(--mds-color-theme-text-accent-normal);
+    font-weight: 700;
+  }
+
+  mdc-text[type="heading-xlarge-bold"] {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    line-height: 1.1;
+  }
+
+  mdc-text[type="heading-large-medium"] {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    line-height: 1.25;
+  }
+</style>
+
+<script>
+  import '@momentum-design/components/dist/components/text/index.js';
+  import '@momentum-design/components/dist/components/card/index.js';
+  import '@momentum-design/components/dist/components/button/index.js';
+</script>

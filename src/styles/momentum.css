@@ -1,0 +1,39 @@
+/* Momentum Design System CSS Imports */
+
+/* Import Momentum fonts */
+@import '../../node_modules/@momentum-design/fonts/dist/css/fonts.css';
+
+/* Import complete CSS bundle for components - includes all tokens */
+@import '../../node_modules/@momentum-design/tokens/dist/css/components/complete.css';
+
+/* Typography base classes */
+@import '../../node_modules/@momentum-design/tokens/dist/css/typography/complete.css';
+
+/* Effect tokens (shadows, etc.) */
+@import '../../node_modules/@momentum-design/tokens/dist/css/effect/complete.css';
+
+/* Elevation tokens */
+@import '../../node_modules/@momentum-design/tokens/dist/css/elevation/complete.css';
+
+/* Base theme styles - Light theme only */
+@import '../../node_modules/@momentum-design/tokens/dist/css/theme/webex/light-stable.css';
+
+/* Root element typography setup */
+html,
+body {
+  font-family: 'Momentum', system-ui, -apple-system, sans-serif;
+  /* Font smoothing for better consistency with Figma designs */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Apply Momentum typography class to body */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure proper styling for Momentum components */
+.mds-typography {
+  font-family: 'Momentum', system-ui, -apple-system, sans-serif;
+}

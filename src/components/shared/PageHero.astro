@@ -1,0 +1,42 @@
+---
+// PageHero.astro - Reusable hero section for pages
+export interface Props {
+  title: string;
+  subtitle?: string;
+  class?: string;
+}
+
+const { title, subtitle, class: className = "" } = Astro.props;
+---
+
+<section class={`page-hero ${className}`}>
+  <mdc-text type="heading-xlarge-bold" tagname="h1">
+    {title}
+  </mdc-text>
+  {subtitle && (
+    <mdc-text type="body-large-regular" tagname="p" class="hero-subtitle">
+      {subtitle}
+    </mdc-text>
+  )}
+</section>
+
+<style>
+  .page-hero {
+    text-align: center;
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--mds-color-neutral-200);
+    margin-bottom: 4rem;
+  }
+
+  .hero-subtitle {
+    margin-top: 1.5rem;
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  mdc-text[type="heading-xlarge-bold"] {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    line-height: 1.1;
+  }
+</style>

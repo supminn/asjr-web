@@ -9,7 +9,14 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@momentum-design/components": "^0.122.3",
+    "@momentum-design/fonts": "^0.2.5",
+    "@momentum-design/icons": "^0.37.4",
+    "@momentum-design/tokens": "^0.8.0",
     "astro": "^5.14.5"
   },
-  "packageManager": "yarn@4.10.3"
+  "packageManager": "yarn@4.10.3",
+  "devDependencies": {
+    "rollup-plugin-copy": "^3.5.0"
+  }
 }

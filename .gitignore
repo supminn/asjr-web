@@ -1,6 +1,12 @@
+.pnp.*
+.yarn/*
+
 # build output
 dist/
 docs/
+
+# generated icons
+public/icons/
 
 # generated types
 .astro/

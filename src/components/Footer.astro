@@ -1,0 +1,251 @@
+---
+// Footer.astro - Main footer component
+export interface Props {
+  class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+---
+
+<script>
+  // Import only the components needed for Footer
+  import '@momentum-design/components/dist/components/text/index.js';
+</script>
+
+<footer class={`main-footer ${className}`}>
+  <div class="footer-content">
+    <!-- Footer Top Section -->
+    <div class="footer-top">
+      <div class="footer-brand">
+        <mdc-text type="heading-large-medium" tagname="h3" class="footer-logo">
+          ASJR
+        </mdc-text>
+        <mdc-text type="body-midsize-regular" tagname="p" class="footer-description">
+          Advocates for Social Justice Reform - Working towards a fairer and more humane justice system in Travis County.
+        </mdc-text>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-column">
+          <mdc-text type="body-large-bold" tagname="h4" class="footer-title">
+            About
+          </mdc-text>
+          <nav class="footer-nav">
+            <mdc-text type="body-midsize-regular" tagname="a" href="#mission" class="footer-link">
+              Our Mission
+            </mdc-text>
+            <mdc-text type="body-midsize-regular" tagname="a" href="#team" class="footer-link">
+              Our Team
+            </mdc-text>
+            <mdc-text type="body-midsize-regular" tagname="a" href="#impact" class="footer-link">
+              Our Impact
+            </mdc-text>
+          </nav>
+        </div>
+
+        <div class="footer-column">
+          <mdc-text type="body-large-bold" tagname="h4" class="footer-title">
+            Get Involved
+          </mdc-text>
+          <nav class="footer-nav">
+            <mdc-text type="body-midsize-regular" tagname="a" href="#volunteer" class="footer-link">
+              Volunteer
+            </mdc-text>
+            <mdc-text type="body-midsize-regular" tagname="a" href="#donate" class="footer-link">
+              Donate
+            </mdc-text>
+            <mdc-text type="body-midsize-regular" tagname="a" href="#events" class="footer-link">
+              Events
+            </mdc-text>
+          </nav>
+        </div>
+
+        <div class="footer-column">
+          <mdc-text type="body-large-bold" tagname="h4" class="footer-title">
+            Resources
+          </mdc-text>
+          <nav class="footer-nav">
+            <mdc-text type="body-midsize-regular" tagname="a" href="#know-your-rights" class="footer-link">
+              Know Your Rights
+            </mdc-text>
+            <mdc-text type="body-midsize-regular" tagname="a" href="#legal-aid" class="footer-link">
+              Legal Aid
+            </mdc-text>
+            <mdc-text type="body-midsize-regular" tagname="a" href="#support" class="footer-link">
+              Support Services
+            </mdc-text>
+          </nav>
+        </div>
+
+        <div class="footer-column">
+          <mdc-text type="body-large-bold" tagname="h4" class="footer-title">
+            Contact
+          </mdc-text>
+          <div class="footer-contact">
+            <mdc-text type="body-midsize-regular" tagname="p" class="contact-info">
+              Austin, Texas
+            </mdc-text>
+            <mdc-text type="body-midsize-regular" tagname="a" href="mailto:info@asjr.org" class="footer-link">
+              info@asjr.org
+            </mdc-text>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom Section -->
+    <div class="footer-bottom">
+      <mdc-text type="body-small-regular" tagname="p" class="copyright">
+        © 2024 Advocates for Social Justice Reform. All rights reserved.
+      </mdc-text>
+      <div class="footer-legal">
+        <mdc-text type="body-small-regular" tagname="a" href="#privacy" class="legal-link">
+          Privacy Policy
+        </mdc-text>
+        <mdc-text type="body-small-regular" tagname="a" href="#terms" class="legal-link">
+          Terms of Service
+        </mdc-text>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .main-footer {
+    background-color: var(--mds-color-neutral-900, #111827);
+    color: white;
+    padding: 4rem 1rem 2rem;
+  }
+
+  .footer-content {
+    max-width: 72rem;
+    margin: 0 auto;
+  }
+
+  /* Footer Top */
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    margin-bottom: 3rem;
+  }
+
+  .footer-brand {
+    max-width: 24rem;
+  }
+
+  .footer-logo {
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .footer-description {
+    color: var(--mds-color-neutral-300, #D1D5DB);
+    line-height: 1.6;
+  }
+
+  /* Footer Links */
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+  }
+
+  .footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .footer-title {
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .footer-link {
+    color: var(--mds-color-neutral-300, #D1D5DB);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-link:hover {
+    color: white;
+  }
+
+  .footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .contact-info {
+    color: var(--mds-color-neutral-300, #D1D5DB);
+  }
+
+  /* Footer Bottom */
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--mds-color-neutral-700, #374151);
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .copyright {
+    color: var(--mds-color-neutral-400, #9CA3AF);
+  }
+
+  .footer-legal {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .legal-link {
+    color: var(--mds-color-neutral-400, #9CA3AF);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .legal-link:hover {
+    color: var(--mds-color-neutral-300, #D1D5DB);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .footer-top {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .footer-links {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .footer-legal {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer-links {
+      grid-template-columns: 1fr;
+    }
+
+    .main-footer {
+      padding: 3rem 1rem 1.5rem;
+    }
+  }
+</style>

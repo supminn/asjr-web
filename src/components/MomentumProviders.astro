@@ -1,0 +1,40 @@
+---
+// MomentumProviders.astro - Setup for Momentum Design icon provider
+// This component sets up the icon provider for Momentum Design System
+
+export interface Props {
+  iconSet?: 'momentum-icons' | 'custom-icons';
+  iconUrl?: string;
+  children?: any;
+}
+
+const { 
+  iconSet = 'custom-icons',
+  iconUrl = '/asjr-web/icons'
+} = Astro.props;
+---
+
+<script>
+  // Import icon provider - this is the only truly global component needed
+  import '@momentum-design/components/dist/components/iconprovider/index.js';
+</script>
+
+<!-- Icon Provider for icon support -->
+<mdc-iconprovider 
+  icon-set={iconSet}
+  url={iconUrl}
+  file-extension="svg"
+  cache-strategy="in-memory-cache"
+  cache-name="momentum-icons"
+  length-unit="rem"
+  style="display: contents;"
+>
+  <slot />
+</mdc-iconprovider>
+
+<style>
+  /* Ensure provider takes full height */
+  mdc-iconprovider {
+    display: contents !important;
+  }
+</style>

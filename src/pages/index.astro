@@ -1,11 +1,291 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from '../layouts/Layout.astro'
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Advocates for Social Justice Reform">
+  <div class="page-container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <mdc-text type="heading-xlarge-bold" tagname="h1">
+        Justice with Compassion.<br />Support at Every Step.
+      </mdc-text>
+      <mdc-text type="body-large-regular" tagname="p" class="hero-subtext">
+        We advocate for a fairer legal system, ensuring that every individual receives compassionate and competent support throughout the criminal legal process.
+      </mdc-text>
+    </section>
+
+    <!-- Hero Image -->
+    <section class="hero-image">
+      <img
+        src="/images/hero-protest.jpg"
+        alt="Advocates holding signs for social justice"
+      />
+    </section>
+
+    <!-- Who We Are -->
+    <section class="who-we-are">
+      <mdc-text type="heading-large-medium" tagname="h2">
+        Together, we're building a fairer and more humane justice system.
+      </mdc-text>
+      <mdc-text type="body-large-regular" tagname="p" class="who-description">
+        Advocates for Social Justice Reform (ASJR) is a volunteer-run coalition dedicated to transforming the criminal legal system in Travis County.
+      </mdc-text>
+      <mdc-button variant="outlined">Learn more →</mdc-button>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values">
+      <mdc-card card-title="Education">
+        <mdc-text slot="body" type="body-midsize-regular" tagname="p">
+          To educate ourselves and our communities about social justice issues.
+        </mdc-text>
+      </mdc-card>
+      <mdc-card card-title="Communication">
+        <mdc-text slot="body" type="body-midsize-regular" tagname="p">
+          To educate ourselves and our communities about social justice issues.
+        </mdc-text>
+      </mdc-card>
+      <mdc-card card-title="Advocacy">
+        <mdc-text slot="body" type="body-midsize-regular" tagname="p">
+          To be a voice of change in community forums.
+        </mdc-text>
+      </mdc-card>
+      <mdc-card card-title="Collaboration">
+        <mdc-text slot="body" type="body-midsize-regular" tagname="p">
+          To listen to and collaborate with stakeholders representing diverse viewpoints.
+        </mdc-text>
+      </mdc-card>
+      <mdc-card card-title="Oversight & Evaluate">
+        <mdc-text slot="body" type="body-midsize-regular" tagname="p">
+          To educate ourselves and our communities about social justice issues.
+        </mdc-text>
+      </mdc-card>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs">
+      <div class="programs-inner">
+        <mdc-text type="heading-large-medium" tagname="h2">
+          From court to community, creating lasting change.
+        </mdc-text>
+        <div class="program-grid">
+          {Array.from({ length: 6 }).map(() => (
+            <mdc-card 
+              card-title="CAFA (Counsel at First Appearance)" 
+              image-src="/images/cafa.jpg" 
+              image-alt="CAFA"
+              variant="border"
+            >
+              <mdc-text slot="body" type="body-small-regular" tagname="p">
+                Legal support at first appearance.
+              </mdc-text>
+              <mdc-button slot="footer-button-primary" variant="filled">Learn more →</mdc-button>
+            </mdc-card>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news">
+      <mdc-text type="heading-large-medium" tagname="h2">Latest News</mdc-text>
+      <div class="news-grid">
+        {Array.from({ length: 3 }).map(() => (
+          <mdc-card card-title="CAFA (Counsel at First Appearance)" variant="border">
+            <mdc-text slot="body" type="body-small-regular" tagname="p">
+              Lorem ipsum dolor sit amet consectetur adipiscing elit. Nulla facilisi.
+            </mdc-text>
+            <mdc-button slot="footer-button-primary" variant="outlined">Read more →</mdc-button>
+          </mdc-card>
+        ))}
+      </div>
+    </section>
+
+    <!-- Join Us Section -->
+    <section class="join-us">
+      <div class="join-inner">
+        <mdc-text type="heading-large-medium" tagname="h2">
+          Join us in building a more compassionate justice system.
+        </mdc-text>
+        <mdc-text type="body-large-regular" tagname="p">
+          Stay up-to-date on the latest reports and news from ASJR.
+        </mdc-text>
+        <form class="join-form">
+          <mdc-input label="First name" required />
+          <mdc-input label="Last name" required />
+          <mdc-input label="Email address" type="email" required />
+          <mdc-button type="submit" variant="filled">Submit</mdc-button>
+        </form>
+      </div>
+    </section>
+  </div>
 </Layout>
+
+<script>
+  import('@momentum-design/components/dist/components/button/index.js');
+  import('@momentum-design/components/dist/components/card/index.js');
+  import('@momentum-design/components/dist/components/input/index.js');
+  import('@momentum-design/components/dist/components/icon/index.js');
+  import('@momentum-design/components/dist/components/text/index.js');
+</script>
+
+<style scoped>
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* HERO SECTION */
+.hero {
+  width: 100%;
+  text-align: center;
+  padding: 7.5rem 1rem 6rem; /* 120px top, 96px bottom */
+  background: #ffffff;
+  max-width: 90rem; /* keeps text within Figma alignment */
+  margin: 0 auto;
+}
+
+.hero-subtext {
+  margin: 1.75rem auto 2.25rem;
+  max-width: 44rem;
+  color: var(--mds-color-neutral-700, #4B5563);
+  line-height: 1.5;
+}
+
+.hero-button {
+  margin-top: 0.75rem;
+}
+
+/* HERO IMAGE */
+.hero-image {
+  width: 100%;
+  max-width: 80rem;
+  margin: 2rem auto 5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 72rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  object-fit: cover;
+}
+
+/* WHO WE ARE */
+.who-we-are {
+  width: 100%;
+  max-width: 68rem;
+  text-align: center;
+  padding: 6rem 1rem;
+  margin: 0 auto;
+}
+
+.who-description {
+  margin: 1.75rem auto 2.5rem;
+  max-width: 46rem;
+  color: var(--mds-color-neutral-700, #4B5563);
+}
+
+/* VALUES */
+.values {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1.75rem;
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 6rem 1rem;
+}
+
+/* PROGRAMS */
+.programs {
+  width: 100%;
+  background: #f9fafb;
+  padding: 7rem 1rem;
+}
+
+.programs-inner {
+  max-width: 72rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.program-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 3.5rem;
+}
+
+/* NEWS */
+.news {
+  width: 100%;
+  padding: 7rem 1rem;
+  text-align: center;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 72rem;
+  margin: 3rem auto 0;
+}
+
+/* JOIN US */
+.join-us {
+  width: 100%;
+  background: #f9fafb;
+  padding: 7rem 1rem;
+}
+
+.join-inner {
+  max-width: 60rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.join-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .join-form {
+    flex-direction: row;
+    gap: 1rem;
+  }
+}
+
+/* GLOBAL TYPOGRAPHY ADJUSTMENTS */
+mdc-text[type="heading-xlarge-bold"] {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  line-height: 1.1;
+}
+
+mdc-text[type="heading-large-medium"] {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  line-height: 1.25;
+}
+
+mdc-text[type="body-large-regular"],
+mdc-text[type="body-midsize-regular"] {
+  line-height: 1.6;
+  color: var(--mds-color-neutral-700, #4B5563);
+}
+</style>
+
+<script>
+  // Import the components we need
+  import '@momentum-design/components/dist/components/text/index.js';
+  import '@momentum-design/components/dist/components/button/index.js';
+  import '@momentum-design/components/dist/components/card/index.js';
+</script>

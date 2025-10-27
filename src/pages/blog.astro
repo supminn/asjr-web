@@ -1,0 +1,211 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Blog - ASJR">
+  <div class="page-container">
+    <section class="hero">
+      <mdc-text type="heading-xlarge-bold" tagname="h1">
+        Latest News & Updates
+      </mdc-text>
+      <mdc-text type="body-large-regular" tagname="p" class="hero-subtext">
+        Stay informed about criminal justice reform developments, our activities, and important community updates.
+      </mdc-text>
+    </section>
+
+    <section class="blog-posts">
+      <div class="post-grid">
+        <article class="blog-post">
+          <mdc-card>
+            <div slot="before-body" class="post-meta">
+              <mdc-text type="body-small-regular" tagname="time" class="post-date">October 15, 2024</mdc-text>
+              <mdc-text type="body-small-regular" tagname="span" class="post-category">Policy Update</mdc-text>
+            </div>
+            <mdc-text slot="body" type="heading-midsize-medium" tagname="h2">
+              Travis County Approves New Bail Reform Measures
+            </mdc-text>
+            <mdc-text slot="after-body" type="body-midsize-regular" tagname="p">
+              The Travis County Commissioners Court has approved significant changes to the bail system that will help ensure more equitable treatment for all defendants.
+            </mdc-text>
+            <mdc-button slot="footer-button-primary" variant="outlined">Read More</mdc-button>
+          </mdc-card>
+        </article>
+
+        <article class="blog-post">
+          <mdc-card>
+            <div slot="before-body" class="post-meta">
+              <mdc-text type="body-small-regular" tagname="time" class="post-date">October 8, 2024</mdc-text>
+              <mdc-text type="body-small-regular" tagname="span" class="post-category">Community Event</mdc-text>
+            </div>
+            <mdc-text slot="body" type="heading-midsize-medium" tagname="h2">
+              Know Your Rights Workshop This Saturday
+            </mdc-text>
+            <mdc-text slot="after-body" type="body-midsize-regular" tagname="p">
+              Join us for a free community workshop on understanding your constitutional rights during police encounters and court proceedings.
+            </mdc-text>
+            <mdc-button slot="footer-button-primary" variant="outlined">Learn More</mdc-button>
+          </mdc-card>
+        </article>
+
+        <article class="blog-post">
+          <mdc-card>
+            <div slot="before-body" class="post-meta">
+              <mdc-text type="body-small-regular" tagname="time" class="post-date">September 28, 2024</mdc-text>
+              <mdc-text type="body-small-regular" tagname="span" class="post-category">Research</mdc-text>
+            </div>
+            <mdc-text slot="body" type="heading-midsize-medium" tagname="h2">
+              New Study Shows Impact of Court Watching Programs
+            </mdc-text>
+            <mdc-text slot="after-body" type="body-midsize-regular" tagname="p">
+              Research demonstrates that community court watching leads to more consistent application of legal standards and improved judicial accountability.
+            </mdc-text>
+            <mdc-button slot="footer-button-primary" variant="outlined">Read Study</mdc-button>
+          </mdc-card>
+        </article>
+
+        <article class="blog-post">
+          <mdc-card>
+            <div slot="before-body" class="post-meta">
+              <mdc-text type="body-small-regular" tagname="time" class="post-date">September 15, 2024</mdc-text>
+              <mdc-text type="body-small-regular" tagname="span" class="post-category">Success Story</mdc-text>
+            </div>
+            <mdc-text slot="body" type="heading-midsize-medium" tagname="h2">
+              Community Member Shares Court Watching Experience
+            </mdc-text>
+            <mdc-text slot="after-body" type="body-midsize-regular" tagname="p">
+              Local volunteer describes how participating in our court watching program opened their eyes to the importance of judicial transparency.
+            </mdc-text>
+            <mdc-button slot="footer-button-primary" variant="outlined">Read Story</mdc-button>
+          </mdc-card>
+        </article>
+      </div>
+
+      <div class="pagination">
+        <mdc-button variant="outlined" disabled>Previous</mdc-button>
+        <mdc-text type="body-midsize-regular" tagname="span" class="page-info">Page 1 of 5</mdc-text>
+        <mdc-button variant="outlined">Next</mdc-button>
+      </div>
+    </section>
+
+    <aside class="newsletter-signup">
+      <mdc-text type="heading-large-medium" tagname="h2">
+        Stay Updated
+      </mdc-text>
+      <mdc-text type="body-midsize-regular" tagname="p">
+        Subscribe to our newsletter for the latest updates on criminal justice reform and community events.
+      </mdc-text>
+      <form class="newsletter-form">
+        <mdc-input label="Email address" type="email" required />
+        <mdc-button type="submit" variant="primary">Subscribe</mdc-button>
+      </form>
+    </aside>
+  </div>
+</Layout>
+
+<style>
+  .page-container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--mds-color-neutral-200);
+    margin-bottom: 4rem;
+  }
+
+  .hero-subtext {
+    margin-top: 1.5rem;
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .blog-posts {
+    margin-bottom: 4rem;
+  }
+
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .blog-post {
+    height: 100%;
+  }
+
+  .post-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+  }
+
+  .post-date {
+    color: var(--mds-color-neutral-600);
+  }
+
+  .post-category {
+    background-color: var(--mds-color-blue-100);
+    color: var(--mds-color-blue-700);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-weight: 600;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .page-info {
+    color: var(--mds-color-neutral-600);
+  }
+
+  .newsletter-signup {
+    background-color: var(--mds-color-blue-50);
+    border: 1px solid var(--mds-color-blue-200);
+    padding: 3rem;
+    border-radius: 1rem;
+    text-align: center;
+  }
+
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 400px;
+    margin: 2rem auto 0;
+  }
+
+  @media (min-width: 768px) {
+    .newsletter-form {
+      flex-direction: row;
+      max-width: 500px;
+    }
+  }
+
+  mdc-text[type="heading-xlarge-bold"] {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    line-height: 1.1;
+  }
+
+  mdc-text[type="heading-large-medium"] {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    line-height: 1.25;
+  }
+</style>
+
+<script>
+  import '@momentum-design/components/dist/components/text/index.js';
+  import '@momentum-design/components/dist/components/card/index.js';
+  import '@momentum-design/components/dist/components/button/index.js';
+  import '@momentum-design/components/dist/components/input/index.js';
+</script>

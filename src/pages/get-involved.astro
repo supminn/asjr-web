@@ -1,0 +1,319 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Get Involved - ASJR">
+  <div class="page-container">
+    <section class="hero">
+      <mdc-text type="heading-xlarge-bold" tagname="h1">
+        Get Involved
+      </mdc-text>
+      <mdc-text type="body-large-regular" tagname="p" class="hero-subtext">
+        Join us in working toward a more just and equitable criminal legal system. There are many ways to make a difference.
+      </mdc-text>
+    </section>
+
+    <section class="involvement-options">
+      <div class="options-grid">
+        <mdc-card card-title="Volunteer">
+          <mdc-text slot="body" type="body-midsize-regular" tagname="p">
+            Join our court watching program, help with community education, or assist with administrative tasks.
+          </mdc-text>
+          <div slot="after-body" class="volunteer-list">
+            <mdc-text type="body-small-bold" tagname="h4">Opportunities:</mdc-text>
+            <ul>
+              <li>Court watchers</li>
+              <li>Community educators</li>
+              <li>Event organizers</li>
+              <li>Administrative support</li>
+            </ul>
+          </div>
+          <mdc-button slot="footer-button-primary" variant="primary">Apply to Volunteer</mdc-button>
+        </mdc-card>
+
+        <mdc-card card-title="Donate">
+          <mdc-text slot="body" type="body-midsize-regular" tagname="p">
+            Your financial support helps us provide education, advocacy, and support services to the community.
+          </mdc-text>
+          <div slot="after-body" class="donation-options">
+            <mdc-text type="body-small-bold" tagname="h4">Ways to Give:</mdc-text>
+            <ul>
+              <li>One-time donation</li>
+              <li>Monthly giving</li>
+              <li>Legacy gifts</li>
+              <li>Corporate sponsorship</li>
+            </ul>
+          </div>
+          <mdc-button slot="footer-button-primary" variant="primary">Donate Now</mdc-button>
+        </mdc-card>
+
+        <mdc-card card-title="Spread the Word">
+          <mdc-text slot="body" type="body-midsize-regular" tagname="p">
+            Help us reach more people by sharing our mission and resources with your networks.
+          </mdc-text>
+          <div slot="after-body" class="share-options">
+            <mdc-text type="body-small-bold" tagname="h4">Share Our Work:</mdc-text>
+            <ul>
+              <li>Follow us on social media</li>
+              <li>Share our resources</li>
+              <li>Invite friends to events</li>
+              <li>Tell your story</li>
+            </ul>
+          </div>
+          <mdc-button slot="footer-button-primary" variant="outlined">Follow Us</mdc-button>
+        </mdc-card>
+      </div>
+    </section>
+
+    <section class="upcoming-events">
+      <mdc-text type="heading-large-medium" tagname="h2">
+        Upcoming Events
+      </mdc-text>
+      
+      <div class="events-list">
+        <div class="event-card">
+          <div class="event-date">
+            <mdc-text type="body-large-bold" tagname="div" class="date-day">28</mdc-text>
+            <mdc-text type="body-small-regular" tagname="div" class="date-month">Oct</mdc-text>
+          </div>
+          <div class="event-details">
+            <mdc-text type="body-large-bold" tagname="h3">Know Your Rights Workshop</mdc-text>
+            <mdc-text type="body-midsize-regular" tagname="p">Learn about your constitutional rights during police encounters</mdc-text>
+            <mdc-text type="body-small-regular" tagname="p" class="event-meta">
+              2:00 PM - 4:00 PM • Austin Community Center
+            </mdc-text>
+          </div>
+          <div class="event-action">
+            <mdc-button variant="outlined">Register</mdc-button>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date">
+            <mdc-text type="body-large-bold" tagname="div" class="date-day">02</mdc-text>
+            <mdc-text type="body-small-regular" tagname="div" class="date-month">Nov</mdc-text>
+          </div>
+          <div class="event-details">
+            <mdc-text type="body-large-bold" tagname="h3">Court Watcher Training</mdc-text>
+            <mdc-text type="body-midsize-regular" tagname="p">Training session for new court watching volunteers</mdc-text>
+            <mdc-text type="body-small-regular" tagname="p" class="event-meta">
+              10:00 AM - 12:00 PM • Virtual Event
+            </mdc-text>
+          </div>
+          <div class="event-action">
+            <mdc-button variant="outlined">Join Training</mdc-button>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date">
+            <mdc-text type="body-large-bold" tagname="div" class="date-day">15</mdc-text>
+            <mdc-text type="body-small-regular" tagname="div" class="date-month">Nov</mdc-text>
+          </div>
+          <div class="event-details">
+            <mdc-text type="body-large-bold" tagname="h3">Community Forum on Bail Reform</mdc-text>
+            <mdc-text type="body-midsize-regular" tagname="p">Public discussion on proposed changes to the bail system</mdc-text>
+            <mdc-text type="body-small-regular" tagname="p" class="event-meta">
+              6:00 PM - 8:00 PM • Travis County Courthouse
+            </mdc-text>
+          </div>
+          <div class="event-action">
+            <mdc-button variant="outlined">RSVP</mdc-button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-form">
+      <mdc-text type="heading-large-medium" tagname="h2">
+        Get in Touch
+      </mdc-text>
+      <mdc-text type="body-midsize-regular" tagname="p">
+        Have questions about getting involved? We'd love to hear from you.
+      </mdc-text>
+      
+      <form class="contact-form-grid">
+        <mdc-input label="First name" required />
+        <mdc-input label="Last name" required />
+        <mdc-input label="Email address" type="email" required />
+        <mdc-input label="Phone number" type="tel" />
+        <div class="form-field-full">
+          <mdc-input label="How would you like to get involved?" />
+        </div>
+        <div class="form-field-full">
+          <mdc-input label="Message" />
+        </div>
+        <div class="form-actions">
+          <mdc-button type="submit" variant="primary" size="large">Send Message</mdc-button>
+        </div>
+      </form>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .page-container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--mds-color-neutral-200);
+    margin-bottom: 4rem;
+  }
+
+  .hero-subtext {
+    margin-top: 1.5rem;
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .involvement-options {
+    margin-bottom: 4rem;
+  }
+
+  .options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  .volunteer-list ul,
+  .donation-options ul,
+  .share-options ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0 0;
+  }
+
+  .volunteer-list li,
+  .donation-options li,
+  .share-options li {
+    padding: 0.25rem 0;
+    color: var(--mds-color-neutral-600);
+  }
+
+  .volunteer-list li::before,
+  .donation-options li::before,
+  .share-options li::before {
+    content: "• ";
+    color: var(--mds-color-theme-text-accent-normal);
+    font-weight: bold;
+  }
+
+  .upcoming-events {
+    margin-bottom: 4rem;
+  }
+
+  .events-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .event-card {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: var(--mds-color-neutral-50);
+    border: 1px solid var(--mds-color-neutral-200);
+    border-radius: 1rem;
+  }
+
+  .event-date {
+    background-color: var(--mds-color-theme-text-accent-normal);
+    color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    text-align: center;
+    min-width: 80px;
+  }
+
+  .date-day {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .date-month {
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .event-details {
+    flex: 1;
+  }
+
+  .event-meta {
+    color: var(--mds-color-neutral-600);
+    margin-top: 0.5rem;
+  }
+
+  .event-action {
+    flex-shrink: 0;
+  }
+
+  .contact-form {
+    background-color: var(--mds-color-neutral-50);
+    padding: 3rem;
+    border-radius: 1rem;
+    text-align: center;
+  }
+
+  .contact-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .form-field-full {
+    grid-column: 1 / -1;
+  }
+
+  .form-actions {
+    grid-column: 1 / -1;
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .contact-form-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .event-card {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+    }
+
+    .event-date {
+      min-width: auto;
+    }
+  }
+
+  mdc-text[type="heading-xlarge-bold"] {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    line-height: 1.1;
+  }
+
+  mdc-text[type="heading-large-medium"] {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    line-height: 1.25;
+  }
+</style>
+
+<script>
+  import '@momentum-design/components/dist/components/text/index.js';
+  import '@momentum-design/components/dist/components/card/index.js';
+  import '@momentum-design/components/dist/components/button/index.js';
+  import '@momentum-design/components/dist/components/input/index.js';
+</script>

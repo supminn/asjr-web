@@ -1,0 +1,186 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Resources - ASJR">
+  <div class="page-container">
+    <section class="hero">
+      <mdc-text type="heading-xlarge-bold" tagname="h1">
+        Resources
+      </mdc-text>
+      <mdc-text type="body-large-regular" tagname="p" class="hero-subtext">
+        Essential information and tools to help you navigate the criminal legal system.
+      </mdc-text>
+    </section>
+
+    <section class="resources">
+      <div class="resource-category">
+        <mdc-text type="heading-large-medium" tagname="h2">
+          Know Your Rights
+        </mdc-text>
+        <div class="resource-grid">
+          <mdc-card card-title="During Police Encounters">
+            <mdc-text slot="body" type="body-midsize-regular" tagname="p">
+              What to do and say when approached by law enforcement officers.
+            </mdc-text>
+            <mdc-button slot="footer-button-primary" variant="primary">Download Guide</mdc-button>
+          </mdc-card>
+          
+          <mdc-card card-title="At Court Hearings">
+            <mdc-text slot="body" type="body-midsize-regular" tagname="p">
+              Understanding your rights and what to expect during court proceedings.
+            </mdc-text>
+            <mdc-button slot="footer-button-primary" variant="primary">Download Guide</mdc-button>
+          </mdc-card>
+          
+          <mdc-card card-title="While Incarcerated">
+            <mdc-text slot="body" type="body-midsize-regular" tagname="p">
+              Your rights and resources while in jail or prison.
+            </mdc-text>
+            <mdc-button slot="footer-button-primary" variant="primary">Download Guide</mdc-button>
+          </mdc-card>
+        </div>
+      </div>
+
+      <div class="resource-category">
+        <mdc-text type="heading-large-medium" tagname="h2">
+          Legal Aid & Support
+        </mdc-text>
+        <div class="resource-list">
+          <div class="resource-item">
+            <mdc-text type="body-large-bold" tagname="h3">Texas RioGrande Legal Aid</mdc-text>
+            <mdc-text type="body-midsize-regular" tagname="p">Free legal services for low-income individuals</mdc-text>
+            <mdc-text type="body-small-regular" tagname="a" href="tel:512-374-2700" class="contact-link">512-374-2700</mdc-text>
+          </div>
+          
+          <div class="resource-item">
+            <mdc-text type="body-large-bold" tagname="h3">Austin Lawyers Care</mdc-text>
+            <mdc-text type="body-midsize-regular" tagname="p">Pro bono legal services and referrals</mdc-text>
+            <mdc-text type="body-small-regular" tagname="a" href="tel:512-472-8303" class="contact-link">512-472-8303</mdc-text>
+          </div>
+          
+          <div class="resource-item">
+            <mdc-text type="body-large-bold" tagname="h3">Travis County Public Defender</mdc-text>
+            <mdc-text type="body-midsize-regular" tagname="p">Court-appointed legal representation</mdc-text>
+            <mdc-text type="body-small-regular" tagname="a" href="tel:512-854-9400" class="contact-link">512-854-9400</mdc-text>
+          </div>
+        </div>
+      </div>
+
+      <div class="resource-category">
+        <mdc-text type="heading-large-medium" tagname="h2">
+          Emergency Contacts
+        </mdc-text>
+        <div class="emergency-grid">
+          <div class="emergency-card">
+            <mdc-text type="body-large-bold" tagname="h3">Arrested or Detained?</mdc-text>
+            <mdc-text type="body-midsize-regular" tagname="p">24/7 Jail Information Line</mdc-text>
+            <mdc-button variant="primary" size="large">Call 512-854-9770</mdc-button>
+          </div>
+          
+          <div class="emergency-card">
+            <mdc-text type="body-large-bold" tagname="h3">Crisis Support</mdc-text>
+            <mdc-text type="body-midsize-regular" tagname="p">Mental Health Crisis Hotline</mdc-text>
+            <mdc-button variant="secondary" size="large">Call 512-472-4357</mdc-button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .page-container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--mds-color-neutral-200);
+    margin-bottom: 4rem;
+  }
+
+  .hero-subtext {
+    margin-top: 1.5rem;
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .resources {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  .resource-category {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  .resource-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .resource-item {
+    padding: 2rem;
+    background-color: var(--mds-color-neutral-50);
+    border-radius: 1rem;
+    border: 1px solid var(--mds-color-neutral-200);
+  }
+
+  .contact-link {
+    color: var(--mds-color-theme-text-accent-normal);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .contact-link:hover {
+    text-decoration: underline;
+  }
+
+  .emergency-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .emergency-card {
+    background-color: var(--mds-color-red-50);
+    border: 2px solid var(--mds-color-red-200);
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  mdc-text[type="heading-xlarge-bold"] {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    line-height: 1.1;
+  }
+
+  mdc-text[type="heading-large-medium"] {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    line-height: 1.25;
+  }
+</style>
+
+<script>
+  import '@momentum-design/components/dist/components/text/index.js';
+  import '@momentum-design/components/dist/components/card/index.js';
+  import '@momentum-design/components/dist/components/button/index.js';
+</script>

@@ -4,10 +4,32 @@
 
 ![Deploy Page](https://github.com/AIR-Hackathon-ASJR/demo-repository/actions/workflows/deploy-pages.yml/badge.svg)
 
-# Welcome to your AIR Hackathon 2025
-This code repository (or "repo") is designed to build an accessible website for ASJR. This is a part of AIR Hackathon 2025.
+# ASJR Web - AIR Hackathon 2025
 
-This project has been created using Astro.
+This code repository builds an accessible website for ASJR using **Astro** and **Momentum Design System**. This is part of AIR Hackathon 2025.
+
+## ✨ Features
+
+- 🧩 **Web Components** - Modern, reusable components built with LitElement
+- 🎯 **Accessibility First** - WCAG-compliant components with proper ARIA support
+- 📱 **Responsive Design** - Mobile-first approach with flexible layouts
+- ⚡ **Performance Optimized** - Static site generation with Astro
+
+## 🚀 Quick Start
+
+```bash
+# Install dependencies
+yarn install
+
+# Start development server
+yarn dev
+
+# Build for production
+yarn build
+
+# Preview production build
+yarn preview
+```
 
 ## 🚀 Project Structure
 
@@ -37,12 +59,12 @@ All commands are run from the root of the project, from a terminal:
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| `yarn install`            | Installs dependencies                            |
+| `yarn dev`                | Starts local dev server at `localhost:4321`      |
+| `yarn build`              | Build your production site to `./dist/`          |
+| `yarn preview`            | Preview your build locally, before deploying     |
+| `yarn astro ...`          | Run CLI commands like `astro add`, `astro check` |
+| `yarn astro -- --help`    | Get help using the Astro CLI                     |
 
 ## 👀 Want to learn more?
 
