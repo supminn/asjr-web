@@ -3,8 +3,20 @@ name: Deploy Astro to GitHub Pages
 on:
   push:
     branches:
-      - main # Or your default branch name (e.g., master)
+      - main
   workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -13,23 +25,27 @@ jobs:
     steps:
       - name: Checkout your repository
         uses: actions/checkout@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'yarn'
+          cache-dependency-path: 'yarn.lock'
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
       - name: Enable Corepack
-        # Corepack is pre-installed with Node.js 16+ runners.
-        # This command ensures it's active and will use the Yarn version specified in package.json.
         run: corepack enable
+
       - name: Install dependencies
-        # This will use the Yarn Berry version configured in your project via Corepack.
-        # --immutable is recommended for CI/CD to ensure reproducible installs.
         run: yarn install --immutable
-      - name: Build Astro Project # Renamed this step for clarity
-        # Directly run the build command using Yarn.
-        # This will execute the "build": "astro build" script from your package.json.
+
+      - name: Build Astro Project
         run: yarn build
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -42,10 +58,6 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    permissions:
-      id-token: write
-      pages: write
-      contents: read
     steps:
       - name: Deploy to GitHub Pages
         id: deployment

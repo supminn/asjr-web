@@ -10,7 +10,7 @@ const getAssetsFolder = (manifestEntryPoint) =>
 const iconsDistFolder = getAssetsFolder('@momentum-design/icons/dist/manifest.json');
 
 export default defineConfig({
-  site: 'https://asjr.github.io',
+  site: 'https://air-hackathon-asjr.github.io',
   base: '/asjr-web/',
   output: 'static',
   outDir: './docs',
