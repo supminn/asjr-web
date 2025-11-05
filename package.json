@@ -13,6 +13,8 @@
     "@momentum-design/fonts": "^0.2.5",
     "@momentum-design/icons": "^0.37.4",
     "@momentum-design/tokens": "^0.8.0",
+    "@storyblok/astro": "^7.3.5",
+    "@storyblok/js": "^4.4.1",
     "astro": "^5.14.5"
   },
   "packageManager": "yarn@4.10.3",

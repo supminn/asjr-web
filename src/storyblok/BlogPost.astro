@@ -1,0 +1,107 @@
+---
+// import { storyblokEditable } from '@storyblok/astro';
+
+const { blok } = Astro.props;
+---
+
+<article class="blog-post">
+  <mdc-card>
+    {
+      blok.featured_image?.filename && (
+        <img
+          slot="before-body"
+          src={blok.featured_image.filename}
+          alt={blok.featured_image.alt || blok.title}
+          class="post-image"
+        />
+      )
+    }
+
+    <div slot="before-body" class="post-meta">
+      <mdc-text type="body-small-regular" tagname="time" class="post-date">
+        {
+          new Date(blok.published_date || blok.created_at).toLocaleDateString(
+            'en-US',
+            {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            }
+          )
+        }
+      </mdc-text>
+      {
+        blok.category && (
+          <mdc-text
+            type="body-small-regular"
+            tagname="span"
+            class="post-category"
+          >
+            {blok.category}
+          </mdc-text>
+        )
+      }
+    </div>
+
+    <mdc-text slot="body" type="heading-midsize-medium" tagname="h2">
+      {blok.title}
+    </mdc-text>
+
+    <mdc-text slot="after-body" type="body-midsize-regular" tagname="p">
+      {
+        blok.excerpt ||
+          blok.summary ||
+          'Read more to discover the full story...'
+      }
+    </mdc-text>
+
+    <mdc-button
+      slot="footer-button-primary"
+      variant="outlined"
+      onclick={`window.location.href='/blog/${blok.slug || ''}'`}
+    >
+      Read More
+    </mdc-button>
+  </mdc-card>
+</article>
+
+<style>
+  .blog-post {
+    height: 100%;
+  }
+
+  .post-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+
+  .post-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+  }
+
+  .post-date {
+    color: var(--mds-color-neutral-600);
+  }
+
+  .post-category {
+    background-color: var(--mds-color-blue-100);
+    color: var(--mds-color-blue-700);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+  }
+</style>
+
+<script>
+  import '@momentum-design/components/dist/components/text/index.js';
+  import '@momentum-design/components/dist/components/card/index.js';
+  import '@momentum-design/components/dist/components/button/index.js';
+</script>

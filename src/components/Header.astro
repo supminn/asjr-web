@@ -4,7 +4,7 @@ export interface Props {
   class?: string;
 }
 
-const { class: className = "" } = Astro.props;
+const { class: className = '' } = Astro.props;
 
 // Get current path for active navigation state
 const currentPath = Astro.url.pathname;
@@ -18,7 +18,8 @@ const navItems = [
   { label: 'What we do', href: `${baseUrl}what-we-do` },
   { label: 'Resources', href: `${baseUrl}resources` },
   { label: 'Blog', href: `${baseUrl}blog` },
-  { label: 'Get involved', href: `${baseUrl}get-involved` }
+  { label: 'Stories', href: `${baseUrl}storyblok-blog` },
+  { label: 'Get involved', href: `${baseUrl}get-involved` },
 ];
 ---
 
@@ -39,20 +40,23 @@ const navItems = [
       </mdc-text>
     </mdc-link>
   </div>
-  
+
   <div slot="trailing" class="header-trailing">
     <nav class="main-nav">
-      {navItems.map(({ label, href }) => (
-        <mdc-link 
-          href={href} 
-          class={`nav-link ${currentPath === href ? 'nav-link--active' : ''}`}
-          inline
-        >
-          {label}
-        </mdc-link>
-      ))}
+      {
+        navItems.map(({ label, href }) => (
+          <mdc-link
+            href={href}
+            class={`nav-link ${currentPath === href ? 'nav-link--active' : ''}`}
+            inline
+          >
+            {label}
+          </mdc-link>
+        ))
+      }
     </nav>
-    <mdc-searchfield placeholder="Search" class="search-input" />
+    <mdc-searchfield placeholder="Search" class="search-input"
+    ></mdc-searchfield>
     <div class="help-section">
       <mdc-text type="body-small-regular" tagname="span" class="help-text">
         Arrested or detained? Check what to do.
@@ -126,11 +130,11 @@ const navItems = [
   .search-input:focus {
     outline: none;
     border-color: var(--mds-color-theme-text-accent-normal);
-    box-shadow: 0 0 0 2px var(--mds-color-theme-text-accent-normal, #3B82F6)33;
+    box-shadow: 0 0 0 2px var(--mds-color-theme-text-accent-normal, #3b82f6) 33;
   }
 
   .search-input::placeholder {
-    color: var(--mds-color-neutral-500, #6B7280);
+    color: var(--mds-color-neutral-500, #6b7280);
   }
 
   /* Help Section */
@@ -138,14 +142,14 @@ const navItems = [
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    background-color: var(--mds-color-blue-50, #EFF6FF);
+    background-color: var(--mds-color-blue-50, #eff6ff);
     padding: 0.5rem 1rem;
     border-radius: 8px;
-    border: 1px solid var(--mds-color-blue-200, #BFDBFE);
+    border: 1px solid var(--mds-color-blue-200, #bfdbfe);
   }
 
   .help-text {
-    color: var(--mds-color-blue-700, #1D4ED8);
+    color: var(--mds-color-blue-700, #1d4ed8);
     white-space: nowrap;
     font-size: 0.875rem;
   }
@@ -158,7 +162,7 @@ const navItems = [
   /* App Header Styling */
   mdc-appheader {
     background-color: white;
-    border-bottom: 1px solid var(--mds-color-neutral-200, #E5E7EB);
+    border-bottom: 1px solid var(--mds-color-neutral-200, #e5e7eb);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -169,7 +173,7 @@ const navItems = [
     .main-nav {
       gap: 1.5rem;
     }
-    
+
     .search-input {
       width: 200px;
     }
@@ -179,7 +183,7 @@ const navItems = [
     .main-nav {
       gap: 1rem;
     }
-    
+
     .search-input {
       width: 160px;
     }
@@ -189,7 +193,7 @@ const navItems = [
     .main-nav {
       display: none;
     }
-    
+
     .header-leading {
       gap: 1rem;
     }
@@ -199,13 +203,13 @@ const navItems = [
     .search-container {
       display: none;
     }
-    
+
     .help-section {
       flex-direction: column;
       gap: 0.5rem;
       padding: 0.375rem 0.75rem;
     }
-    
+
     .help-text {
       font-size: 0.75rem;
       text-align: center;

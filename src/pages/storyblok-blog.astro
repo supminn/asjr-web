@@ -1,0 +1,136 @@
+---
+import Layout from '../layouts/Layout.astro';
+// import { useStoryblokApi } from '@storyblok/astro';
+// import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+import BlogListing from '../storyblok/BlogListing.astro';
+
+// Get the Storyblok API (commented out for now)
+// const storyblokApi = useStoryblokApi();
+
+// Create dummy blog data for demonstration
+const dummyBlogData = {
+  story: {
+    content: {
+      component: 'blog_listing',
+      title: 'Community Stories & Updates',
+      description:
+        'Discover the latest stories, insights, and updates from our community advocacy work and criminal justice reform efforts.',
+      show_newsletter: true,
+      show_pagination: true,
+      posts_per_page: 6,
+      posts: [
+        {
+          component: 'blog_post',
+          title: 'New Bail Reform Initiative Shows Promising Results',
+          excerpt:
+            'A comprehensive study reveals how community-led bail reform initiatives are creating more equitable outcomes in the justice system.',
+          category: 'Policy Reform',
+          slug: 'bail-reform-initiative-results',
+          published_date: '2024-11-01',
+          featured_image: {
+            filename:
+              'https://via.placeholder.com/400x200/4a90e2/ffffff?text=Bail+Reform',
+            alt: 'Bail reform initiative illustration',
+          },
+        },
+        {
+          component: 'blog_post',
+          title: 'Community Court Watching Program Expands Statewide',
+          excerpt:
+            'Our successful court watching program is now being implemented in counties across the state, bringing transparency to judicial proceedings.',
+          category: 'Community Action',
+          slug: 'court-watching-program-expansion',
+          published_date: '2024-10-28',
+          featured_image: {
+            filename:
+              'https://via.placeholder.com/400x200/50c878/ffffff?text=Court+Watching',
+            alt: 'Court watching program illustration',
+          },
+        },
+        {
+          component: 'blog_post',
+          title: 'Know Your Rights Workshop Series Launches',
+          excerpt:
+            'Free educational workshops are now available to help community members understand their constitutional rights and navigate the legal system.',
+          category: 'Education',
+          slug: 'know-your-rights-workshop-series',
+          published_date: '2024-10-25',
+          featured_image: {
+            filename:
+              'https://via.placeholder.com/400x200/ff6b6b/ffffff?text=Know+Rights',
+            alt: 'Know your rights workshop illustration',
+          },
+        },
+        {
+          component: 'blog_post',
+          title: 'Local Advocates Testify at State Capitol',
+          excerpt:
+            'Community members shared their experiences and advocated for legislative changes that would improve criminal justice outcomes.',
+          category: 'Advocacy',
+          slug: 'advocates-testify-state-capitol',
+          published_date: '2024-10-20',
+          featured_image: {
+            filename:
+              'https://via.placeholder.com/400x200/9b59b6/ffffff?text=State+Capitol',
+            alt: 'State capitol testimony illustration',
+          },
+        },
+        {
+          component: 'blog_post',
+          title: 'Youth Mentorship Program Celebrates First Graduates',
+          excerpt:
+            'Our pilot mentorship program for at-risk youth has successfully graduated its first cohort, showing remarkable success rates.',
+          category: 'Youth Programs',
+          slug: 'youth-mentorship-first-graduates',
+          published_date: '2024-10-15',
+          featured_image: {
+            filename:
+              'https://via.placeholder.com/400x200/f39c12/ffffff?text=Youth+Program',
+            alt: 'Youth mentorship program illustration',
+          },
+        },
+        {
+          component: 'blog_post',
+          title: 'Research Study Reveals Systemic Disparities',
+          excerpt:
+            'New research conducted with local universities highlights ongoing disparities in our criminal justice system and proposes evidence-based solutions.',
+          category: 'Research',
+          slug: 'research-systemic-disparities',
+          published_date: '2024-10-10',
+          featured_image: {
+            filename:
+              'https://via.placeholder.com/400x200/e74c3c/ffffff?text=Research+Study',
+            alt: 'Research study illustration',
+          },
+        },
+      ],
+    },
+    name: 'Community Stories',
+    slug: 'storyblok-blog',
+  },
+};
+
+// In a real implementation, you would fetch from Storyblok like this:
+// try {
+//   const { data } = await storyblokApi.get('cdn/stories/storyblok-blog', {
+//     version: 'draft'
+//   });
+//   blogData = data;
+// } catch (error) {
+//   console.error('Error fetching from Storyblok:', error);
+//   // Fall back to dummy data or show error
+// }
+
+const blogData = dummyBlogData;
+---
+
+<Layout
+  title={`${blogData.story.content.title} - ASJR`}
+  description={blogData.story.content.description}
+>
+  <BlogListing blok={blogData.story.content} />
+</Layout>
+
+<style>
+  /* Additional global styles for this page if needed */
+</style>

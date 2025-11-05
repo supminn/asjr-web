@@ -1,0 +1,226 @@
+---
+import Layout from '../../layouts/Layout.astro';
+// import { useStoryblokApi } from '@storyblok/astro';
+
+// Get the slug from the URL parameters
+const { slug } = Astro.params;
+
+// Dummy data for demonstration - in real implementation, fetch from Storyblok
+const dummyPosts: Record<string, any> = {
+  'bail-reform-initiative-results': {
+    title: 'New Bail Reform Initiative Shows Promising Results',
+    content:
+      'A comprehensive study reveals how community-led bail reform initiatives are creating more equitable outcomes in the justice system. This groundbreaking research demonstrates the effectiveness of alternative approaches to pretrial detention.',
+    category: 'Policy Reform',
+    published_date: '2024-11-01',
+    author: 'ASJR Research Team',
+    featured_image: {
+      filename:
+        'https://via.placeholder.com/800x400/4a90e2/ffffff?text=Bail+Reform',
+      alt: 'Bail reform initiative illustration',
+    },
+  },
+  'court-watching-program-expansion': {
+    title: 'Community Court Watching Program Expands Statewide',
+    content:
+      'Our successful court watching program is now being implemented in counties across the state, bringing transparency to judicial proceedings. This expansion represents a significant victory for accountability and justice.',
+    category: 'Community Action',
+    published_date: '2024-10-28',
+    author: 'Community Outreach Team',
+    featured_image: {
+      filename:
+        'https://via.placeholder.com/800x400/50c878/ffffff?text=Court+Watching',
+      alt: 'Court watching program illustration',
+    },
+  },
+  // Add more dummy posts as needed
+};
+
+const post = dummyPosts[slug as string] || {
+  title: 'Post Not Found',
+  content: 'The requested blog post could not be found.',
+  category: 'Error',
+  published_date: new Date().toISOString(),
+  author: 'System',
+};
+
+// In a real implementation, you would fetch from Storyblok like this:
+// const storyblokApi = useStoryblokApi();
+// try {
+//   const { data } = await storyblokApi.get(`cdn/stories/blog/${slug}`, {
+//     version: 'draft'
+//   });
+//   post = data.story.content;
+// } catch (error) {
+//   // Handle error or 404
+// }
+---
+
+<Layout
+  title={`${post.title} - ASJR Blog`}
+  description={post.excerpt || 'Read the latest from ASJR'}
+>
+  <div class="page-container">
+    <article class="blog-post-detail">
+      {
+        post.featured_image && (
+          <img
+            src={post.featured_image.filename}
+            alt={post.featured_image.alt || post.title}
+            class="featured-image"
+          />
+        )
+      }
+
+      <header class="post-header">
+        <div class="post-meta">
+          <mdc-text type="body-small-regular" tagname="time" class="post-date">
+            {
+              new Date(post.published_date).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })
+            }
+          </mdc-text>
+          <mdc-text
+            type="body-small-regular"
+            tagname="span"
+            class="post-category"
+          >
+            {post.category}
+          </mdc-text>
+          <mdc-text
+            type="body-small-regular"
+            tagname="span"
+            class="post-author"
+          >
+            By {post.author}
+          </mdc-text>
+        </div>
+
+        <mdc-text type="heading-xlarge-bold" tagname="h1" class="post-title">
+          {post.title}
+        </mdc-text>
+      </header>
+
+      <div class="post-content">
+        <mdc-text type="body-large-regular" tagname="div">
+          {post.content}
+        </mdc-text>
+      </div>
+
+      <footer class="post-footer">
+        <mdc-button variant="outlined" onclick="window.history.back()">
+          ← Back to Stories
+        </mdc-button>
+
+        <div class="share-buttons">
+          <mdc-text type="body-midsize-medium" tagname="span"
+            >Share this story:</mdc-text
+          >
+          <mdc-button variant="ghost" size="small">Twitter</mdc-button>
+          <mdc-button variant="ghost" size="small">Facebook</mdc-button>
+          <mdc-button variant="ghost" size="small">LinkedIn</mdc-button>
+        </div>
+      </footer>
+    </article>
+  </div>
+</Layout>
+
+<style>
+  .page-container {
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .featured-image {
+    width: 100%;
+    height: 24rem;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .post-header {
+    margin-bottom: 3rem;
+  }
+
+  .post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--mds-color-neutral-200);
+  }
+
+  .post-date {
+    color: var(--mds-color-neutral-600);
+  }
+
+  .post-category {
+    background-color: var(--mds-color-blue-100);
+    color: var(--mds-color-blue-700);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+  }
+
+  .post-author {
+    color: var(--mds-color-neutral-700);
+    font-weight: 500;
+  }
+
+  .post-title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .post-content {
+    margin-bottom: 4rem;
+    line-height: 1.7;
+  }
+
+  .post-content mdc-text {
+    margin-bottom: 1.5rem;
+  }
+
+  .post-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--mds-color-neutral-200);
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .share-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 768px) {
+    .post-footer {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .share-buttons {
+      align-self: stretch;
+      justify-content: space-between;
+    }
+  }
+</style>
+
+<script>
+  import '@momentum-design/components/dist/components/text/index.js';
+  import '@momentum-design/components/dist/components/button/index.js';
+</script>
