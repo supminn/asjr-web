@@ -6,57 +6,40 @@ const { blok } = Astro.props;
 
 <article class="blog-post">
   <mdc-card>
-    {
-      blok.featured_image?.filename && (
-        <img
-          slot="before-body"
-          src={blok.featured_image.filename}
-          alt={blok.featured_image.alt || blok.title}
-          class="post-image"
-        />
-      )
-    }
-
+    {blok.featured_image?.filename && (
+      <img 
+        slot="before-body" 
+        src={blok.featured_image.filename} 
+        alt={blok.featured_image.alt || blok.title}
+        class="post-image"
+      />
+    )}
+    
     <div slot="before-body" class="post-meta">
       <mdc-text type="body-small-regular" tagname="time" class="post-date">
-        {
-          new Date(blok.published_date || blok.created_at).toLocaleDateString(
-            'en-US',
-            {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-            }
-          )
-        }
+        {new Date(blok.published_date || blok.created_at).toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        })}
       </mdc-text>
-      {
-        blok.category && (
-          <mdc-text
-            type="body-small-regular"
-            tagname="span"
-            class="post-category"
-          >
-            {blok.category}
-          </mdc-text>
-        )
-      }
+      {blok.category && (
+        <mdc-text type="body-small-regular" tagname="span" class="post-category">
+          {blok.category}
+        </mdc-text>
+      )}
     </div>
-
+    
     <mdc-text slot="body" type="heading-midsize-medium" tagname="h2">
       {blok.title}
     </mdc-text>
-
+    
     <mdc-text slot="after-body" type="body-midsize-regular" tagname="p">
-      {
-        blok.excerpt ||
-          blok.summary ||
-          'Read more to discover the full story...'
-      }
+      {blok.excerpt || blok.summary || 'Read more to discover the full story...'}
     </mdc-text>
-
-    <mdc-button
-      slot="footer-button-primary"
+    
+    <mdc-button 
+      slot="footer-button-primary" 
       variant="outlined"
       onclick={`window.location.href='/blog/${blok.slug || ''}'`}
     >

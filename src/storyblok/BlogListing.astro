@@ -11,60 +11,45 @@ const { blok } = Astro.props;
       <mdc-text type="heading-xlarge-bold" tagname="h1">
         {blok.title || 'Latest Stories'}
       </mdc-text>
-      {
-        blok.description && (
-          <mdc-text type="body-large-regular" tagname="p" class="hero-subtext">
-            {blok.description}
-          </mdc-text>
-        )
-      }
+      {blok.description && (
+        <mdc-text type="body-large-regular" tagname="p" class="hero-subtext">
+          {blok.description}
+        </mdc-text>
+      )}
     </section>
 
     <section class="blog-posts">
       <div class="post-grid">
-        {blok.posts && blok.posts.map((post) => <BlogPost blok={post} />)}
+        {blok.posts && blok.posts.map((post) => (
+          <BlogPost blok={post} />
+        ))}
       </div>
 
-      {
-        blok.show_pagination && (
-          <div class="pagination">
-            <mdc-button variant="outlined" disabled>
-              Previous
-            </mdc-button>
-            <mdc-text
-              type="body-midsize-regular"
-              tagname="span"
-              class="page-info"
-            >
-              Page 1 of{' '}
-              {Math.ceil(
-                (blok.posts?.length || 0) / (blok.posts_per_page || 6)
-              )}
-            </mdc-text>
-            <mdc-button variant="outlined">Next</mdc-button>
-          </div>
-        )
-      }
+      {blok.show_pagination && (
+        <div class="pagination">
+          <mdc-button variant="outlined" disabled>Previous</mdc-button>
+          <mdc-text type="body-midsize-regular" tagname="span" class="page-info">
+            Page 1 of {Math.ceil((blok.posts?.length || 0) / (blok.posts_per_page || 6))}
+          </mdc-text>
+          <mdc-button variant="outlined">Next</mdc-button>
+        </div>
+      )}
     </section>
 
-    {
-      blok.show_newsletter && (
-        <aside class="newsletter-signup">
-          <mdc-text type="heading-large-medium" tagname="h2">
-            Stay Updated
-          </mdc-text>
-          <mdc-text type="body-midsize-regular" tagname="p">
-            Subscribe to our newsletter for the latest updates and stories.
-          </mdc-text>
-          <form class="newsletter-form">
-            <mdc-input label="Email address" type="email" required />
-            <mdc-button type="submit" variant="primary">
-              Subscribe
-            </mdc-button>
-          </form>
-        </aside>
-      )
-    }
+    {blok.show_newsletter && (
+      <aside class="newsletter-signup">
+        <mdc-text type="heading-large-medium" tagname="h2">
+          Stay Updated
+        </mdc-text>
+        <mdc-text type="body-midsize-regular" tagname="p">
+          Subscribe to our newsletter for the latest updates and stories.
+        </mdc-text>
+        <form class="newsletter-form">
+          <mdc-input label="Email address" type="email" required />
+          <mdc-button type="submit" variant="primary">Subscribe</mdc-button>
+        </form>
+      </aside>
+    )}
   </div>
 </section>
 
@@ -134,12 +119,12 @@ const { blok } = Astro.props;
     }
   }
 
-  mdc-text[type='heading-xlarge-bold'] {
+  mdc-text[type="heading-xlarge-bold"] {
     font-size: clamp(2.5rem, 5vw, 3.5rem);
     line-height: 1.1;
   }
 
-  mdc-text[type='heading-large-medium'] {
+  mdc-text[type="heading-large-medium"] {
     font-size: clamp(1.75rem, 3vw, 2.25rem);
     line-height: 1.25;
   }

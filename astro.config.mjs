@@ -2,15 +2,15 @@ import { defineConfig } from 'astro/config';
 import copy from 'rollup-plugin-copy';
 import { fileURLToPath } from 'url';
 import path from 'path';
-// import storyblok from '@storyblok/astro';
+import { storyblok } from '@storyblok/astro';
 
 // Get the path to the icons package
-const getAssetsFolder = (manifestEntryPoint) =>
-  path.dirname(fileURLToPath(import.meta.resolve(manifestEntryPoint)));
+// const getAssetsFolder = (manifestEntryPoint) =>
+//   path.dirname(fileURLToPath(import.meta.resolve(manifestEntryPoint)));
 
-const iconsDistFolder = getAssetsFolder(
-  '@momentum-design/icons/dist/manifest.json'
-);
+// const iconsDistFolder = getAssetsFolder(
+//   '@momentum-design/icons/dist/manifest.json'
+// );
 
 export default defineConfig({
   site: 'https://air-hackathon-asjr.github.io',
@@ -21,32 +21,30 @@ export default defineConfig({
     build: {
       rollupOptions: {
         plugins: [
-          copy({
-            targets: [
-              {
-                src: path.join(iconsDistFolder, '/svg/*.svg'),
-                dest: 'docs/icons',
-              },
-              {
-                src: path.join(iconsDistFolder, '/svg/*.svg'),
-                dest: 'public/icons',
-              },
-            ],
-          }),
+          // Temporarily commented out due to import.meta.resolve issue
+          // copy({
+          //   targets: [
+          //     {
+          //       src: path.join(iconsDistFolder, '/svg/*.svg'),
+          //       dest: 'docs/icons',
+          //     },
+          //     {
+          //       src: path.join(iconsDistFolder, '/svg/*.svg'),
+          //       dest: 'public/icons',
+          //     },
+          //   ],
+          // }),
         ],
       },
     },
   },
   integrations: [
-    // Temporarily disabled Storyblok integration due to import issue
-    // Will re-enable once we resolve the module import
-    /* storyblok({
+    storyblok({
       accessToken: import.meta.env.STORYBLOK_TOKEN,
-      apiOptions: {},
       components: {
         blog_post: 'storyblok/BlogPost',
         blog_listing: 'storyblok/BlogListing',
       },
-    }) */
+    }),
   ],
 });
