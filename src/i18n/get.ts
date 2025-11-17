@@ -2,10 +2,12 @@ import enHeader from './en/header.json';
 import esHeader from './es/header.json';
 import enIndex from './en/index.json';
 import esIndex from './es/index.json';
+import enWhatWeDo from './en/what-we-do.json';
+import esWhatWeDo from './es/what-we-do.json';
 
 export const translations = {
-  en: { ...enHeader, ...enIndex } as Record<string, string>,
-  es: { ...esHeader, ...esIndex } as Record<string, string>,
+  en: { ...enHeader, ...enIndex, ...enWhatWeDo } as Record<string, string>,
+  es: { ...esHeader, ...esIndex, ...esWhatWeDo } as Record<string, string>,
 };
 
 export type Lang = keyof typeof translations;

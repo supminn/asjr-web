@@ -59,7 +59,8 @@ p {
 
 /* Headings */
 h1 {
-  font-size: var(--mds-font-size-heading-xlarge);
+  font-size: 4.5rem;
+  font-weight: 800;
   margin: 0;
   padding: 0;
 }
@@ -350,7 +351,7 @@ img {
   border: 1px solid var(--mds-color-theme-outline-secondary-normal);
   border-radius: 1.25rem;
 
-  background-color: var(--mds-color-theme-background-solid-secondary-normal);
+  background-color: var(--mds-color-theme-background-solid-primary-normal);
 
   padding: 1.5rem;
 }
@@ -376,7 +377,7 @@ img {
   }
 
   .card-list ul li img {
-    border-radius: 0.4375rem 0 0 0.4375rem;
+    border-radius: 0.4375rem 0.4375rem 0 0;
 
     width: 40%;
   }
@@ -389,7 +390,7 @@ img {
     gap: 0.5rem;
     padding: 1.5rem;
 
-    width: 60%;
+    width: 90%;
 
     word-wrap: break-word;
   }
@@ -409,6 +410,20 @@ img {
   justify-content: start;
   gap: 1rem;
   width: 50%;
+}
+
+/* What We Do // Our Work */
+.section.what-we-do {
+  .inner-container .card-list ul li {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 35%;
+
+    img {
+      width: 100%;
+      height: 200px;
+    }
+  }
 }
 
 /* Desktop - 1024px to 1440px */
@@ -556,6 +571,14 @@ img {
 
   .section.what-we-do .inner-container {
     padding: 3.75rem 0;
+  }
+
+  .section.what-we-do {
+    .inner-container .card-list ul li {  
+      img {
+        height: 172px;
+      }
+    }
   }
 }
 
