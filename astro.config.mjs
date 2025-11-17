@@ -17,6 +17,13 @@ export default defineConfig({
   base: '/asjr-web/',
   output: 'static',
   outDir: './docs',
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'es'],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
   vite: {
     build: {
       rollupOptions: {

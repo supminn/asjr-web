@@ -1,63 +1,72 @@
 ---
 // GetInvolvedForm.astro - Newsletter/Get Involved Form Component
-import "./GetInvolvedForm.css";
-
-//Phosphor icons
-import Heart from "phosphor-astro/Heart.astro";
-import SpeakerHigh from "phosphor-astro/SpeakerHigh.astro";
-import Hand from "phosphor-astro/Hand.astro";
+import './GetInvolvedForm.css';
+import { t } from '../../../i18n/get';
 
 export interface Props {
   class?: string;
+  lang?: 'en' | 'es';
 }
 
-const { class: className = "" } = Astro.props;
+const { class: className = '', lang = 'en' } = Astro.props as Props;
 ---
 
 <div class={`get-involved-form ${className}`}>
   <div class="form-header">
-    <h2>
-      Contact us
-    </h2>
-    <p>
-      Join us in building a more compassionate justice system.Contact us if you have any questions about our work, would like to volunteer or need assistance.
-    </p>
+    <mdc-text type="heading-large-bold" tagname="h2" class="form-title">
+      {t(lang, 'form.title')}
+    </mdc-text>
+    <mdc-text type="body-large-regular" tagname="p" class="form-subtitle">
+      {t(lang, 'form.subtitle')}
+    </mdc-text>
   </div>
 
-  <div class="get-involved-list">
-    <ul>
-      <li>
-          <div class="get-invovled-icon"><Heart /></div>
-          <p>Donate</p>
-      </li>
-      <li>
-          <div class="get-invovled-icon"><SpeakerHigh /></div>
-          <p>Be an advocate</p>
-      </li>
-      <li>
-          <div class="get-invovled-icon"><Hand /></div>
-          <p>Sign up for volunteers</p>
-      </li>
-    </ul>
+  <div class="action-buttons">
+    <mdc-button
+      variant="tertiary"
+      class="action-item"
+      aria-label="Donate to ASJR"
+    >
+      <mdc-icon name="favorites-bold" size="24" slot="icon"></mdc-icon>
+      <span>{t(lang, 'form.donate')}</span>
+    </mdc-button>
+
+    <mdc-button
+      variant="tertiary"
+      class="action-item"
+      aria-label="Be an advocate"
+    >
+      <mdc-icon name="speaker-bold" size="24" slot="icon"></mdc-icon>
+      <span>{t(lang, 'form.advocate')}</span>
+    </mdc-button>
+
+    <mdc-button
+      variant="tertiary"
+      class="action-item"
+      aria-label="Sign up for volunteers"
+    >
+      <mdc-icon name="raise-hand-bold" size="24" slot="icon"></mdc-icon>
+      <span>{t(lang, 'form.volunteer')}</span>
+    </mdc-button>
   </div>
 
   <form class="newsletter-form" novalidate>
     <fieldset>
-      <legend class="sr-only">Newsletter Signup</legend>
+      <legend class="sr-only">{t(lang, 'form.newsletterSignup')}</legend>
 
       <div class="form-row">
         <mdc-input
           id="first-name"
           name="firstName"
-          label="First name"
-          placeholder="Enter your first name"
+          label={t(lang, 'form.firstName')}
+          placeholder={t(lang, 'form.firstNamePlaceholder')}
           required></mdc-input>
 
         <mdc-input
           id="last-name"
           name="lastName"
-          label="Last name"
-          placeholder="Enter your last name"
+          label={t(lang, 'form.lastName')}
+          placeholder={t(lang, 'form.lastNamePlaceholder')}
           required></mdc-input>
       </div>
 
@@ -65,29 +74,20 @@ const { class: className = "" } = Astro.props;
         id="email"
         name="email"
         type="email"
-        label="Email address"
-        placeholder="john.doe@email.com"
+        label={t(lang, 'form.emailAddress')}
+        placeholder={t(lang, 'form.emailPlaceholder')}
         required></mdc-input>
 
-      <mdc-textarea
-        label="Message"
-        placeholder="Enter your message"
-        name="textarea"
-        wrap="soft"
-        cols="160"
-        required
-        autocapitalize="off"
-        autocomplete="off"></mdc-textarea>
-
-      <mdc-button type="submit" variant="primary" size="40"> Submit </mdc-button>
+      <mdc-button type="submit" variant="primary">
+        {t(lang, 'form.submit')}
+      </mdc-button>
     </fieldset>
   </form>
 </div>
 
 <script>
-  import("@momentum-design/components/dist/components/button/index.js");
-  import("@momentum-design/components/dist/components/input/index.js");
-  import("@momentum-design/components/dist/components/icon/index.js");
-  import("@momentum-design/components/dist/components/text/index.js");
-  import("@momentum-design/components/dist/components/textarea/index.js");
+  import('@momentum-design/components/dist/components/button/index.js');
+  import('@momentum-design/components/dist/components/input/index.js');
+  import('@momentum-design/components/dist/components/icon/index.js');
+  import('@momentum-design/components/dist/components/text/index.js');
 </script>

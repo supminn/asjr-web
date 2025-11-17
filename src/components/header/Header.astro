@@ -1,109 +1,233 @@
 ---
-// Header.astro - Main navigation header using Momentum Design components
-import "./Header.css";
-import SiteNavigation from "../shared/SiteNavigation/SiteNavigation.astro";
+// Header.astro - Main navigation header using Momentum Design app header
+import './Header.css';
+
+import { Image } from 'astro:assets';
+import LogoASJR from '../../assets/images/header/logo-asjr.png';
+import { t, type Lang } from '../../i18n/get';
 
 export interface Props {
   class?: string;
+  lang?: 'en' | 'es';
 }
 
-const { class: className = "" } = Astro.props;
-
-// Get current path for active navigation state
+// Get current path and detect language based on leading segment
 const currentPath = Astro.url.pathname;
-
-// Get base URL from Astro environment
 const baseUrl = import.meta.env.BASE_URL;
+
+// Remove baseUrl to get relative path for language detection
+const relativePath = currentPath.startsWith(baseUrl)
+  ? currentPath.slice(baseUrl.length)
+  : currentPath;
+
+const inferredLang: 'en' | 'es' =
+  relativePath.startsWith('es/') || relativePath.startsWith('es') ? 'es' : 'en';
+
+const { class: className = '', lang = inferredLang } = Astro.props as Props;
+
+const isSpanish = lang === 'es';
+
+// Helper to strip or add /es prefix for counterpart navigation
+function computeCounterpart(path: string) {
+  const relPath = path.startsWith(baseUrl) ? path.slice(baseUrl.length) : path;
+  const isEs = relPath.startsWith('es/') || relPath.startsWith('es');
+
+  let newRelPath;
+  if (isEs) {
+    newRelPath = relPath.replace(/^es\/?/, '') || '';
+  } else {
+    newRelPath = relPath ? `es/${relPath}` : 'es/';
+  }
+
+  return `${baseUrl}${newRelPath}`;
+}
+const counterpartPath = computeCounterpart(currentPath);
+
+// Navigation items (translated labels)
+const navItems = [
+  { key: 'nav.about', href: `${baseUrl}${isSpanish ? 'es/' : ''}about` },
+  {
+    key: 'nav.whatWeDo',
+    href: `${baseUrl}${isSpanish ? 'es/' : ''}what-we-do`,
+  },
+  {
+    key: 'nav.resources',
+    href: `${baseUrl}${isSpanish ? 'es/' : ''}resources`,
+  },
+  { key: 'nav.blog', href: `${baseUrl}${isSpanish ? 'es/' : ''}blog` },
+  {
+    key: 'nav.getInvolved',
+    href: `${baseUrl}${isSpanish ? 'es/' : ''}get-involved`,
+  },
+];
+
+const seekHelpLink = `${baseUrl}${isSpanish ? 'es/' : ''}resources`;
 ---
 
 <script>
-  // Import Momentum Design components - only imported once on client side
-  import "@momentum-design/components/dist/components/appheader/index.js";
-  import "@momentum-design/components/dist/components/searchfield/index.js";
-  import "@momentum-design/components/dist/components/button/index.js";
-  import "@momentum-design/components/dist/components/icon/index.js";
-  import "@momentum-design/components/dist/components/link/index.js";
-
-  // Mobile menu toggle functionality
-  document.addEventListener("astro:page-load", () => {
-    const menuToggle = document.querySelector(".mobile-menu-toggle");
-    const mobileNav = document.querySelector(".mobile-nav");
-    const mobileNavClose = document.querySelector(".mobile-nav-close");
-    const mobileNavOverlay = document.querySelector(".mobile-nav-overlay");
-
-    const closeMenu = () => {
-      mobileNav?.classList.remove("mobile-nav--open");
-      menuToggle?.setAttribute("aria-expanded", "false");
-      document.body.style.overflow = "";
-    };
-
-    const openMenu = () => {
-      mobileNav?.classList.add("mobile-nav--open");
-      menuToggle?.setAttribute("aria-expanded", "true");
-      document.body.style.overflow = "hidden";
-    };
-
-    if (menuToggle && mobileNav) {
-      menuToggle.addEventListener("click", () => {
-        const isOpen = mobileNav.classList.contains("mobile-nav--open");
-        isOpen ? closeMenu() : openMenu();
-      });
-
-      mobileNavClose?.addEventListener("click", closeMenu);
-      mobileNavOverlay?.addEventListener("click", closeMenu);
-    }
-  });
+  // Import Momentum icon component
+  import '@momentum-design/components/dist/components/icon/index.js';
+  import '@momentum-design/components/dist/components/toggle/index.js';
+  import '@momentum-design/components/dist/components/buttonlink/index.js';
 </script>
 
-<mdc-appheader class={`asjr-header ${className}`}>
-  <!-- Logo Section -->
-  <div slot="leading" class="header-logo">
-    <mdc-link href={baseUrl} class="logo-link" inline>
-      <div class="logo-placeholder" aria-label="ASJR Logo"></div>
-    </mdc-link>
-  </div>
+<header data-base-url={baseUrl}>
+  <nav class="nav-container">
+    <a href={baseUrl} class="nav-logo">
+      <Image src={LogoASJR} alt={t(lang, 'logo.altText')} />
+    </a>
 
-  <!-- Desktop Navigation Section -->
-  <div slot="center" class="header-nav-desktop">
-    <SiteNavigation orientation="horizontal" currentPath={currentPath} />
-  </div>
+    <div class="nav-container-right">
+      <div class="nav-localization-toggle">
+        <mdc-toggle
+          name="lang-toggle"
+          value={lang}
+          label={isSpanish
+            ? t('es', 'toggle.toEnglish')
+            : t('en', 'toggle.toSpanish')}
+          checked={isSpanish ? true : undefined}
+          aria-label={isSpanish ? 'Switch to English' : 'Cambiar a Español'}
+        ></mdc-toggle>
+      </div>
 
-  <!-- Search and Actions Section -->
-  <div slot="trailing" class="header-actions">
-    <mdc-searchfield
-      placeholder="Search"
-      class="header-search"
-      aria-label="Search"></mdc-searchfield>
+      <button class="menu-icon" aria-label="Open menu" aria-expanded="false">
+        <div class="list-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="x-icon" style="display: none;"></div>
+      </button>
 
-    <mdc-button
-      class="mobile-menu-toggle"
-      aria-label="Open menu"
-      aria-expanded="false"
-      prefix-icon="list-menu-light"
-      variant="tertiary"
-    >
-    </mdc-button>
-  </div>
-</mdc-appheader>
-
-<!-- Mobile Navigation Drawer -->
-<div class="mobile-nav">
-  <div class="mobile-nav-content">
-    <div class="mobile-nav-header">
-      <div class="logo-placeholder" aria-label="ASJR Logo"></div>
-      <mdc-button
-        variant="ghost"
-        class="mobile-nav-close"
-        aria-label="Close menu"
-      >
-        <mdc-icon slot="prefix-icon" name="cancel-light" size="20"></mdc-icon>
-      </mdc-button>
+      <ul class="nav-menu">
+        {
+          navItems.map((item) => (
+            <li>
+              <a href={item.href}>
+                <span>{t(lang, item.key)}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
     </div>
-    <SiteNavigation
-      orientation="vertical"
-      currentPath={currentPath}
-      class="mobile-nav-links"
-    />
+  </nav>
+
+  <!-- Seek Help CTA -->
+  <div class="section-seek-help accent">
+    <div class="inner-container-seek-help seek-help-cta">
+      <div class="content-horizontal">
+        {t(lang, 'banner.question')}
+        <mdc-buttonlink
+          size="32"
+          href={seekHelpLink}
+          rel="noopener noreferrer"
+          inverted
+        >
+          {t(lang, 'banner.cta')}
+        </mdc-buttonlink>
+      </div>
+    </div>
   </div>
-  <div class="mobile-nav-overlay"></div>
-</div>
+</header>
+
+<script>
+  (() => {
+    const menuIcon = document.querySelector('.menu-icon') as HTMLElement | null;
+    const listIcon = document.querySelector('.list-icon') as HTMLElement | null;
+    const xIcon = document.querySelector('.x-icon') as HTMLElement | null;
+    const navMenu = document.querySelector('.nav-menu') as HTMLElement | null;
+    const navLinks = document.querySelectorAll('.nav-menu li a');
+    const langToggle = document.querySelector(
+      'mdc-toggle[name="lang-toggle"]'
+    ) as HTMLElement | null;
+
+    // Language toggle navigation
+    if (langToggle) {
+      // Ensure toggle state reflects current language on page load
+      const header = document.querySelector('header');
+      const baseUrl = header?.getAttribute('data-base-url') || '/';
+      const current = window.location.pathname;
+      const relativePath = current.startsWith(baseUrl)
+        ? current.slice(baseUrl.length)
+        : current;
+      const isSpanish =
+        relativePath.startsWith('es/') || relativePath.startsWith('es');
+
+      // Set checked state explicitly after component loads
+      if (isSpanish) {
+        langToggle.setAttribute('checked', 'true');
+      } else {
+        langToggle.removeAttribute('checked');
+      }
+
+      langToggle.addEventListener('click', () => {
+        // Check current state before navigation
+        const curr = window.location.pathname;
+        const relPath = curr.startsWith(baseUrl)
+          ? curr.slice(baseUrl.length)
+          : curr;
+        const isEs = relPath.startsWith('es/') || relPath.startsWith('es');
+
+        let newPath;
+        if (isEs) {
+          // Going to English: remove 'es/' prefix
+          newPath = relPath.replace(/^es\/?/, '') || '';
+        } else {
+          // Going to Spanish: add 'es/' prefix
+          newPath = relPath ? `es/${relPath}` : 'es/';
+        }
+
+        // Construct final URL with baseUrl
+        const target = `${baseUrl}${newPath}`;
+        window.location.href = target;
+      });
+    }
+
+    if (!menuIcon || !listIcon || !xIcon || !navMenu) return;
+
+    menuIcon.addEventListener('click', () => {
+      const isExpanded = menuIcon.getAttribute('aria-expanded') === 'true';
+      menuIcon.setAttribute('aria-expanded', (!isExpanded).toString());
+      menuIcon.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      navMenu.style.display = !isExpanded ? 'flex' : '';
+      if (!isExpanded) {
+        listIcon.style.display = 'none';
+        xIcon.style.display = 'block';
+      } else {
+        listIcon.style.display = 'flex';
+        xIcon.style.display = 'none';
+      }
+      menuIcon.setAttribute(
+        'aria-label',
+        !isExpanded ? 'Close menu' : 'Open menu'
+      );
+    });
+
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        menuIcon.setAttribute('aria-expanded', 'false');
+        menuIcon.classList.remove('active');
+        navMenu.classList.remove('active');
+        navMenu.style.display = '';
+        listIcon.style.display = 'flex';
+        xIcon.style.display = 'none';
+        menuIcon.setAttribute('aria-label', 'Open menu');
+      });
+    });
+
+    window.addEventListener('resize', () => {
+      const isExpanded = menuIcon.getAttribute('aria-expanded') === 'true';
+      if (isExpanded) {
+        menuIcon.setAttribute('aria-expanded', 'false');
+        menuIcon.classList.remove('active');
+        navMenu.classList.remove('active');
+        navMenu.style.display = '';
+        listIcon.style.display = 'flex';
+        xIcon.style.display = 'none';
+        menuIcon.setAttribute('aria-label', 'Open menu');
+      }
+    });
+  })();
+</script>

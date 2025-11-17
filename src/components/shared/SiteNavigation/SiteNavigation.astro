@@ -1,39 +1,63 @@
 ---
 // SiteNavigation.astro - Reusable navigation component for desktop and mobile
 import './SiteNavigation.css';
+import { t } from '../../../i18n/get';
 
 export interface Props {
   class?: string;
   orientation?: 'horizontal' | 'vertical';
   currentPath?: string;
+  lang?: 'en' | 'es';
+  isSpanish?: boolean;
+  counterpartPath?: string; // target path when toggling language
 }
 
 const {
   class: className = '',
   orientation = 'horizontal',
   currentPath = '',
-} = Astro.props;
+  lang = 'en',
+  isSpanish = false,
+  counterpartPath = '/',
+} = Astro.props as Props;
 
 // Get base URL from Astro environment
 const baseUrl = import.meta.env.BASE_URL;
 
-// Navigation items
+// Locale prefix helper
+const localePrefix = lang === 'es' ? 'es/' : '';
+
+// Navigation items (labels translated, href prefixed when Spanish)
 const navItems = [
-  { label: 'About us', href: `${baseUrl}about` },
-  { label: 'What we do', href: `${baseUrl}what-we-do` },
-  { label: 'Resources', href: `${baseUrl}resources` },
-  { label: 'Blog', href: `${baseUrl}blog` },
-  { label: 'Get involved', href: `${baseUrl}get-involved` },
-];
+  { label: t(lang, 'nav.about'), segment: 'about' },
+  { label: t(lang, 'nav.whatWeDo'), segment: 'what-we-do' },
+  { label: t(lang, 'nav.resources'), segment: 'resources' },
+  { label: t(lang, 'nav.blog'), segment: 'blog' },
+  { label: t(lang, 'nav.getInvolved'), segment: 'get-involved' },
+].map((item) => ({
+  ...item,
+  href: `${baseUrl}${localePrefix}${item.segment}`,
+}));
 ---
 
 <script>
   // Import Momentum Design link component
   import '@momentum-design/components/dist/components/link/index.js';
   import '@momentum-design/components/dist/components/text/index.js';
+  import '@momentum-design/components/dist/components/toggle/index.js';
 </script>
 
 <nav class={`site-navigation site-navigation--${orientation} ${className}`}>
+  <div class="nav-item nav-item--toggle">
+    <mdc-toggle
+      name="lang"
+      value={isSpanish ? 'es' : 'en'}
+      label={isSpanish ? 'Español' : 'English'}
+      checked={isSpanish ? true : undefined}
+      size="compact"
+      aria-label={isSpanish ? 'Switch to English' : 'Cambiar a Español'}
+      onclick={`window.location.href='${counterpartPath}'`}></mdc-toggle>
+  </div>
   {
     navItems.map(({ label, href }) => (
       <mdc-link

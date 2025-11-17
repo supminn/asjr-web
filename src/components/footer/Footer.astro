@@ -1,129 +1,96 @@
 ---
-// Footer.astro - Main footer component based on Figma design
-import "./Footer.css";
+import './Footer.css';
 
+import { Image } from 'astro:assets';
+import LogoASJR from '../../assets/images/header/logo-asjr.png';
+import LogoKnowbility from '../../assets/images/footer/logo-knowbility.png';
+import { t, type Lang } from '../../i18n/get';
+
+// Footer.astro - Main footer component
 export interface Props {
   class?: string;
+  lang?: 'en' | 'es';
 }
 
-const { class: className = "" } = Astro.props;
+const currentYear = new Date().getFullYear();
 
-// Get base URL from Astro environment
+// Get current path and detect language based on leading segment
+const currentPath = Astro.url.pathname;
 const baseUrl = import.meta.env.BASE_URL;
 
-// Logo image - now using local asset
-const logoImage = `${baseUrl}images/logos/knowbility-logo.png`;
+// Remove baseUrl to get relative path for language detection
+const relativePath = currentPath.startsWith(baseUrl)
+  ? currentPath.slice(baseUrl.length)
+  : currentPath;
 
-// Navigation structure from Figma
-const footerSections = [
+const inferredLang: 'en' | 'es' =
+  relativePath.startsWith('es/') || relativePath.startsWith('es') ? 'es' : 'en';
+
+const { class: className = '', lang = inferredLang } = Astro.props;
+
+const isSpanish = lang === 'es';
+const langPrefix = isSpanish ? 'es/' : '';
+
+// Navigation items with proper base path handling
+const navItems = [
+  { label: t(lang, 'nav.about'), href: `${baseUrl}${langPrefix}about` },
   {
-    title: "About us",
-    links: [
-      { label: "Who we are", href: `${baseUrl}about#who-we-are` },
-      { label: "Our mission and goal", href: `${baseUrl}about#mission` },
-      { label: "Our team", href: `${baseUrl}about#team` },
-    ],
+    label: t(lang, 'nav.whatWeDo'),
+    href: `${baseUrl}${langPrefix}what-we-do`,
   },
   {
-    title: "What we do",
-    links: [
-      { label: "CAFA", href: `${baseUrl}what-we-do#cafa` },
-      {
-        label: "Police oversight",
-        href: `${baseUrl}what-we-do#police-oversight`,
-      },
-      {
-        label: "Participatory defense",
-        href: `${baseUrl}what-we-do#participatory-defense`,
-      },
-      { label: "PDO", href: `${baseUrl}what-we-do#pdo` },
-      {
-        label: "Early case review",
-        href: `${baseUrl}what-we-do#early-case-review`,
-      },
-      { label: "Diversion", href: `${baseUrl}what-we-do#diversion` },
-    ],
+    label: t(lang, 'nav.resources'),
+    href: `${baseUrl}${langPrefix}resources`,
   },
+  { label: t(lang, 'nav.blog'), href: `${baseUrl}${langPrefix}blog` },
   {
-    title: "Resources",
-    links: [
-      { label: "If you are arrested", href: `${baseUrl}resources#arrested` },
-    ],
-  },
-  {
-    title: "Blog",
-    links: [{ label: "Blog", href: `${baseUrl}blog` }],
-  },
-  {
-    title: "Get involved",
-    links: [{ label: "Contact us", href: `${baseUrl}get-involved#contact` }],
+    label: t(lang, 'nav.getInvolved'),
+    href: `${baseUrl}${langPrefix}get-involved`,
   },
 ];
+
+const seekHelpLink = `${baseUrl}${langPrefix}resources`;
 ---
 
 <script>
-  // Import Momentum Design components
-  import "@momentum-design/components/dist/components/text/index.js";
-  import "@momentum-design/components/dist/components/link/index.js";
+  // Import only the components needed for Footer
+  import '@momentum-design/components/dist/components/text/index.js';
 </script>
 
-<footer class={`asjr-footer ${className}`}>
-  <div class="footer-content">
-    <!-- Sitemap Section -->
-    <div class="footer-sitemap">
-      <!-- Logo Section -->
-      <div class="footer-logo">
-        <div class="logo-placeholder" aria-label="ASJR Logo"></div>
-        <img src={logoImage} alt="Knowbility Logo" class="knowbility-logo" />
+<footer>
+  <div class="section">
+    <div class="inner-container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href={baseUrl} class="logo-asjr">
+            <Image
+              src={LogoASJR}
+              alt="Advocates for Social Justice Reform logo"
+            />
+          </a>
+          <a href="#" class="logo-knowbility">
+            <Image src={LogoKnowbility} alt="Knowability logo" />
+          </a>
+        </div>
+
+        <div class="footer-sitemap">
+          <ul>
+            {
+              navItems.map((item) => (
+                <li>
+                  <a href={item.href}>
+                    <span>{item.label}</span>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
       </div>
 
-      <!-- Desktop Navigation Links -->
-      <nav class="footer-sections footer-sections--desktop">
-        {
-          footerSections.map((section) => (
-            <div class="footer-section">
-              <mdc-text
-                type="body-large-medium"
-                tagname="h3"
-                class="footer-section-title"
-              >
-                {section.title}
-              </mdc-text>
-              <div class="footer-links">
-                {section.links.map((link) => (
-                  <mdc-link href={link.href} class="footer-link" inline>
-                    {link.label}
-                  </mdc-link>
-                ))}
-              </div>
-            </div>
-          ))
-        }
-      </nav>
-
-      <!-- Mobile Navigation Links -->
-      <nav class="footer-sections footer-sections--mobile">
-        {
-          footerSections.map((section) => (
-            <div class="footer-section">
-              <mdc-text
-                type="body-large-medium"
-                tagname="h3"
-                class="footer-section-title"
-              >
-                {section.title}
-              </mdc-text>
-            </div>
-          ))
-        }
-      </nav>
-    </div>
-
-    <!-- Copyright Section -->
-    <div class="footer-copyright">
-      <mdc-text type="body-midsize-regular" tagname="p" class="copyright-text">
-        © 2025 Advocates for Social Justice Reform. All Rights Reserved.
-      </mdc-text>
+      <div class="footer-copyright">
+        {t(lang, 'footer.copyright')}
+      </div>
     </div>
   </div>
 </footer>

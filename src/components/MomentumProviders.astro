@@ -8,10 +8,7 @@ export interface Props {
   children?: any;
 }
 
-const { 
-  iconSet = 'custom-icons',
-  iconUrl = '/asjr-web/icons'
-} = Astro.props;
+const { iconSet = 'custom-icons', iconUrl = '/asjr-web/icons' } = Astro.props;
 ---
 
 <script>
@@ -20,7 +17,7 @@ const {
 </script>
 
 <!-- Icon Provider for icon support -->
-<mdc-iconprovider 
+<mdc-iconprovider
   icon-set={iconSet}
   url={iconUrl}
   file-extension="svg"
