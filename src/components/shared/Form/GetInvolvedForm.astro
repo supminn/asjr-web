@@ -3,6 +3,11 @@
 import './GetInvolvedForm.css';
 import { t } from '../../../i18n/get';
 
+//Phosphor icons
+import Heart from "phosphor-astro/Heart.astro";
+import SpeakerHigh from "phosphor-astro/SpeakerHigh.astro";
+import Hand from "phosphor-astro/Hand.astro";
+
 export interface Props {
   class?: string;
   lang?: 'en' | 'es';
@@ -21,33 +26,21 @@ const { class: className = '', lang = 'en' } = Astro.props as Props;
     </mdc-text>
   </div>
 
-  <div class="action-buttons">
-    <mdc-button
-      variant="tertiary"
-      class="action-item"
-      aria-label="Donate to ASJR"
-    >
-      <mdc-icon name="favorites-bold" size="24" slot="icon"></mdc-icon>
-      <span>{t(lang, 'form.donate')}</span>
-    </mdc-button>
-
-    <mdc-button
-      variant="tertiary"
-      class="action-item"
-      aria-label="Be an advocate"
-    >
-      <mdc-icon name="speaker-bold" size="24" slot="icon"></mdc-icon>
-      <span>{t(lang, 'form.advocate')}</span>
-    </mdc-button>
-
-    <mdc-button
-      variant="tertiary"
-      class="action-item"
-      aria-label="Sign up for volunteers"
-    >
-      <mdc-icon name="raise-hand-bold" size="24" slot="icon"></mdc-icon>
-      <span>{t(lang, 'form.volunteer')}</span>
-    </mdc-button>
+  <div class="get-involved-list">
+    <ul>
+      <li>
+          <div class="get-invovled-icon"><Heart /></div>
+          <p>{t(lang, 'form.donate')}</p>
+      </li>
+      <li>
+          <div class="get-invovled-icon"><SpeakerHigh /></div>
+          <p>{t(lang, 'form.advocate')}</p>
+      </li>
+      <li>
+          <div class="get-invovled-icon"><Hand /></div>
+          <p>{t(lang, 'form.volunteer')}</p>
+      </li>
+    </ul>
   </div>
 
   <form class="newsletter-form" novalidate>
@@ -78,7 +71,18 @@ const { class: className = '', lang = 'en' } = Astro.props as Props;
         placeholder={t(lang, 'form.emailPlaceholder')}
         required></mdc-input>
 
-      <mdc-button type="submit" variant="primary">
+        <mdc-textarea
+          id="message"
+          name="message"
+          label={t(lang, 'form.message')}
+          placeholder={t(lang, 'form.messagePlaceholder')}
+          wrap="soft"
+          cols="160"
+          required
+          autocapitalize="off"
+          autocomplete="off"></mdc-textarea>
+
+      <mdc-button type="submit" variant="primary" size="40">
         {t(lang, 'form.submit')}
       </mdc-button>
     </fieldset>
@@ -90,4 +94,5 @@ const { class: className = '', lang = 'en' } = Astro.props as Props;
   import('@momentum-design/components/dist/components/input/index.js');
   import('@momentum-design/components/dist/components/icon/index.js');
   import('@momentum-design/components/dist/components/text/index.js');
+  import('@momentum-design/components/dist/components/textarea/index.js');
 </script>

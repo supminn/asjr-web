@@ -21,6 +21,8 @@
   "form.lastNamePlaceholder": "Tu apellido",
   "form.emailAddress": "Correo electrónico",
   "form.emailPlaceholder": "tu-correo@ejemplo.com",
+  "form.message": "Mensaje",
+  "form.messagePlaceholder": "Introduce tu mensaje",
   "form.submit": "Enviar",
   "form.newsletterSignup": "Suscripción al boletín",
   "footer.aboutUs": "Sobre nosotros",

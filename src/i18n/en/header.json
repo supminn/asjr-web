@@ -21,6 +21,8 @@
   "form.lastNamePlaceholder": "Your last name",
   "form.emailAddress": "Email address",
   "form.emailPlaceholder": "Your address@email.com",
+  "form.message": "Message",
+  "form.messagePlaceholder": "Enter your message",
   "form.submit": "Submit",
   "form.newsletterSignup": "Newsletter Signup",
   "footer.aboutUs": "About us",
