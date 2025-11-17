@@ -45,16 +45,17 @@ const counterpartPath = computeCounterpart(currentPath);
 
 // Navigation items (translated labels)
 const navItems = [
+  { key: 'nav.home', href: `${baseUrl}${isSpanish ? 'es/' : ''}` },
   { key: 'nav.about', href: `${baseUrl}${isSpanish ? 'es/' : ''}about` },
   {
-    key: 'nav.whatWeDo',
+    key: 'nav.ourWork',
     href: `${baseUrl}${isSpanish ? 'es/' : ''}what-we-do`,
   },
   {
     key: 'nav.resources',
     href: `${baseUrl}${isSpanish ? 'es/' : ''}resources`,
   },
-  { key: 'nav.blog', href: `${baseUrl}${isSpanish ? 'es/' : ''}blog` },
+  { key: 'nav.latestUpdates', href: `${baseUrl}${isSpanish ? 'es/' : ''}latest-updates` },
   {
     key: 'nav.getInvolved',
     href: `${baseUrl}${isSpanish ? 'es/' : ''}get-involved`,

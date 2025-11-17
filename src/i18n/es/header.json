@@ -1,9 +1,13 @@
 {
   "logo.altText": "Logotipo de Defensores de la Reforma de Justicia Social",
+  "nav.home": "Inicio",
   "nav.about": "Sobre nosotros",
   "nav.whatWeDo": "Qué hacemos",
+  "nav.ourWork": "Nuestro trabajo",
   "nav.resources": "Recursos",
   "nav.blog": "Blog",
+  "nav.latestUpdates": "Últimas noticias",
+  "nav.latestUpdates.articleName": "Nombre del artículo",
   "nav.getInvolved": "Involúcrate",
   "toggle.toSpanish": "En Español",
   "toggle.toEnglish": "English",

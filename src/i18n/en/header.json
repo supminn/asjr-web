@@ -1,9 +1,13 @@
 {
   "logo.altText": "Advocates for Social Justice Reform logo",
+  "nav.home": "Home",
   "nav.about": "About us",
   "nav.whatWeDo": "What we do",
+  "nav.ourWork": "Our work",
   "nav.resources": "Resources",
   "nav.blog": "Blog",
+  "nav.latestUpdates": "Latest updates",
+  "nav.latestUpdates.articleName": "Article name",
   "nav.getInvolved": "Get involved",
   "toggle.toSpanish": "En Español",
   "toggle.toEnglish": "English",
