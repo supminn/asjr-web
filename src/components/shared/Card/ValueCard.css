@@ -1,0 +1,33 @@
+/* ValueCard.css */
+
+.value-card {
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1.25rem; /* 20px */
+  padding: 1.5rem; /* 24px */
+  min-height: 252px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* 12px */
+}
+
+.value-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.value-icon mdc-icon {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.value-card mdc-text[slot="title"] {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.value-card mdc-text[slot="body"] {
+  color: rgba(255, 255, 255, 0.95);
+  flex: 1;
+}

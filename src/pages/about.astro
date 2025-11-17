@@ -1,5 +1,7 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <Layout title="About Us - ASJR">
@@ -14,12 +16,37 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
     <section class="content">
-      <mdc-text type="heading-large-medium" tagname="h2">
-        Our Mission
-      </mdc-text>
-      <mdc-text type="body-large-regular" tagname="p">
-        We are dedicated to creating a more just and equitable criminal legal system that prioritizes rehabilitation, community healing, and human dignity over punishment and incarceration.
-      </mdc-text>
+      <div class="mission-section">
+        <div class="mission-text">
+          <mdc-text type="heading-large-medium" tagname="h2">
+            Our Mission
+          </mdc-text>
+          <mdc-text type="body-large-regular" tagname="p">
+            We are dedicated to creating a more just and equitable criminal legal system that prioritizes rehabilitation, community healing, and human dignity over punishment and incarceration.
+          </mdc-text>
+        </div>
+        <img
+          src={`${baseUrl}images/about/about-1.jpg`}
+          alt="Community members working together"
+          class="mission-image"
+        />
+      </div>
+
+      <div class="vision-section">
+        <img
+          src={`${baseUrl}images/about/about-2.jpg`}
+          alt="Advocates for justice"
+          class="vision-image"
+        />
+        <div class="vision-text">
+          <mdc-text type="heading-large-medium" tagname="h2">
+            Our Vision
+          </mdc-text>
+          <mdc-text type="body-large-regular" tagname="p">
+            We envision a Travis County where the criminal legal system treats all people with dignity, provides genuine pathways to rehabilitation, and focuses on healing rather than punishment.
+          </mdc-text>
+        </div>
+      </div>
 
       <mdc-text type="heading-large-medium" tagname="h2">
         Our Values
@@ -69,7 +96,51 @@ import Layout from '../layouts/Layout.astro';
   .content {
     display: flex;
     flex-direction: column;
+    gap: 4rem;
+  }
+
+  .mission-section,
+  .vision-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 3rem;
+    align-items: center;
+  }
+
+  .vision-section {
+    direction: ltr;
+  }
+
+  .mission-image,
+  .vision-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    max-height: 400px;
+  }
+
+  .mission-text,
+  .vision-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .mission-section,
+    .vision-section {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .vision-section {
+      direction: ltr;
+    }
+
+    .vision-section .vision-image {
+      order: -1;
+    }
   }
 
   .values-grid {

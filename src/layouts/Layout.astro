@@ -10,8 +10,8 @@ export interface Props {
 }
 
 const { 
-	title = 'ASJR Web', 
-	description = 'AIR Hackathon ASJR Web Application'
+	title = 'ASJR: Advocates for Social Justice Reform', 
+	description = 'We advocate for a fairer legal system, ensuring that every individual receives compassionate and competent support throughout the criminal legal process.'
 } = Astro.props;
 
 ---
@@ -28,29 +28,17 @@ const {
 	</head>
 	<body class="mds-typography mds-effect mds-theme-stable-lightWebex">
 		<MomentumProviders>
-			<Header />
-			<main class="main-content">
-				<slot />
-			</main>
-			<Footer />
+			<div class="asjr-main">
+				<div class="section">
+					<Header />
+				</div>
+				<main class="main-content">
+					<slot />
+				</main>
+				<div class="section">
+					<Footer />
+				</div>
+			</div>
 		</MomentumProviders>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-		font-family: 'Momentum', system-ui, -apple-system, sans-serif;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-	}
-
-	.main-content {
-		min-height: calc(100vh - var(--mdc-appheader-height, 4rem));
-		display: flex;
-		flex-direction: column;
-	}
-</style>

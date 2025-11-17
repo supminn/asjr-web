@@ -1,0 +1,74 @@
+/* Site Navigation Component Styles */
+
+/* Base Navigation Container */
+.site-navigation {
+  display: flex;
+}
+
+/* Horizontal Layout (Desktop) */
+.site-navigation--horizontal {
+  gap: 2rem;
+}
+
+/* Vertical Layout (Mobile) */
+.site-navigation--vertical {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+/* Navigation Items */
+.site-navigation mdc-link.nav-item {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #374151;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+  position: relative;
+  text-underline-position: under;
+}
+
+/* Horizontal Nav Items */
+.site-navigation--horizontal mdc-link.nav-item {
+  padding: 0.5rem 0;
+  align-items: center;
+}
+
+/* Vertical Nav Items */
+.site-navigation--vertical mdc-link.nav-item {
+  padding: 0.75rem 1rem;
+  width: 100%;
+  border-left: 3px solid transparent;
+  display: block;
+}
+
+/* Hover State */
+.site-navigation mdc-link.nav-item:hover {
+  color: #111827;
+}
+
+/* Active State - Horizontal */
+.site-navigation--horizontal mdc-link.nav-item.nav-item--active {
+  color: #111827;
+  font-weight: 500;
+}
+
+/* Active State - Vertical */
+.site-navigation--vertical mdc-link.nav-item.nav-item--active {
+  color: #111827;
+  font-weight: 500;
+  border-left-color: #111827;
+  background-color: #f9fafb;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .site-navigation--horizontal {
+    gap: 1.5rem;
+  }
+  
+  .site-navigation--horizontal mdc-link.nav-item {
+    font-size: 0.9375rem;
+  }
+}

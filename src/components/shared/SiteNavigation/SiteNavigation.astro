@@ -1,0 +1,52 @@
+---
+// SiteNavigation.astro - Reusable navigation component for desktop and mobile
+import './SiteNavigation.css';
+
+export interface Props {
+  class?: string;
+  orientation?: 'horizontal' | 'vertical';
+  currentPath?: string;
+}
+
+const {
+  class: className = '',
+  orientation = 'horizontal',
+  currentPath = '',
+} = Astro.props;
+
+// Get base URL from Astro environment
+const baseUrl = import.meta.env.BASE_URL;
+
+// Navigation items
+const navItems = [
+  { label: 'About us', href: `${baseUrl}about` },
+  { label: 'What we do', href: `${baseUrl}what-we-do` },
+  { label: 'Resources', href: `${baseUrl}resources` },
+  { label: 'Blog', href: `${baseUrl}blog` },
+  { label: 'Get involved', href: `${baseUrl}get-involved` },
+];
+---
+
+<script>
+  // Import Momentum Design link component
+  import '@momentum-design/components/dist/components/link/index.js';
+  import '@momentum-design/components/dist/components/text/index.js';
+</script>
+
+<nav class={`site-navigation site-navigation--${orientation} ${className}`}>
+  {
+    navItems.map(({ label, href }) => (
+      <mdc-link
+        href={href}
+        class={`nav-item ${currentPath === href || currentPath === href + '/' ? 'nav-item--active' : ''}`}
+        inline={
+          currentPath === href || currentPath === href + '/' ? true : undefined
+        }
+      >
+        <mdc-text type="body-large-medium" tagname="span">
+          {label}
+        </mdc-text>
+      </mdc-link>
+    ))
+  }
+</nav>

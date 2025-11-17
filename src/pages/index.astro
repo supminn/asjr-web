@@ -1,287 +1,225 @@
 ---
-import Layout from '../layouts/Layout.astro'
+import Layout from '../layouts/Layout.astro';
+import GetInvolvedForm from '../components/shared/Form/GetInvolvedForm.astro';
+
+import { Image } from 'astro:assets';
+import HomeHero from '../assets/images/home/home-hero.png'
+import WhoWeAre01 from '../assets/images/home/who-we-are-01.png'
+import WhoWeAre02 from '../assets/images/home/who-we-are-02.png'
+import WhatWeDo01 from '../assets/images/home/what-we-do-01.png'
+
+//Phosphor icons
+import GraduationCap from "phosphor-astro/GraduationCap.astro";
+import ChatsTeardrop from "phosphor-astro/ChatsTeardrop.astro";
+import SpeakerHigh from "phosphor-astro/SpeakerHigh.astro";
+import HandShake from "phosphor-astro/HandShake.astro";
+import SealCheck from "phosphor-astro/SealCheck.astro";
+
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
-<Layout title="Advocates for Social Justice Reform">
-  <div class="page-container">
-    <!-- Hero Section -->
-    <section class="hero">
-      <mdc-text type="heading-xlarge-bold" tagname="h1">
-        Justice with Compassion.<br />Support at Every Step.
-      </mdc-text>
-      <mdc-text type="body-large-regular" tagname="p" class="hero-subtext">
-        We advocate for a fairer legal system, ensuring that every individual receives compassionate and competent support throughout the criminal legal process.
-      </mdc-text>
-    </section>
-
-    <!-- Hero Image -->
-    <section class="hero-image">
-      <img
-        src="/images/hero-protest.jpg"
-        alt="Advocates holding signs for social justice"
-      />
-    </section>
-
-    <!-- Who We Are -->
-    <section class="who-we-are">
-      <mdc-text type="heading-large-medium" tagname="h2">
-        Together, we're building a fairer and more humane justice system.
-      </mdc-text>
-      <mdc-text type="body-large-regular" tagname="p" class="who-description">
-        Advocates for Social Justice Reform (ASJR) is a volunteer-run coalition dedicated to transforming the criminal legal system in Travis County.
-      </mdc-text>
-      <mdc-button variant="outlined">Learn more →</mdc-button>
-    </section>
-
-    <!-- Values Section -->
-    <section class="values">
-      <mdc-card card-title="Education">
-        <mdc-text slot="body" type="body-midsize-regular" tagname="p">
-          To educate ourselves and our communities about social justice issues.
-        </mdc-text>
-      </mdc-card>
-      <mdc-card card-title="Communication">
-        <mdc-text slot="body" type="body-midsize-regular" tagname="p">
-          To educate ourselves and our communities about social justice issues.
-        </mdc-text>
-      </mdc-card>
-      <mdc-card card-title="Advocacy">
-        <mdc-text slot="body" type="body-midsize-regular" tagname="p">
-          To be a voice of change in community forums.
-        </mdc-text>
-      </mdc-card>
-      <mdc-card card-title="Collaboration">
-        <mdc-text slot="body" type="body-midsize-regular" tagname="p">
-          To listen to and collaborate with stakeholders representing diverse viewpoints.
-        </mdc-text>
-      </mdc-card>
-      <mdc-card card-title="Oversight & Evaluate">
-        <mdc-text slot="body" type="body-midsize-regular" tagname="p">
-          To educate ourselves and our communities about social justice issues.
-        </mdc-text>
-      </mdc-card>
-    </section>
-
-    <!-- Programs Section -->
-    <section class="programs">
-      <div class="programs-inner">
-        <mdc-text type="heading-large-medium" tagname="h2">
-          From court to community, creating lasting change.
-        </mdc-text>
-        <div class="program-grid">
-          {Array.from({ length: 6 }).map(() => (
-            <mdc-card 
-              card-title="CAFA (Counsel at First Appearance)" 
-              image-src="/images/cafa.jpg" 
-              image-alt="CAFA"
-              variant="border"
-            >
-              <mdc-text slot="body" type="body-small-regular" tagname="p">
-                Legal support at first appearance.
-              </mdc-text>
-              <mdc-button slot="footer-button-primary" variant="filled">Learn more →</mdc-button>
-            </mdc-card>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- News Section -->
-    <section class="news">
-      <mdc-text type="heading-large-medium" tagname="h2">Latest News</mdc-text>
-      <div class="news-grid">
-        {Array.from({ length: 3 }).map(() => (
-          <mdc-card card-title="CAFA (Counsel at First Appearance)" variant="border">
-            <mdc-text slot="body" type="body-small-regular" tagname="p">
-              Lorem ipsum dolor sit amet consectetur adipiscing elit. Nulla facilisi.
-            </mdc-text>
-            <mdc-button slot="footer-button-primary" variant="outlined">Read more →</mdc-button>
-          </mdc-card>
-        ))}
-      </div>
-    </section>
-
-    <!-- Join Us Section -->
-    <section class="join-us">
-      <div class="join-inner">
-        <mdc-text type="heading-large-medium" tagname="h2">
-          Join us in building a more compassionate justice system.
-        </mdc-text>
-        <mdc-text type="body-large-regular" tagname="p">
-          Stay up-to-date on the latest reports and news from ASJR.
-        </mdc-text>
-        <form class="join-form">
-          <mdc-input label="First name" required />
-          <mdc-input label="Last name" required />
-          <mdc-input label="Email address" type="email" required />
-          <mdc-button type="submit" variant="filled">Submit</mdc-button>
-        </form>
-      </div>
-    </section>
-  </div>
-</Layout>
-
 <script>
-  import('@momentum-design/components/dist/components/button/index.js');
-  import('@momentum-design/components/dist/components/card/index.js');
-  import('@momentum-design/components/dist/components/input/index.js');
-  import('@momentum-design/components/dist/components/icon/index.js');
-  import('@momentum-design/components/dist/components/text/index.js');
+  import '@momentum-design/components/dist/components/button/index.js';
+  import '@momentum-design/components/dist/components/buttonlink/index.js';
+  import '@momentum-design/components/dist/components/card/index.js';
+  import '@momentum-design/components/dist/components/input/index.js';
+  import '@momentum-design/components/dist/components/icon/index.js';
+  import '@momentum-design/components/dist/components/text/index.js';
 </script>
 
-<style scoped>
-.page-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  overflow-x: hidden;
-}
+<Layout title='Advocates for Social Justice Reform'>
+  <!-- Hero -->
+  <section class="section hero">
+    <div class="inner-container">
+      <h1>
+        Justice with compassion. Support at every step.
+      </h1>
+      <p>
+        We advocate for a fairer legal system, ensuring that every individual receives compassionate and competent support throughout the criminal legal process.
 
-/* HERO SECTION */
-.hero {
-  width: 100%;
-  text-align: center;
-  padding: 7.5rem 1rem 6rem; /* 120px top, 96px bottom */
-  background: #ffffff;
-  max-width: 90rem; /* keeps text within Figma alignment */
-  margin: 0 auto;
-}
+        <mdc-buttonlink
+            size="40"
+            href=""
+            rel="noopener noreferrer">
+            Learn more →
+            </mdc-buttonlink>
+      </p>
 
-.hero-subtext {
-  margin: 1.75rem auto 2.25rem;
-  max-width: 44rem;
-  color: var(--mds-color-neutral-700, #4B5563);
-  line-height: 1.5;
-}
+      <Image src={HomeHero} alt="A crowd of people holding signs outside protesting for social justice." />
+    </div>
+  </section>
+  
+  <!-- Who we are -->
+  <section class="section who-we-are">
+    <div class="inner-container overview">
+      <!-- Overview -->
+      <div class="section-left">
+        <div class="section-title">
+          <h2 class="pre-header">Who we are</h2>
+          <p class="sub-header">
+            Together, we're building a fairer and more humane justice system.
+          </p>
+        </div>
+        <p>
+          Advocates for Social Justice Reform (ASJR) is a volunteer-run coalition dedicated to transforming the criminal legal system in Travis County.
+        </p>
+        <p>
+          We work to ensure that every person receives fair representation, compassionate support, and dignity at every step of the process.
 
-.hero-button {
-  margin-top: 0.75rem;
-}
+          <mdc-buttonlink
+              size="40"
+              href=""
+              rel="noopener noreferrer">
+              Learn more →
+              </mdc-buttonlink>
+        </p>
+      </div>
+      <div class="section-right">
+        <Image src={WhoWeAre01} alt="A group of visitors standing outside the Travis County Jail." />
+        <Image src={WhoWeAre02} alt="A man and woman holding a sign advocating for social justice reform." />
+      </div>
+    </div>
+    <div class="inner-container who-we-are-card-list">
+      <!-- Card List -->
+      <div class="card-list">
+        <ul>
+          <li>
+            <div class="card-icon"><GraduationCap class="icon" /></div>
+            <label>Education</label>
+            <p>
+              To educate ourselves and our communities about social justice issues.
+            </p>
+          </li>
+          <li>
+            <div class="card-icon"><ChatsTeardrop class="icon" /></div>
+            <label>Communication</label>
+            <p>
+              To communicate our views and engage in community discussions.
+            </p>
+          </li>
+          <li>
+            <div class="card-icon"><SpeakerHigh class="icon" /></div>
+            <label>Advocacy</label>
+            <p>
+              To be a voice of change.
+            </p>
+          </li>
+          <li>
+            <div class="card-icon"><HandShake class="icon" /></div>
+            <label>Collaboration</label>
+            <p>
+              To communicate our views and engage in community discussions.
+            </p>
+          </li>
+          <li>
+            <div class="card-icon"><SealCheck class="icon" /></div>
+            <label>Accountability</label>
+            <p>
+              To ensure accountability.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-/* HERO IMAGE */
-.hero-image {
-  width: 100%;
-  max-width: 80rem;
-  margin: 2rem auto 5rem;
-  display: flex;
-  justify-content: center;
-}
+  <!-- What we do -->
+  <section class="section accent what-we-do">
+    <div class="inner-container">
+      <!-- Section Overview -->
+      <div class="section-title">
+          <h2 class="pre-header">What we do</h2>
+          <p class="sub-header">
+            From court to community, creating lasting change.
+          </p>
+      </div>
 
-.hero-image img {
-  width: 100%;
-  max-width: 72rem;
-  border-radius: 1rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-  object-fit: cover;
-}
+      <!-- Card List -->
+      <div class="card-list">
+        <ul>
+          <li>
+            <Image src={WhatWeDo01} alt="Image" />
+            <div class="card-list-content">
+              <label>CAFA (Counsel at First Appearance)</label>
+              <p>
+                Everyone deserves a lawyer from their very first court appearance.
+              </p>
+            </div>
+          </li>
+          <li>
+            <Image src={WhatWeDo01} alt="Image" />
+            <div class="card-list-content">
+              <label>Public Defender Office Support</label>
+              <p>
+                We collaborate with public defender offices to strengthen representation for indigent clients.
+              </p>
+            </div>
+          </li>
+          <li>
+            <Image src={WhatWeDo01} alt="Image" />
+            <div class="card-list-content">
+              <label>Police Oversight & Accountability</label>
+              <p>
+                Promoting transparency and community oversight to ensure fair policing practices.
+              </p>
+            </div>
+          </li>
+          <li>
+            <Image src={WhatWeDo01} alt="Image" />
+            <div class="card-list-content">
+              <label>Early Case Review & Diversion</label>
+              <p>
+                Identifying options before trial—dismissal, diversion, or reduced charges—to reduce unnecessary incarceration.
+              </p>
+            </div>
+          </li>
+          <li>
+            <Image src={WhatWeDo01} alt="Image" />
+            <div class="card-list-content">
+              <label>Community Powered Support</label>
+              <p>
+                We help families understand the legal process and actively support their loved ones as part of the defense team.
+              </p>
+            </div>
+          </li>
+          <li>
+            <Image src={WhatWeDo01} alt="Image" />
+            <div class="card-list-content">
+              <label>Rights Education & Advocacy</label>
+              <p>
+                Educating our community about legal rights, system navigation, and advocacy strategies.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-/* WHO WE ARE */
-.who-we-are {
-  width: 100%;
-  max-width: 68rem;
-  text-align: center;
-  padding: 6rem 1rem;
-  margin: 0 auto;
-}
+  <!-- Latest News -->
+  <section class="section latest-news">
+    <div class="inner-container">
+      <h2>Latest news</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vulputate elementum lorem, non varius libero porta in. Aenean molestie molestie accumsan. Nam feugiat, risus sit amet ornare tristique, massa mauris vehicula dolor, sed ultricies mauris nulla vitae nunc. Aliquam nunc lacus, congue nec elit quis, ultrices dapibus tellus.
 
-.who-description {
-  margin: 1.75rem auto 2.5rem;
-  max-width: 46rem;
-  color: var(--mds-color-neutral-700, #4B5563);
-}
+          <mdc-buttonlink
+              size="40"
+              href=""
+              rel="noopener noreferrer">
+              View latest news →
+              </mdc-buttonlink>
+      </p>
+    </div>
+  </section>
 
-/* VALUES */
-.values {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 1.75rem;
-  max-width: 70rem;
-  margin: 0 auto;
-  padding: 6rem 1rem;
-}
-
-/* PROGRAMS */
-.programs {
-  width: 100%;
-  background: #f9fafb;
-  padding: 7rem 1rem;
-}
-
-.programs-inner {
-  max-width: 72rem;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.program-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-  margin-top: 3.5rem;
-}
-
-/* NEWS */
-.news {
-  width: 100%;
-  padding: 7rem 1rem;
-  text-align: center;
-}
-
-.news-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-  max-width: 72rem;
-  margin: 3rem auto 0;
-}
-
-/* JOIN US */
-.join-us {
-  width: 100%;
-  background: #f9fafb;
-  padding: 7rem 1rem;
-}
-
-.join-inner {
-  max-width: 60rem;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.join-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  margin-top: 2.5rem;
-  justify-content: center;
-  align-items: center;
-}
-
-@media (min-width: 768px) {
-  .join-form {
-    flex-direction: row;
-    gap: 1rem;
-  }
-}
-
-/* GLOBAL TYPOGRAPHY ADJUSTMENTS */
-mdc-text[type="heading-xlarge-bold"] {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  line-height: 1.1;
-}
-
-mdc-text[type="heading-large-medium"] {
-  font-size: clamp(1.75rem, 3vw, 2.25rem);
-  line-height: 1.25;
-}
-
-mdc-text[type="body-large-regular"],
-mdc-text[type="body-midsize-regular"] {
-  line-height: 1.6;
-  color: var(--mds-color-neutral-700, #4B5563);
-}
-</style>
+  <!-- Contact / Get Invovled Form -->
+  <section class="section secondary get-involved">
+    <div class="inner-container">
+      <GetInvolvedForm />
+    </div>
+  </section>
+</Layout>
 
 <script>
   // Import the components we need

@@ -1,0 +1,93 @@
+---
+// GetInvolvedForm.astro - Newsletter/Get Involved Form Component
+import "./GetInvolvedForm.css";
+
+//Phosphor icons
+import Heart from "phosphor-astro/Heart.astro";
+import SpeakerHigh from "phosphor-astro/SpeakerHigh.astro";
+import Hand from "phosphor-astro/Hand.astro";
+
+export interface Props {
+  class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+---
+
+<div class={`get-involved-form ${className}`}>
+  <div class="form-header">
+    <h2>
+      Contact us
+    </h2>
+    <p>
+      Join us in building a more compassionate justice system.Contact us if you have any questions about our work, would like to volunteer or need assistance.
+    </p>
+  </div>
+
+  <div class="get-involved-list">
+    <ul>
+      <li>
+          <div class="get-invovled-icon"><Heart /></div>
+          <p>Donate</p>
+      </li>
+      <li>
+          <div class="get-invovled-icon"><SpeakerHigh /></div>
+          <p>Be an advocate</p>
+      </li>
+      <li>
+          <div class="get-invovled-icon"><Hand /></div>
+          <p>Sign up for volunteers</p>
+      </li>
+    </ul>
+  </div>
+
+  <form class="newsletter-form" novalidate>
+    <fieldset>
+      <legend class="sr-only">Newsletter Signup</legend>
+
+      <div class="form-row">
+        <mdc-input
+          id="first-name"
+          name="firstName"
+          label="First name"
+          placeholder="Enter your first name"
+          required></mdc-input>
+
+        <mdc-input
+          id="last-name"
+          name="lastName"
+          label="Last name"
+          placeholder="Enter your last name"
+          required></mdc-input>
+      </div>
+
+      <mdc-input
+        id="email"
+        name="email"
+        type="email"
+        label="Email address"
+        placeholder="john.doe@email.com"
+        required></mdc-input>
+
+      <mdc-textarea
+        label="Message"
+        placeholder="Enter your message"
+        name="textarea"
+        wrap="soft"
+        cols="160"
+        required
+        autocapitalize="off"
+        autocomplete="off"></mdc-textarea>
+
+      <mdc-button type="submit" variant="primary" size="40"> Submit </mdc-button>
+    </fieldset>
+  </form>
+</div>
+
+<script>
+  import("@momentum-design/components/dist/components/button/index.js");
+  import("@momentum-design/components/dist/components/input/index.js");
+  import("@momentum-design/components/dist/components/icon/index.js");
+  import("@momentum-design/components/dist/components/text/index.js");
+  import("@momentum-design/components/dist/components/textarea/index.js");
+</script>

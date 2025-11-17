@@ -1,0 +1,31 @@
+---
+// ValueCard.astro - Reusable card for Education, Communication, Advocacy, etc.
+import "./ValueCard.css";
+
+export interface Props {
+  title: string;
+  description: string;
+  iconName: string;
+  class?: string;
+}
+
+const { title, description, iconName, class: className = "" } = Astro.props;
+---
+
+<mdc-card variant="border" class={`value-card ${className}`}>
+  <div slot="icon" class="value-icon">
+    <mdc-icon name={iconName} size="48"></mdc-icon>
+  </div>
+  <mdc-text slot="title" type="heading-small-bold" tagname="h3">
+    {title}
+  </mdc-text>
+  <mdc-text slot="body" type="body-large-regular" tagname="p">
+    {description}
+  </mdc-text>
+</mdc-card>
+
+<script>
+  import("@momentum-design/components/dist/components/card/index.js");
+  import("@momentum-design/components/dist/components/icon/index.js");
+  import("@momentum-design/components/dist/components/text/index.js");
+</script>

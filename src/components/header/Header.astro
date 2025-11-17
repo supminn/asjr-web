@@ -1,0 +1,109 @@
+---
+// Header.astro - Main navigation header using Momentum Design components
+import "./Header.css";
+import SiteNavigation from "../shared/SiteNavigation/SiteNavigation.astro";
+
+export interface Props {
+  class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+
+// Get current path for active navigation state
+const currentPath = Astro.url.pathname;
+
+// Get base URL from Astro environment
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<script>
+  // Import Momentum Design components - only imported once on client side
+  import "@momentum-design/components/dist/components/appheader/index.js";
+  import "@momentum-design/components/dist/components/searchfield/index.js";
+  import "@momentum-design/components/dist/components/button/index.js";
+  import "@momentum-design/components/dist/components/icon/index.js";
+  import "@momentum-design/components/dist/components/link/index.js";
+
+  // Mobile menu toggle functionality
+  document.addEventListener("astro:page-load", () => {
+    const menuToggle = document.querySelector(".mobile-menu-toggle");
+    const mobileNav = document.querySelector(".mobile-nav");
+    const mobileNavClose = document.querySelector(".mobile-nav-close");
+    const mobileNavOverlay = document.querySelector(".mobile-nav-overlay");
+
+    const closeMenu = () => {
+      mobileNav?.classList.remove("mobile-nav--open");
+      menuToggle?.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+    };
+
+    const openMenu = () => {
+      mobileNav?.classList.add("mobile-nav--open");
+      menuToggle?.setAttribute("aria-expanded", "true");
+      document.body.style.overflow = "hidden";
+    };
+
+    if (menuToggle && mobileNav) {
+      menuToggle.addEventListener("click", () => {
+        const isOpen = mobileNav.classList.contains("mobile-nav--open");
+        isOpen ? closeMenu() : openMenu();
+      });
+
+      mobileNavClose?.addEventListener("click", closeMenu);
+      mobileNavOverlay?.addEventListener("click", closeMenu);
+    }
+  });
+</script>
+
+<mdc-appheader class={`asjr-header ${className}`}>
+  <!-- Logo Section -->
+  <div slot="leading" class="header-logo">
+    <mdc-link href={baseUrl} class="logo-link" inline>
+      <div class="logo-placeholder" aria-label="ASJR Logo"></div>
+    </mdc-link>
+  </div>
+
+  <!-- Desktop Navigation Section -->
+  <div slot="center" class="header-nav-desktop">
+    <SiteNavigation orientation="horizontal" currentPath={currentPath} />
+  </div>
+
+  <!-- Search and Actions Section -->
+  <div slot="trailing" class="header-actions">
+    <mdc-searchfield
+      placeholder="Search"
+      class="header-search"
+      aria-label="Search"></mdc-searchfield>
+
+    <mdc-button
+      class="mobile-menu-toggle"
+      aria-label="Open menu"
+      aria-expanded="false"
+      prefix-icon="list-menu-light"
+      variant="tertiary"
+    >
+    </mdc-button>
+  </div>
+</mdc-appheader>
+
+<!-- Mobile Navigation Drawer -->
+<div class="mobile-nav">
+  <div class="mobile-nav-content">
+    <div class="mobile-nav-header">
+      <div class="logo-placeholder" aria-label="ASJR Logo"></div>
+      <mdc-button
+        variant="ghost"
+        class="mobile-nav-close"
+        aria-label="Close menu"
+      >
+        <mdc-icon slot="prefix-icon" name="cancel-light" size="20"></mdc-icon>
+      </mdc-button>
+    </div>
+    <SiteNavigation
+      orientation="vertical"
+      currentPath={currentPath}
+      class="mobile-nav-links"
+    />
+  </div>
+  <div class="mobile-nav-overlay"></div>
+</div>
