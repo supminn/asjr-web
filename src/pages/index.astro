@@ -7,6 +7,12 @@ import HomeHero from '../assets/images/home/home-hero.png';
 import WhoWeAre01 from '../assets/images/home/who-we-are-01.png';
 import WhoWeAre02 from '../assets/images/home/who-we-are-02.png';
 import WhatWeDo01 from '../assets/images/home/what-we-do-01.png';
+import WhatWeDo02 from '../assets/images/home/what-we-do-02.png';
+import WhatWeDo03 from '../assets/images/home/what-we-do-03.png';
+import WhatWeDo04 from '../assets/images/home/what-we-do-04.png';
+import WhatWeDo05 from '../assets/images/home/what-we-do-05.png';
+import WhatWeDo06 from '../assets/images/home/what-we-do-06.png';
+import LatestNews from '../assets/images/home/latest-news.png';
 
 //Phosphor icons
 import GraduationCap from 'phosphor-astro/GraduationCap.astro';
@@ -129,7 +135,7 @@ const lang: Lang =
   </section>
 
   <!-- What we do -->
-  <section class="section accent what-we-do">
+  <section class="section secondary what-we-do">
     <div class="inner-container">
       <!-- Section Overview -->
       <div class="section-title">
@@ -150,7 +156,7 @@ const lang: Lang =
             </div>
           </li>
           <li>
-            <Image src={WhatWeDo01} alt="Image" />
+            <Image src={WhatWeDo02} alt="Image" />
             <div class="card-list-content">
               <label>{t(lang, 'programs.publicDefender.title')}</label>
               <p>
@@ -159,7 +165,7 @@ const lang: Lang =
             </div>
           </li>
           <li>
-            <Image src={WhatWeDo01} alt="Image" />
+            <Image src={WhatWeDo03} alt="Image" />
             <div class="card-list-content">
               <label>{t(lang, 'programs.policeOversight.title')}</label>
               <p>
@@ -168,7 +174,7 @@ const lang: Lang =
             </div>
           </li>
           <li>
-            <Image src={WhatWeDo01} alt="Image" />
+            <Image src={WhatWeDo04} alt="Image" />
             <div class="card-list-content">
               <label>{t(lang, 'programs.earlyCaseReview.title')}</label>
               <p>
@@ -177,7 +183,7 @@ const lang: Lang =
             </div>
           </li>
           <li>
-            <Image src={WhatWeDo01} alt="Image" />
+            <Image src={WhatWeDo05} alt="Image" />
             <div class="card-list-content">
               <label>{t(lang, 'programs.communityPower.title')}</label>
               <p>
@@ -186,7 +192,7 @@ const lang: Lang =
             </div>
           </li>
           <li>
-            <Image src={WhatWeDo01} alt="Image" />
+            <Image src={WhatWeDo06} alt="Image" />
             <div class="card-list-content">
               <label>{t(lang, 'programs.rightsEducation.title')}</label>
               <p>
@@ -202,14 +208,21 @@ const lang: Lang =
   <!-- Latest News -->
   <section class="section latest-news">
     <div class="inner-container">
-      <h2>{t(lang, 'news.heading')}</h2>
-      <p>
-        {t(lang, 'news.placeholder.description')}
+      <div class="left">
+        <h2>{t(lang, 'news.heading')}</h2>
+        <p>{t(lang, 'news.description1')}</p>
+        <p>
+          {t(lang, 'news.description2')}
 
-        <mdc-buttonlink size="40" href="" rel="noopener noreferrer">
-          {t(lang, 'news.cta')}
-        </mdc-buttonlink>
-      </p>
+          <mdc-buttonlink size="40" href="" rel="noopener noreferrer">
+            {t(lang, 'news.cta')}
+          </mdc-buttonlink>
+        </p>
+      </div>
+
+      <div class="right">
+        <Image src={LatestNews} alt={t(lang, 'news.iamgeAlt')} />
+      </div>
     </div>
   </section>
 

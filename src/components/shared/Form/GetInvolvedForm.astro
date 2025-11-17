@@ -4,7 +4,7 @@ import './GetInvolvedForm.css';
 import { t } from '../../../i18n/get';
 
 //Phosphor icons
-import Heart from "phosphor-astro/Heart.astro";
+import Chat from "phosphor-astro/Chat.astro";
 import SpeakerHigh from "phosphor-astro/SpeakerHigh.astro";
 import Hand from "phosphor-astro/Hand.astro";
 
@@ -29,16 +29,16 @@ const { class: className = '', lang = 'en' } = Astro.props as Props;
   <div class="get-involved-list">
     <ul>
       <li>
-          <div class="get-invovled-icon"><Heart /></div>
-          <p>{t(lang, 'form.donate')}</p>
+          <div class="get-invovled-icon"><Hand /></div>
+          <p>{t(lang, 'form.volunteer')}</p>
       </li>
       <li>
           <div class="get-invovled-icon"><SpeakerHigh /></div>
           <p>{t(lang, 'form.advocate')}</p>
       </li>
       <li>
-          <div class="get-invovled-icon"><Hand /></div>
-          <p>{t(lang, 'form.volunteer')}</p>
+          <div class="get-invovled-icon"><Chat /></div>
+          <p>{t(lang, 'form.stories')}</p>
       </li>
     </ul>
   </div>
