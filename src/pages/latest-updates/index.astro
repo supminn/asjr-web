@@ -1,12 +1,12 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '../../layouts/Layout.astro';
 
 //Images
 import { Image } from 'astro:assets';
-import WhatWeDo01 from '../assets/images/what-we-do/what-we-do-01.png';
-import KindnessRally from '../assets/images/latest-updates/article20251112/kindness-rally.png';
+import WhatWeDo01 from '../../assets/images/what-we-do/what-we-do-01.png';
+import KindnessRally from '../../assets/images/latest-updates/article20251112/kindness-rally.png';
 
-import { t, type Lang } from '../i18n/get';
+import { t, type Lang } from '../../i18n/get';
 
 const baseUrl = import.meta.env.BASE_URL;
 
@@ -20,6 +20,12 @@ const relativePath = currentPath.startsWith(baseUrl)
 
 const lang: Lang =
   relativePath.startsWith('es/') || relativePath.startsWith('es') ? 'es' : 'en';
+
+const articleBaseUrl = baseUrl + lang + relativePath;
+
+function getArticleUrl(articleName) {
+    return baseUrl + relativePath + '/' + articleName;
+}
 
 ---
 
@@ -42,7 +48,7 @@ const lang: Lang =
                                 <p>{t(lang, 'latestUpdates.article20251112.date')}</p>
                             </div>
                             <p>{t(lang, 'latestUpdates.article20251112.summary')}</p>
-                            <mdc-buttonlink size="40" href="#" rel="noopener noreferrer">
+                            <mdc-buttonlink size="40" href={getArticleUrl(20251112)} rel="noopener noreferrer">
                                 {t(lang, 'latestUpdates.article20251112.link')}
                             </mdc-buttonlink>
                         </div>
