@@ -3,10 +3,8 @@
 .get-involved-form {
   display: flex;
   flex-direction: column;
-  padding: 3.75rem;
   gap: 2rem;
-  background: var(--mds-color-bg-surface-default, #ffffff);
-  border-radius: 1rem;
+  width: 100%;
 }
 
 .get-involved-list {
@@ -128,7 +126,7 @@
   }
 
   .get-involved-form {
-    padding: 1.5rem;
+    padding: 0;
   }
 
   .newsletter-form mdc-button {

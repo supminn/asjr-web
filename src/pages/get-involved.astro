@@ -18,8 +18,12 @@ const lang: Lang =
 ---
 
 <Layout title={t(lang, 'getInvolved.pageTitle')}>
-  <section class="section secondary get-involved">
+  <section class="section get-involved-index">
     <div class="inner-container">
+      <mdc-text type="heading-large-bold" tagname="h2" class="form-title">
+        {t(lang, 'form.title')}
+      </mdc-text>
+
       <GetInvolvedForm lang={lang} />
     </div>
   </section>

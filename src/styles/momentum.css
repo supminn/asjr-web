@@ -427,7 +427,7 @@ img {
   }
 
   .card-list ul li img {
-    border-radius: 0.4375rem 0.4375rem 0 0;
+    border-radius: 0.4375rem 0 0 0.4375rem;
 
     width: 40%;
   }
@@ -446,7 +446,7 @@ img {
   }
 }
 
-/* Home - Latest News */
+/* Home - Latest Updates */
 .section.latest-news .inner-container {
   display: flex;
   flex-direction: row;
@@ -462,23 +462,45 @@ img {
   width: 50%;
 }
 
+/* Home - Get Involved */
+.get-involved-home {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  gap: 1rem;
+  background-color: var(--mds-color-theme-background-solid-primary-normal);
+  border-radius: 1rem;
+  padding: 2.5rem;
+}
+
 /* What We Do // Our Work */
-.section.what-we-do {
+.section.what-we-do-index {
   .inner-container .card-list ul li {
     display: flex;
     flex-direction: column;
     flex-basis: 35%;
 
+    padding: 0;
+
     img {
       width: 100%;
       height: 200px;
+      border-radius: 1.15rem 1.15rem 0 0;
+    }
+
+    .card-list-content {
+      padding: 1rem 1.5rem 2rem 1.5rem;
     }
   }
 }
 
 /* Latest Updates */
-.section.latest-updates {
+.section.latest-updates-index {
   .inner-container {
+    padding-top: 4rem;
+
+
     .card-list ul li {
       display: flex;
       flex-direction: row;
@@ -664,7 +686,7 @@ img {
     width: 100%;
   }
 
-  .section.what-we-do .inner-container {
+  .section.what-we-do .inner-container, .section.what-we-do-index .inner-container {
     .card-list ul li {
       flex-basis: 0;
       flex-direction: column;
@@ -742,7 +764,7 @@ img {
     padding: 3.75rem 0;
   }
 
-  .section.latest-news .inner-container {
+  .section.latest-news .inner-container, .section.latest-updates-index .inner-container {
     flex-direction: column;
 
     .left {
@@ -750,12 +772,12 @@ img {
     }
   }
 
-  .section.latest-updates {
+  .section.latest-updates, .section.latest-updates-index {
     .inner-container .card-list ul {
       gap: 3rem;
     }
 
-    .inner-container .card-list ul li {
+    .inner-container .card-list ul li, .section.latest-updates-index .inner-container .card-list ul li {
       flex-basis: content;
       flex-grow: 1;
       flex-direction: column;

@@ -18,9 +18,6 @@ const { class: className = '', lang = 'en' } = Astro.props as Props;
 
 <div class={`get-involved-form ${className}`}>
   <div class="form-header">
-    <mdc-text type="heading-large-bold" tagname="h2" class="form-title">
-      {t(lang, 'form.title')}
-    </mdc-text>
     <mdc-text type="body-large-regular" tagname="p" class="form-subtitle">
       {t(lang, 'form.subtitle')}
     </mdc-text>
@@ -77,7 +74,7 @@ const { class: className = '', lang = 'en' } = Astro.props as Props;
         label={t(lang, 'form.message')}
         placeholder={t(lang, 'form.messagePlaceholder')}
         wrap="soft"
-        cols="160"
+        cols="170"
         required
         autocapitalize="off"
         autocomplete="off"></mdc-textarea>
