@@ -74,6 +74,11 @@ header {
   border-bottom: 2px solid var(--mds-color-theme-text-secondary-normal);
 }
 
+.nav-menu li a.active span {
+  font-weight: var(--mds-font-weight-bold);
+  border-bottom: 2px solid var(--mds-color-theme-text-primary-normal);
+}
+
 .menu-icon {
   display: none;
   flex-direction: column;
