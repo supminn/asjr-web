@@ -3,7 +3,11 @@
     "latestUpdates.title": "Últimas noticias",
     "latestUpdates.description": "Ver nuestras últimas noticias en ASJR.",
 
+    "latestUpdates.article.backButton": "← Volver a las últimas noticias",
+
     "latestUpdates.article20251112.title": "Título del artículo 1",
+    "latestUpdates.article20251112.subtitle": "Subtítulo del artículo 1",
+    "latestUpdates.article20251112.author": "Nombre del autor",
     "latestUpdates.article20251112.date": "Noviembre 12, 2025",
     "latestUpdates.article20251112.summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus imperdiet felis, tincidunt iaculis orci. Phasellus sed porttitor elit. Cras vehicula, eros sed vehicula scelerisque, massa tellus maximus justo, vitae imperdiet ante sem eu mauris. Nam congue libero in ultricies volutpat. Suspendisse dapibus eu massa a convallis.",
     "latestUpdates.article20251112.thumbnailImageAlt": "Imagen del artículo 1",

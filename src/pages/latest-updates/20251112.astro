@@ -5,6 +5,7 @@ import Layout from '../../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import WhatWeDo01 from '../../assets/images/what-we-do/what-we-do-01.png';
 import KindnessRally from '../../assets/images/latest-updates/article20251112/kindness-rally.png';
+import ConferenceSpeaker from '../../assets/images/latest-updates/article20251112/conference-speaker.png';
 
 import { t, type Lang } from '../../i18n/get';
 
@@ -21,19 +22,50 @@ const relativePath = currentPath.startsWith(baseUrl)
 const lang: Lang =
   relativePath.startsWith('es/') || relativePath.startsWith('es') ? 'es' : 'en';
 
+const langUrl = relativePath.startsWith('es/') || relativePath.startsWith('es') ? 'es/' : '';
+const latestUpdatesUrl = baseUrl + langUrl + 'latest-updates';
+
 ---
 
 <Layout title={t(lang, 'latestUpdates.article20251112.title')}>
-    <section class="section latest-updates">
+    <article class="section latest-updates details">
         <div class="inner-container">
-            <h1>{t(lang, 'latestUpdates.article20251112.title')}</h1>
+            <div class="breadcrumb">
+              <div class="level"><a href={baseUrl}>{t(lang, 'nav.home')}</a></div>
+              <div class="divider"> > </div>
+              <div class="level"><a href={latestUpdatesUrl}>{t(lang, 'nav.latestUpdates')}</a></div>
+              <div class="divider"> > </div>
+              <div class="level active">{t(lang, 'latestUpdates.article20251112.title')}</div>
+            </div>
+            <div class="article-header-info">
+              <h1>{t(lang, 'latestUpdates.article20251112.title')}</h1>
+              <p>
+                <time class="article-date">{t(lang, 'latestUpdates.article20251112.date')}</time>
+                <address>{t(lang, 'latestUpdates.article20251112.author')}</address>
+                <span>{t(lang, 'latestUpdates.article20251112.authorRole')}</span>
+              </p>
+            </div>
+            
+            <Image src={KindnessRally} alt={t(lang, 'latestUpdates.article20251112.details.imageAlt1')} />
+
             <p>
                 {t(lang, 'latestUpdates.article20251112.details.paragraph1')}
             </p>
+
+            <Image src={ConferenceSpeaker} alt={t(lang, 'latestUpdates.article20251112.details.imageAlt2')} />
+
+            <p>
+                {t(lang, 'latestUpdates.article20251112.details.paragraph2')}
+            </p>
+
+            <mdc-buttonlink size="40" href={latestUpdatesUrl} rel="noopener noreferrer">
+                {t(lang, 'latestUpdates.article.backButton')}
+            </mdc-buttonlink>
         </div>
-    </section>
+    </article>
 </Layout>
 
 <script>
   import '@momentum-design/components/dist/components/buttonlink/index.js';
+  import '@momentum-design/components/dist/components/avatar/index.js';
 </script>

@@ -3,7 +3,13 @@
     "latestUpdates.title": "Latest updates",
     "latestUpdates.description": "View our latest updates at ASJR.",
 
+    "latestUpdates.article.backButton": "← Back to latest updates",
+
     "latestUpdates.article20251112.title": "Article 1 Title",
+    "latestUpdates.article20251112.subtitle": "Article 1 Subtitle",
+    "latestUpdates.article20251112.author": "Author Name",
+    "latestUpdates.article20251112.authorRole": "Role",
+    "latestUpdates.article20251112.authorImageAlt": "Headshot of the author",
     "latestUpdates.article20251112.date": "November 12, 2025",
     "latestUpdates.article20251112.summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus imperdiet felis, tincidunt iaculis orci. Phasellus sed porttitor elit. Cras vehicula, eros sed vehicula scelerisque, massa tellus maximus justo, vitae imperdiet ante sem eu mauris. Nam congue libero in ultricies volutpat. Suspendisse dapibus eu massa a convallis.",
     "latestUpdates.article20251112.thumbnailImageAlt": "Article 1 image",
@@ -13,4 +19,6 @@
     "latestUpdates.article20251112.details.paragraph2": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse blandit, sapien ut maximus elementum, justo libero venenatis mi, consectetur pretium dui tortor et odio. Fusce a nunc ac est faucibus laoreet. Praesent ex turpis, facilisis a ligula sit amet, ullamcorper mollis turpis. Vestibulum tempus mi eu sodales gravida. Vivamus egestas sollicitudin lectus. Nulla non ante eu orci tincidunt semper ac id justo. Vestibulum mi metus, pellentesque eget laoreet sagittis, ultrices non nunc. Nam suscipit felis a ex dictum sodales. Ut ultricies convallis nisl. Morbi finibus ligula quis lectus cursus, eget eleifend magna porta. Nullam gravida metus nec auctor tempus.",
     "latestUpdates.article20251112.details.imageAlt1": "A crowd of people holding signs at a Kindness Rally in Austin, Texas",
     "latestUpdates.article20251112.details.imageAlt2": "ASJR speakers discuss social justice in front of an audience."
+
+
 }
