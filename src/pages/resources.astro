@@ -1,181 +1,234 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { t, type Lang } from '../i18n/get';
+
+import { Image } from 'astro:assets';
+import Step2Image from '../assets/images/resources/step2.png';
+import Step4Image from '../assets/images/resources/step4.png';
+import Step5Image from '../assets/images/resources/step5.jpg';
+
+import CheckCircle from 'phosphor-astro/CheckCircle.astro';
+import SpeakerSimpleSlash from 'phosphor-astro/SpeakerSimpleSlash.astro';
+import Keyhole from 'phosphor-astro/Keyhole.astro';
+
+const baseUrl = import.meta.env.BASE_URL;
+
+// Detect current language from URL
+const currentPath = Astro.url.pathname;
+
+// Remove baseUrl to get relative path for language detection
+const relativePath = currentPath.startsWith(baseUrl)
+  ? currentPath.slice(baseUrl.length)
+  : currentPath;
+
+const lang: Lang =
+  relativePath.startsWith('es/') || relativePath.startsWith('es') ? 'es' : 'en';
 ---
 
-<Layout title="Resources - ASJR">
-  <div class="page-container">
-    <section class="hero">
-      <mdc-text type="heading-xlarge-bold" tagname="h1">
-        Resources
-      </mdc-text>
-      <mdc-text type="body-large-regular" tagname="p" class="hero-subtext">
-        Essential information and tools to help you navigate the criminal legal system.
-      </mdc-text>
+<Layout title={t(lang, 'resources.pageTitle')}>
+  <section class="section resources">
+    <div class="inner-container">
+      <h1>{t(lang, 'resources.title')}</h1>
+      <div class="resources-content">
+        <div class="content-step">
+          <mdc-text type="heading-small-bold" tagname="h3"
+            >{t(lang, 'resources.step1.title')}</mdc-text
+          >
+          <div class="description-box step-1-description">
+            <ul>
+              <li>{t(lang, 'resources.step1.detail1')}</li>
+              <li>{t(lang, 'resources.step1.detail2')}</li>
+              <li>{t(lang, 'resources.step1.detail3')}</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="content-step">
+          <mdc-text type="heading-small-bold" tagname="h3"
+            >{t(lang, 'resources.step2.title')}</mdc-text
+          >
+          <div class="description-box step-2-description">
+            <ul>
+              <li>{t(lang, 'resources.step2.detail1')}</li>
+              <li>{t(lang, 'resources.step2.detail2')}</li>
+              <li>{t(lang, 'resources.step2.detail3')}</li>
+              <li>{t(lang, 'resources.step2.detail4')}</li>
+            </ul>
+            <Image src={Step2Image} alt={t(lang, 'resources.step2.imageAlt')} />
+          </div>
+        </div>
+
+        <div class="content-step">
+          <mdc-text type="heading-small-bold" tagname="h3"
+            >{t(lang, 'resources.step3.title')}</mdc-text
+          >
+          <div class="description-box step-3-description">
+            <ul>
+              <li>{t(lang, 'resources.step3.detail1')}</li>
+              <li>{t(lang, 'resources.step3.detail2')}</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="content-step">
+          <mdc-text type="heading-small-bold" tagname="h3"
+            >{t(lang, 'resources.step4.title')}</mdc-text
+          >
+          <div class="description-box step-4-description">
+            <ul>
+              <li>{t(lang, 'resources.step4.detail1')}</li>
+              <ul>
+                <li>{t(lang, 'resources.step4.subdetail1')}</li>
+                <li>{t(lang, 'resources.step4.subdetail2')}</li>
+                <li>{t(lang, 'resources.step4.subdetail3')}</li>
+                <li>{t(lang, 'resources.step4.subdetail4')}</li>
+                <li>{t(lang, 'resources.step4.subdetail5')}</li>
+                <li>{t(lang, 'resources.step4.subdetail6')}</li>
+              </ul>
+              <li>{t(lang, 'resources.step4.detail2')}</li>
+            </ul>
+            <Image src={Step4Image} alt={t(lang, 'resources.step4.imageAlt')} />
+          </div>
+        </div>
+
+        <div class="content-step">
+          <mdc-text type="heading-small-bold" tagname="h3"
+            >{t(lang, 'resources.step5.title')}</mdc-text
+          >
+          <div class="description-box step-5-description">
+            <ul>
+              <li>{t(lang, 'resources.step5.detail1')}</li>
+              <li>{t(lang, 'resources.step5.detail2')}</li>
+              <li>{t(lang, 'resources.step5.detail3')}</li>
+              <li>{t(lang, 'resources.step5.detail4')}</li>
+              <li>{t(lang, 'resources.step5.detail5')}</li>
+              <li>{t(lang, 'resources.step5.detail6')}</li>
+            </ul>
+            <Image src={Step5Image} alt={t(lang, 'resources.step5.imageAlt')} />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section rights-checklist">
+      <mdc-text type="heading-large-bold" tagname="h2"
+        >{t(lang, 'resources.checklist.title')}</mdc-text
+      >
+      <div class="card-list">
+        <ul>
+          <li>
+            <div class="card-icon"><CheckCircle class="icon" /></div>
+            <label>{t(lang, 'resources.checklist.point1.title')}</label>
+            <p>
+              {t(lang, 'resources.checklist.point1.detail')}
+            </p>
+          </li>
+          <li>
+            <div class="card-icon"><SpeakerSimpleSlash class="icon" /></div>
+            <label>{t(lang, 'resources.checklist.point2.title')}</label>
+            <p>
+              {t(lang, 'resources.checklist.point2.detail')}
+            </p>
+          </li>
+          <li>
+            <div class="card-icon"><Keyhole class="icon" /></div>
+            <label>{t(lang, 'resources.checklist.point3.title')}</label>
+            <p>
+              {t(lang, 'resources.checklist.point3.detail')}
+            </p>
+          </li>
+          <li>
+            <div class="card-icon"><CheckCircle class="icon" /></div>
+            <label>{t(lang, 'resources.checklist.point4.title')}</label>
+            <p>
+              {t(lang, 'resources.checklist.point4.detail')}
+            </p>
+          </li>
+        </ul>
+      </div>
     </section>
 
-    <section class="resources">
-      <div class="resource-category">
-        <mdc-text type="heading-large-medium" tagname="h2">
-          Know Your Rights
-        </mdc-text>
-        <div class="resource-grid">
-          <mdc-card card-title="During Police Encounters">
-            <mdc-text slot="body" type="body-midsize-regular" tagname="p">
-              What to do and say when approached by law enforcement officers.
-            </mdc-text>
-            <mdc-button slot="footer-button-primary" variant="primary">Download Guide</mdc-button>
-          </mdc-card>
-          
-          <mdc-card card-title="At Court Hearings">
-            <mdc-text slot="body" type="body-midsize-regular" tagname="p">
-              Understanding your rights and what to expect during court proceedings.
-            </mdc-text>
-            <mdc-button slot="footer-button-primary" variant="primary">Download Guide</mdc-button>
-          </mdc-card>
-          
-          <mdc-card card-title="While Incarcerated">
-            <mdc-text slot="body" type="body-midsize-regular" tagname="p">
-              Your rights and resources while in jail or prison.
-            </mdc-text>
-            <mdc-button slot="footer-button-primary" variant="primary">Download Guide</mdc-button>
-          </mdc-card>
-        </div>
-      </div>
-
-      <div class="resource-category">
-        <mdc-text type="heading-large-medium" tagname="h2">
-          Legal Aid & Support
-        </mdc-text>
-        <div class="resource-list">
-          <div class="resource-item">
-            <mdc-text type="body-large-bold" tagname="h3">Texas RioGrande Legal Aid</mdc-text>
-            <mdc-text type="body-midsize-regular" tagname="p">Free legal services for low-income individuals</mdc-text>
-            <mdc-text type="body-small-regular" tagname="a" href="tel:512-374-2700" class="contact-link">512-374-2700</mdc-text>
-          </div>
-          
-          <div class="resource-item">
-            <mdc-text type="body-large-bold" tagname="h3">Austin Lawyers Care</mdc-text>
-            <mdc-text type="body-midsize-regular" tagname="p">Pro bono legal services and referrals</mdc-text>
-            <mdc-text type="body-small-regular" tagname="a" href="tel:512-472-8303" class="contact-link">512-472-8303</mdc-text>
-          </div>
-          
-          <div class="resource-item">
-            <mdc-text type="body-large-bold" tagname="h3">Travis County Public Defender</mdc-text>
-            <mdc-text type="body-midsize-regular" tagname="p">Court-appointed legal representation</mdc-text>
-            <mdc-text type="body-small-regular" tagname="a" href="tel:512-854-9400" class="contact-link">512-854-9400</mdc-text>
-          </div>
-        </div>
-      </div>
-
-      <div class="resource-category">
-        <mdc-text type="heading-large-medium" tagname="h2">
-          Emergency Contacts
-        </mdc-text>
-        <div class="emergency-grid">
-          <div class="emergency-card">
-            <mdc-text type="body-large-bold" tagname="h3">Arrested or Detained?</mdc-text>
-            <mdc-text type="body-midsize-regular" tagname="p">24/7 Jail Information Line</mdc-text>
-            <mdc-button variant="primary" size="large">Call 512-854-9770</mdc-button>
-          </div>
-          
-          <div class="emergency-card">
-            <mdc-text type="body-large-bold" tagname="h3">Crisis Support</mdc-text>
-            <mdc-text type="body-midsize-regular" tagname="p">Mental Health Crisis Hotline</mdc-text>
-            <mdc-button variant="secondary" size="large">Call 512-472-4357</mdc-button>
-          </div>
-        </div>
+    <section class="section where-to-get-help">
+      <mdc-text type="heading-large-bold" tagname="h2"
+        >{t(lang, 'resources.gethelp.title')}</mdc-text
+      >
+      <div class="card-list">
+        <ul>
+          <li>
+            <label>{t(lang, 'resources.gethelp.point1.title')}</label>
+            <p>
+              {t(lang, 'resources.gethelp.point1.detail')}
+            </p>
+          </li>
+          <li>
+            <label>{t(lang, 'resources.gethelp.point2.title')}</label>
+            <p>
+              {t(lang, 'resources.gethelp.point2.detail1')}<br />
+              {t(lang, 'resources.gethelp.point2.detail2')}
+            </p>
+          </li>
+          <li>
+            <label>{t(lang, 'resources.gethelp.point3.title')}</label>
+            <p>
+              {t(lang, 'resources.gethelp.point3.detail1')}<br />
+              {t(lang, 'resources.gethelp.point3.detail2')}
+            </p>
+          </li>
+          <li>
+            <label>{t(lang, 'resources.gethelp.point4.title')}</label>
+            <p>
+              {t(lang, 'resources.gethelp.point4.detail')}
+            </p>
+          </li>
+          <li>
+            <label>{t(lang, 'resources.gethelp.point5.title')}</label>
+            <p>
+              {t(lang, 'resources.gethelp.point5.detail1')}<br />
+              {t(lang, 'resources.gethelp.point5.detail2')}
+            </p>
+          </li>
+        </ul>
       </div>
     </section>
-  </div>
+  </section>
 </Layout>
 
 <style>
-  .page-container {
-    max-width: 72rem;
+  .inner-container,
+  .rights-checklist,
+  .where-to-get-help {
+    max-width: var(--max-width);
     margin: 0 auto;
-    padding: 2rem 1rem;
+    padding: var(--vertical-padding) var(--horizontal-padding);
+    gap: 2.5rem;
   }
-
-  .hero {
-    text-align: center;
-    padding: 4rem 0;
-    border-bottom: 1px solid var(--mds-color-neutral-200);
-    margin-bottom: 4rem;
-  }
-
-  .hero-subtext {
-    margin-top: 1.5rem;
-    max-width: 48rem;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .resources {
+  .resources-content {
     display: flex;
+    padding: 0 var(--horizontal-padding);
     flex-direction: column;
-    gap: 4rem;
+    gap: 5rem;
   }
-
-  .resource-category {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  .description-box {
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid
+      var(--mds-color-theme-outline-primary-normal, rgba(0, 0, 0, 0.46));
   }
-
-  .resource-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
+  .description-box li {
+    /* apps/body/midsize/regular */
+    font-size: var(--mds-font-size-body-midsize, 1rem);
+    font-style: normal;
+    font-weight: 400;
+    line-height: var(
+      --mds-font-lineheight-body-midsize,
+      1.25rem
+    ); /* 142.857% */
   }
-
-  .resource-list {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  .rights-checklist {
+    align-items: start;
   }
-
-  .resource-item {
-    padding: 2rem;
-    background-color: var(--mds-color-neutral-50);
-    border-radius: 1rem;
-    border: 1px solid var(--mds-color-neutral-200);
-  }
-
-  .contact-link {
-    color: var(--mds-color-theme-text-accent-normal);
-    text-decoration: none;
-    font-weight: 600;
-  }
-
-  .contact-link:hover {
-    text-decoration: underline;
-  }
-
-  .emergency-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-  }
-
-  .emergency-card {
-    background-color: var(--mds-color-red-50);
-    border: 2px solid var(--mds-color-red-200);
-    padding: 2rem;
-    border-radius: 1rem;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  mdc-text[type="heading-xlarge-bold"] {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    line-height: 1.1;
-  }
-
-  mdc-text[type="heading-large-medium"] {
-    font-size: clamp(1.75rem, 3vw, 2.25rem);
-    line-height: 1.25;
+  .icon {
+    fill: var(--color-theme-text-accent-normal, #0353a8);
   }
 </style>
 
