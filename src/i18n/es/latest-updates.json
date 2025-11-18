@@ -1,0 +1,16 @@
+{
+    "latestUpdates.pageTitle": "ASJR - Últimas noticias",
+    "latestUpdates.title": "Últimas noticias",
+    "latestUpdates.description": "Ver nuestras últimas noticias en ASJR.",
+
+    "latestUpdates.article20251112.title": "Título del artículo 1",
+    "latestUpdates.article20251112.date": "Noviembre 12, 2025",
+    "latestUpdates.article20251112.summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus imperdiet felis, tincidunt iaculis orci. Phasellus sed porttitor elit. Cras vehicula, eros sed vehicula scelerisque, massa tellus maximus justo, vitae imperdiet ante sem eu mauris. Nam congue libero in ultricies volutpat. Suspendisse dapibus eu massa a convallis.",
+    "latestUpdates.article20251112.thumbnailImageAlt": "Imagen del artículo 1",
+    "latestUpdates.article20251112.link": "Leer artículo →",
+
+    "latestUpdates.article20251112.details.paragraph1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus imperdiet felis, tincidunt iaculis orci. Phasellus sed porttitor elit. Cras vehicula, eros sed vehicula scelerisque, massa tellus maximus justo, vitae imperdiet ante sem eu mauris. Nam congue libero in ultricies volutpat. Suspendisse dapibus eu massa a convallis. Sed gravida tortor ac risus consectetur euismod. In congue viverra est sed laoreet. Fusce eu lorem a sem ultrices eleifend. Nullam eleifend, neque a facilisis hendrerit, nisl turpis euismod neque, eget finibus tortor magna ut sem. Sed volutpat purus vel urna convallis, vel gravida odio interdum. Donec at nisl a sapien tincidunt interdum. Aenean eu nisi dui.",
+    "latestUpdates.article20251112.details.paragraph2": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse blandit, sapien ut maximus elementum, justo libero venenatis mi, consectetur pretium dui tortor et odio. Fusce a nunc ac est faucibus laoreet. Praesent ex turpis, facilisis a ligula sit amet, ullamcorper mollis turpis. Vestibulum tempus mi eu sodales gravida. Vivamus egestas sollicitudin lectus. Nulla non ante eu orci tincidunt semper ac id justo. Vestibulum mi metus, pellentesque eget laoreet sagittis, ultrices non nunc. Nam suscipit felis a ex dictum sodales. Ut ultricies convallis nisl. Morbi finibus ligula quis lectus cursus, eget eleifend magna porta. Nullam gravida metus nec auctor tempus.",
+    "latestUpdates.article20251112.details.imageAlt1": "Un grupo de personas sosteniendo carteles en una manifestación de la justicia social en Austin, Texas",
+    "latestUpdates.article20251112.details.imageAlt2": "Los oradores de ASJR hablan sobre la justicia social en frente a un público."
+}

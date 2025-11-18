@@ -426,8 +426,50 @@ img {
   }
 }
 
+/* Latest Updates */
+.section.latest-updates {
+  .inner-container .card-list ul li {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 100%;
+    gap: 1.5rem;
+
+    padding: 0;
+    border: 0;
+
+    label {
+      font-size: 1.25rem;
+    }
+
+    img {
+      width: 100%;
+      height: 15.5rem;
+    }
+
+    .card-list-content {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: start;
+      gap: 1rem;
+    }
+
+    .card-list-content-title {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: start;
+      gap: 0.25rem;
+    }
+  }
+}
+
 /* Desktop - 1024px to 1440px */
 @media (min-width: 1024px) and (max-width: 1440px) {  
+  h1 {
+    font-size: 3.25rem;
+  }
+
   .section.hero p {
     font-size: 1.25rem;
   }
@@ -455,6 +497,10 @@ img {
 /* Tablet - 768px to 1024px */
 @media (min-width: 768px) and (max-width: 1023px) {
   /* Styles for tablet */
+  h1 {
+    font-size: 2.5rem;
+  }
+
   .section .inner-container {
     gap: 1rem;
   }
@@ -484,12 +530,16 @@ img {
       width: 100%;
       height: 21.75rem;
     }
-  }  
+  }
 }
 
 /* Mobile Large - 576px to 767px */
 @media (min-width: 576px) and (max-width: 767px) {
   /* Styles for large mobile */
+  h1 {
+    font-size: 2rem;
+  }
+
   .section .inner-container {
     gap: 1rem;
   }
@@ -521,10 +571,18 @@ img {
       height: 21.75rem;
     }
   }
+
+  .section.latest-updates .inner-container {
+    padding: 3.75rem 0;
+  }
 }
 
 /* Mobile Small - 320px to 575px */
 @media (min-width: 320px) and (max-width: 575px) {
+  h1 {
+    font-size: 2rem;
+  }
+
   .section .inner-container {
     gap: 1rem;
   }
@@ -569,7 +627,7 @@ img {
     }
   }
 
-  .section.what-we-do .inner-container {
+  .section.what-we-do .inner-container, .section.latest-updates .inner-container {
     padding: 3.75rem 0;
   }
 
@@ -628,6 +686,18 @@ img {
 
     .left {
       width: 100%;
+    }
+  }
+
+  .section.latest-updates {
+    .inner-container .card-list ul {
+      gap: 3rem;
+    }
+    
+    .inner-container .card-list ul li {
+      flex-basis: content;
+      flex-grow: 1;
+      flex-direction: column;
     }
   }
 }

@@ -1,14 +1,84 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+//Images
+import { Image } from 'astro:assets';
+import WhatWeDo01 from '../assets/images/what-we-do/what-we-do-01.png';
+import KindnessRally from '../assets/images/latest-updates/article20251112/kindness-rally.png';
+
+import { t, type Lang } from '../i18n/get';
+
+const baseUrl = import.meta.env.BASE_URL;
+
+// Detect current language from URL
+const currentPath = Astro.url.pathname;
+
+// Remove baseUrl to get relative path for language detection
+const relativePath = currentPath.startsWith(baseUrl)
+  ? currentPath.slice(baseUrl.length)
+  : currentPath;
+
+const lang: Lang =
+  relativePath.startsWith('es/') || relativePath.startsWith('es') ? 'es' : 'en';
+
 ---
 
-<Layout title="ASJR - Latest Updates">
+<Layout title={t(lang, 'latestUpdates.pageTitle')}>
     <section class="section latest-updates">
         <div class="inner-container">
-            <h1>Latest Updates</h1>
+            <h1>{t(lang, 'latestUpdates.title')}</h1>
             <p>
-                Add links to articles here.
+                {t(lang, 'latestUpdates.description')}
             </p>
+
+            <!-- Card List -->
+            <div class="card-list">
+                <ul>
+                    <li>
+                        <Image src={KindnessRally} alt={t(lang, 'latestUpdates.article20251112.thumbnailImageAlt')} />
+                        <div class="card-list-content">
+                            <div class="card-list-content-title">
+                                <label>{t(lang, 'latestUpdates.article20251112.title')}</label>
+                                <p>{t(lang, 'latestUpdates.article20251112.date')}</p>
+                            </div>
+                            <p>{t(lang, 'latestUpdates.article20251112.summary')}</p>
+                            <mdc-buttonlink size="40" href="#" rel="noopener noreferrer">
+                                {t(lang, 'latestUpdates.article20251112.link')}
+                            </mdc-buttonlink>
+                        </div>
+                    </li>
+                    <li>
+                        <Image src={KindnessRally} alt={t(lang, 'latestUpdates.article20251112.thumbnailImageAlt')} />
+                        <div class="card-list-content">
+                            <div class="card-list-content-title">
+                                <label>{t(lang, 'latestUpdates.article20251112.title')}</label>
+                                <p>{t(lang, 'latestUpdates.article20251112.date')}</p>
+                            </div>
+                            <p>{t(lang, 'latestUpdates.article20251112.summary')}</p>
+                            <mdc-buttonlink size="40" href="#" rel="noopener noreferrer">
+                                {t(lang, 'latestUpdates.article20251112.link')}
+                            </mdc-buttonlink>
+                        </div>
+                    </li>
+                    <li>
+                        <Image src={KindnessRally} alt={t(lang, 'latestUpdates.article20251112.thumbnailImageAlt')} />
+                        <div class="card-list-content">
+                            <div class="card-list-content-title">
+                                <label>{t(lang, 'latestUpdates.article20251112.title')}</label>
+                                <p>{t(lang, 'latestUpdates.article20251112.date')}</p>
+                            </div>
+                            <p>{t(lang, 'latestUpdates.article20251112.summary')}</p>
+                            <mdc-buttonlink size="40" href="#" rel="noopener noreferrer">
+                                {t(lang, 'latestUpdates.article20251112.link')}
+                            </mdc-buttonlink>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </section>
 </Layout>
+
+<script>
+  import '@momentum-design/components/dist/components/buttonlink/index.js';
+</script>
