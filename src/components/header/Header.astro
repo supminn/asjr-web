@@ -55,7 +55,10 @@ const navItems = [
     key: 'nav.resources',
     href: `${baseUrl}${isSpanish ? 'es/' : ''}resources`,
   },
-  { key: 'nav.latestUpdates', href: `${baseUrl}${isSpanish ? 'es/' : ''}latest-updates` },
+  {
+    key: 'nav.latestUpdates',
+    href: `${baseUrl}${isSpanish ? 'es/' : ''}latest-updates`,
+  },
   {
     key: 'nav.getInvolved',
     href: `${baseUrl}${isSpanish ? 'es/' : ''}get-involved`,
@@ -63,6 +66,28 @@ const navItems = [
 ];
 
 const seekHelpLink = `${baseUrl}${isSpanish ? 'es/' : ''}resources`;
+
+// Helper function to check if a nav item is the current page
+function isCurrentPage(href: string): boolean {
+  // Normalize both paths for comparison
+  const normalizedCurrent = relativePath.endsWith('/')
+    ? relativePath.slice(0, -1)
+    : relativePath;
+  const normalizedHref = href.startsWith(baseUrl)
+    ? href.slice(baseUrl.length)
+    : href;
+  const normalizedHrefClean =
+    normalizedHref.endsWith('/') && normalizedHref.length > 1
+      ? normalizedHref.slice(0, -1)
+      : normalizedHref;
+
+  // Special case for home page
+  if (normalizedHrefClean === '' || normalizedHrefClean === 'es') {
+    return normalizedCurrent === '' || normalizedCurrent === 'es';
+  }
+
+  return normalizedCurrent === normalizedHrefClean;
+}
 ---
 
 <script>
@@ -104,7 +129,10 @@ const seekHelpLink = `${baseUrl}${isSpanish ? 'es/' : ''}resources`;
         {
           navItems.map((item) => (
             <li>
-              <a href={item.href}>
+              <a
+                href={item.href}
+                class={isCurrentPage(item.href) ? 'active' : ''}
+              >
                 <span>{t(lang, item.key)}</span>
               </a>
             </li>

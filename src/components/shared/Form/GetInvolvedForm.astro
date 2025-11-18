@@ -4,9 +4,9 @@ import './GetInvolvedForm.css';
 import { t } from '../../../i18n/get';
 
 //Phosphor icons
-import Chat from "phosphor-astro/Chat.astro";
-import SpeakerHigh from "phosphor-astro/SpeakerHigh.astro";
-import Hand from "phosphor-astro/Hand.astro";
+import Chat from 'phosphor-astro/Chat.astro';
+import SpeakerHigh from 'phosphor-astro/SpeakerHigh.astro';
+import Hand from 'phosphor-astro/Hand.astro';
 
 export interface Props {
   class?: string;
@@ -29,21 +29,21 @@ const { class: className = '', lang = 'en' } = Astro.props as Props;
   <div class="get-involved-list">
     <ul>
       <li>
-          <div class="get-invovled-icon"><Hand /></div>
-          <p>{t(lang, 'form.volunteer')}</p>
+        <div class="get-invovled-icon"><Hand /></div>
+        <p>{t(lang, 'form.volunteer')}</p>
       </li>
       <li>
-          <div class="get-invovled-icon"><SpeakerHigh /></div>
-          <p>{t(lang, 'form.advocate')}</p>
+        <div class="get-invovled-icon"><SpeakerHigh /></div>
+        <p>{t(lang, 'form.advocate')}</p>
       </li>
       <li>
-          <div class="get-invovled-icon"><Chat /></div>
-          <p>{t(lang, 'form.stories')}</p>
+        <div class="get-invovled-icon"><Chat /></div>
+        <p>{t(lang, 'form.stories')}</p>
       </li>
     </ul>
   </div>
 
-  <form class="newsletter-form" novalidate>
+  <form class="newsletter-form">
     <fieldset>
       <legend class="sr-only">{t(lang, 'form.newsletterSignup')}</legend>
 
@@ -71,16 +71,16 @@ const { class: className = '', lang = 'en' } = Astro.props as Props;
         placeholder={t(lang, 'form.emailPlaceholder')}
         required></mdc-input>
 
-        <mdc-textarea
-          id="message"
-          name="message"
-          label={t(lang, 'form.message')}
-          placeholder={t(lang, 'form.messagePlaceholder')}
-          wrap="soft"
-          cols="160"
-          required
-          autocapitalize="off"
-          autocomplete="off"></mdc-textarea>
+      <mdc-textarea
+        id="message"
+        name="message"
+        label={t(lang, 'form.message')}
+        placeholder={t(lang, 'form.messagePlaceholder')}
+        wrap="soft"
+        cols="160"
+        required
+        autocapitalize="off"
+        autocomplete="off"></mdc-textarea>
 
       <mdc-button type="submit" variant="primary" size="40">
         {t(lang, 'form.submit')}
