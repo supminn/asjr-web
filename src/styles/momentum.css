@@ -566,7 +566,6 @@ img {
   font-size: 4.5rem;
   font-weight: 800;
   line-height: 5.3125rem;
-  text-transform: capitalize;
 }
 
 .section.about-hero .hero-subtitle {
@@ -629,6 +628,30 @@ img {
   width: 100%;
   height: auto;
   border-radius: 0.5rem;
+}
+
+.about-video {
+  max-width: 100%;
+}
+
+.about-video::-webkit-media-controls-panel {
+  background-color: transparent;
+}
+
+.about-video::cue {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: var(--mds-color-theme-solid-primary-normal, rgb(255, 255, 255));
+  padding: 0.25rem 0.5rem;
+}
+
+/* High contrast support for captions */
+@media (prefers-contrast: high) {
+  .about-video::cue {
+    background-color: black;
+    font-weight: 600;
+  }
 }
 
 /* About - Vision & Mission Sections */

@@ -7,6 +7,7 @@
   "about.story.heading": "Our story",
   "about.story.description": "See how ASJR began, and why our fight for fair justice continues.",
   "about.story.videoAlt": "Video about ASJR's story and mission",
+  "about.story.videoFallback": "Your browser does not support the video element. Please use a modern browser to view this content.",
   "about.vision.heading": "Our vision",
   "about.vision.description": "We are a community where all persons are represented within a social justice system that is just, fair and inclusive.",
   "about.vision.imageAlt": "A group of people are outside a building, holding a sign protesting for social justice",

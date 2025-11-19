@@ -7,6 +7,7 @@
   "about.story.heading": "Nuestra historia",
   "about.story.description": "Vea cómo comenzó ASJR y por qué continúa nuestra lucha por una justicia justa.",
   "about.story.videoAlt": "Video sobre la historia y misión de ASJR",
+  "about.story.videoFallback": "Su navegador no admite el elemento de video. Utilice un navegador moderno para ver este contenido.",
   "about.vision.heading": "Nuestra visión",
   "about.vision.description": "Somos una comunidad donde todas las personas están representadas dentro de un sistema de justicia social que es justo, equitativo e inclusivo.",
   "about.vision.imageAlt": "Un grupo de personas están afuera de un edificio, sosteniendo un cartel protestando por la justicia social",

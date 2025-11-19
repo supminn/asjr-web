@@ -74,7 +74,30 @@ const lang: Lang =
       </div>
 
       <div class="video-container">
-        <Image src={VideoPlaceholder} alt={t(lang, "about.story.videoAlt")} />
+        <video
+          controls
+          preload="metadata"
+          poster={VideoPlaceholder.src}
+          aria-label={t(lang, "about.story.videoAlt")}
+          class="about-video"
+        >
+          <source src={`${baseUrl}videos/our-story.mp4`} type="video/mp4" />
+          <track
+            kind="captions"
+            src={`${baseUrl}captions/our-story-en.vtt`}
+            srclang="en"
+            label="English"
+            default={lang === "en"}
+          />
+          <track
+            kind="captions"
+            src={`${baseUrl}captions/our-story-es.vtt`}
+            srclang="es"
+            label="Español"
+            default={lang === "es"}
+          />
+          <p>{t(lang, "about.story.videoFallback")}</p>
+        </video>
       </div>
     </div>
   </section>
