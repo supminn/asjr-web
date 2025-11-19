@@ -2,11 +2,13 @@
 // GetInvolvedForm.astro - Newsletter/Get Involved Form Component
 import './GetInvolvedForm.css';
 import { t } from '../../../i18n/get';
+import { Image } from 'astro:assets';
 
 //Phosphor icons
 import Chat from 'phosphor-astro/Chat.astro';
 import SpeakerHigh from 'phosphor-astro/SpeakerHigh.astro';
 import Hand from 'phosphor-astro/Hand.astro';
+import ContactImage from '../../../assets/images/get-involved/getInvolved.jpg';
 
 export interface Props {
   class?: string;
@@ -14,81 +16,145 @@ export interface Props {
 }
 
 const { class: className = '', lang = 'en' } = Astro.props as Props;
+const url = Astro.url.href;
+const urlSuffix = url.split('/').pop();
+console.log('Turbo 🚀  ~ urlSuffix:', urlSuffix);
 ---
 
-<div class={`get-involved-form ${className}`}>
-  <div class="form-header">
-    <mdc-text type="heading-large-bold" tagname="h2" class="form-title">
-      {t(lang, 'form.title')}
-    </mdc-text>
-    <mdc-text type="body-large-regular" tagname="p" class="form-subtitle">
-      {t(lang, 'form.subtitle')}
-    </mdc-text>
+<div class="flex-container">
+  <div class={`get-involved-form ${className}`}>
+    <div class="form-header">
+      <mdc-text type="body-large-regular" tagname="p" class="form-subtitle">
+        {t(lang, 'form.subtitle')}
+      </mdc-text>
+    </div>
+
+    <div class="get-involved-list">
+      <ul>
+        <li>
+          <div class="get-invovled-icon"><Hand /></div>
+          <p>{t(lang, 'form.volunteer')}</p>
+        </li>
+        <li>
+          <div class="get-invovled-icon"><SpeakerHigh /></div>
+          <p>{t(lang, 'form.advocate')}</p>
+        </li>
+        <li>
+          <div class="get-invovled-icon"><Chat /></div>
+          <p>{t(lang, 'form.stories')}</p>
+        </li>
+      </ul>
+    </div>
+    <div class="get-involved-list">
+      <ul>
+        <li>
+          <div class="get-invovled-icon"><Hand /></div>
+          <p>{t(lang, 'form.volunteer')}</p>
+        </li>
+        <li>
+          <div class="get-invovled-icon"><SpeakerHigh /></div>
+          <p>{t(lang, 'form.advocate')}</p>
+        </li>
+        <li>
+          <div class="get-invovled-icon"><Chat /></div>
+          <p>{t(lang, 'form.stories')}</p>
+        </li>
+      </ul>
+    </div>
+
+    <form class="newsletter-form">
+      <fieldset>
+        <legend class="sr-only">{t(lang, 'form.newsletterSignup')}</legend>
+        <form class="newsletter-form">
+          <fieldset>
+            <legend class="sr-only">{t(lang, 'form.newsletterSignup')}</legend>
+
+            <div class="form-row">
+              <mdc-input
+                id="first-name"
+                name="firstName"
+                label={t(lang, 'form.firstName')}
+                placeholder={t(lang, 'form.firstNamePlaceholder')}
+                required></mdc-input>
+
+              <mdc-input
+                id="last-name"
+                name="lastName"
+                label={t(lang, 'form.lastName')}
+                placeholder={t(lang, 'form.lastNamePlaceholder')}
+                required></mdc-input>
+            </div>
+
+            <mdc-input
+              id="email"
+              name="email"
+              type="email"
+              label={t(lang, 'form.emailAddress')}
+              placeholder={t(lang, 'form.emailPlaceholder')}
+              required></mdc-input>
+
+            <mdc-textarea
+              id="message"
+              name="message"
+              label={t(lang, 'form.message')}
+              placeholder={t(lang, 'form.messagePlaceholder')}
+              wrap="soft"
+              cols="170"
+              required
+              autocapitalize="off"
+              autocomplete="off"></mdc-textarea>
+            <mdc-textarea
+              id="message"
+              name="message"
+              label={t(lang, 'form.message')}
+              placeholder={t(lang, 'form.messagePlaceholder')}
+              wrap="soft"
+              cols="160"
+              required
+              autocapitalize="off"
+              autocomplete="off"></mdc-textarea>
+
+            <mdc-button type="submit" variant="primary" size="40">
+              {t(lang, 'form.submit')}
+            </mdc-button>
+          </fieldset>
+        </form>
+      </fieldset>
+    </form>
   </div>
-
-  <div class="get-involved-list">
-    <ul>
-      <li>
-        <div class="get-invovled-icon"><Hand /></div>
-        <p>{t(lang, 'form.volunteer')}</p>
-      </li>
-      <li>
-        <div class="get-invovled-icon"><SpeakerHigh /></div>
-        <p>{t(lang, 'form.advocate')}</p>
-      </li>
-      <li>
-        <div class="get-invovled-icon"><Chat /></div>
-        <p>{t(lang, 'form.stories')}</p>
-      </li>
-    </ul>
-  </div>
-
-  <form class="newsletter-form">
-    <fieldset>
-      <legend class="sr-only">{t(lang, 'form.newsletterSignup')}</legend>
-
-      <div class="form-row">
-        <mdc-input
-          id="first-name"
-          name="firstName"
-          label={t(lang, 'form.firstName')}
-          placeholder={t(lang, 'form.firstNamePlaceholder')}
-          required></mdc-input>
-
-        <mdc-input
-          id="last-name"
-          name="lastName"
-          label={t(lang, 'form.lastName')}
-          placeholder={t(lang, 'form.lastNamePlaceholder')}
-          required></mdc-input>
-      </div>
-
-      <mdc-input
-        id="email"
-        name="email"
-        type="email"
-        label={t(lang, 'form.emailAddress')}
-        placeholder={t(lang, 'form.emailPlaceholder')}
-        required></mdc-input>
-
-      <mdc-textarea
-        id="message"
-        name="message"
-        label={t(lang, 'form.message')}
-        placeholder={t(lang, 'form.messagePlaceholder')}
-        wrap="soft"
-        cols="160"
-        required
-        autocapitalize="off"
-        autocomplete="off"></mdc-textarea>
-
-      <mdc-button type="submit" variant="primary" size="40">
-        {t(lang, 'form.submit')}
-      </mdc-button>
-    </fieldset>
-  </form>
+  {
+    urlSuffix === 'get-involved' && (
+      <Image class="image" src={ContactImage} alt={t(lang, 'form.imageAlt')} />
+    )
+  }
 </div>
 
+<style>
+  .flex-container {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    justify-content: center;
+    padding: var(--vertical-padding) var(--horizontal-padding);
+  }
+
+  .get-involved-form {
+    flex-grow: 1;
+  }
+  .image {
+    width: 50%;
+  }
+
+  @media screen and (max-width: 576px) {
+    .flex-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    .image {
+      width: 100%;
+    }
+  }
+</style>
 <script>
   import('@momentum-design/components/dist/components/button/index.js');
   import('@momentum-design/components/dist/components/input/index.js');

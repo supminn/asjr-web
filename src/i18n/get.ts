@@ -8,10 +8,24 @@ import enWhatWeDo from './en/what-we-do.json';
 import esWhatWeDo from './es/what-we-do.json';
 import enLatestUpdates from './en/latest-updates.json';
 import esLatestUpdates from './es/latest-updates.json';
+import enResources from './en/resources.json';
+import esResources from './es/resources.json';
 
 export const translations = {
-  en: { ...enHeader, ...enIndex, ...enAbout, ...enWhatWeDo, ...enLatestUpdates } as Record<string, string>,
-  es: { ...esHeader, ...esIndex, ...esAbout, ...esWhatWeDo, ...esLatestUpdates } as Record<string, string>,
+  en: {
+    ...enHeader,
+    ...enIndex,
+    ...enWhatWeDo,
+    ...enLatestUpdates,
+    ...enResources,
+  } as Record<string, string>,
+  es: {
+    ...esHeader,
+    ...esIndex,
+    ...esWhatWeDo,
+    ...esLatestUpdates,
+    ...esResources,
+  } as Record<string, string>,
 };
 
 export type Lang = keyof typeof translations;
