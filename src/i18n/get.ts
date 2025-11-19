@@ -14,6 +14,7 @@ import esResources from './es/resources.json';
 export const translations = {
   en: {
     ...enHeader,
+    ...enAbout,
     ...enIndex,
     ...enWhatWeDo,
     ...enLatestUpdates,
@@ -21,6 +22,7 @@ export const translations = {
   } as Record<string, string>,
   es: {
     ...esHeader,
+    ...esAbout,
     ...esIndex,
     ...esWhatWeDo,
     ...esLatestUpdates,
