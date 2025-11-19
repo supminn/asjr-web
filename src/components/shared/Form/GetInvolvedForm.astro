@@ -18,6 +18,7 @@ export interface Props {
 const { class: className = '', lang = 'en' } = Astro.props as Props;
 const url = Astro.url.href;
 const urlSuffix = url.split('/').pop();
+console.log('Turbo 🚀  ~ urlSuffix:', urlSuffix);
 ---
 
 <div class="flex-container">
@@ -119,49 +120,45 @@ const urlSuffix = url.split('/').pop();
           </fieldset>
         </form>
       </fieldset>
-      {
-        urlSuffix === 'get-involved' && (
-          <Image
-            class="image"
-            src={ContactImage}
-            alt={t(lang, 'form.imageAlt')}
-          />
-        )
-      }
     </form>
-
-    <style>
-      .flex-container {
-        display: flex;
-        gap: 2rem;
-        align-items: flex-start;
-        justify-content: center;
-        padding: var(--vertical-padding) var(--horizontal-padding);
-      }
-
-      .get-involved-form {
-        flex-grow: 1;
-      }
-      .image {
-        width: 50%;
-      }
-
-      @media screen and (max-width: 576px) {
-        .flex-container {
-          flex-direction: column;
-          align-items: center;
-        }
-        .image {
-          width: 100%;
-        }
-      }
-    </style>
-    <script>
-      import('@momentum-design/components/dist/components/button/index.js');
-      import('@momentum-design/components/dist/components/input/index.js');
-      import('@momentum-design/components/dist/components/icon/index.js');
-      import('@momentum-design/components/dist/components/text/index.js');
-      import('@momentum-design/components/dist/components/textarea/index.js');
-    </script>
   </div>
+  {
+    urlSuffix === 'get-involved' && (
+      <Image class="image" src={ContactImage} alt={t(lang, 'form.imageAlt')} />
+    )
+  }
 </div>
+
+<style>
+  .flex-container {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    justify-content: center;
+    padding: var(--vertical-padding) var(--horizontal-padding);
+  }
+
+  .get-involved-form {
+    flex-grow: 1;
+  }
+  .image {
+    width: 50%;
+  }
+
+  @media screen and (max-width: 576px) {
+    .flex-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    .image {
+      width: 100%;
+    }
+  }
+</style>
+<script>
+  import('@momentum-design/components/dist/components/button/index.js');
+  import('@momentum-design/components/dist/components/input/index.js');
+  import('@momentum-design/components/dist/components/icon/index.js');
+  import('@momentum-design/components/dist/components/text/index.js');
+  import('@momentum-design/components/dist/components/textarea/index.js');
+</script>
