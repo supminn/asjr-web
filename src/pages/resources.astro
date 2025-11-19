@@ -194,7 +194,6 @@ const lang: Lang =
 </Layout>
 
 <style>
-  .inner-container,
   .rights-checklist,
   .where-to-get-help {
     max-width: var(--max-width);
@@ -229,6 +228,12 @@ const lang: Lang =
   }
   .icon {
     fill: var(--color-theme-text-accent-normal, #0353a8);
+  }
+
+  @media screen and (max-width: 768px) {
+    .resources-content {
+      gap: 3rem;
+    }
   }
 </style>
 
