@@ -463,7 +463,7 @@ img {
 }
 
 /* Home - Get Involved */
-.get-involved-home {
+.contact-home {
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -499,7 +499,6 @@ img {
 .section.latest-updates-index {
   .inner-container {
     padding-top: 4rem;
-
 
     .card-list ul li {
       display: flex;
@@ -711,7 +710,10 @@ img {
 /* About - Goals Section */
 .section.about-goals {
   padding: 7.5rem 0;
-  background-color: var(--mds-color-theme-background-solid-tertiary-normal, #262626);
+  background-color: var(
+    --mds-color-theme-background-solid-tertiary-normal,
+    #262626
+  );
 }
 
 .section.about-goals .inner-container {
@@ -784,8 +786,8 @@ img {
     font-size: 3.25rem;
   }
 
-  .section.hero p, 
-  .section.about-hero p, 
+  .section.hero p,
+  .section.about-hero p,
   .section.about-story .story-description,
   .section.about-vision .section-text p,
   .section.about-mission .section-text p,
@@ -794,7 +796,7 @@ img {
     font-size: 1.25rem;
   }
 
-  .section.hero h1, 
+  .section.hero h1,
   .section.about-hero h1 {
     font-size: 3.25rem;
     line-height: 3.25rem;
@@ -833,7 +835,7 @@ img {
   }
 
   .section.hero p,
-  .section.about-hero p, 
+  .section.about-hero p,
   .section.about-story .story-description,
   .section.about-vision .section-text p,
   .section.about-mission .section-text p,
@@ -880,7 +882,7 @@ img {
   }
 
   .section.hero p,
-  .section.about-hero p, 
+  .section.about-hero p,
   .section.about-story .story-description,
   .section.about-vision .section-text p,
   .section.about-mission .section-text p,
@@ -931,7 +933,7 @@ img {
   }
 
   .section.hero p,
-  .section.about-hero p, 
+  .section.about-hero p,
   .section.about-story .story-description,
   .section.about-vision .section-text p,
   .section.about-mission .section-text p,
@@ -941,7 +943,7 @@ img {
   }
 
   .section.hero h1,
-  .section.about-hero h1  {
+  .section.about-hero h1 {
     font-size: 2rem;
   }
 
@@ -950,7 +952,8 @@ img {
     width: 100%;
   }
 
-  .section.what-we-do .inner-container, .section.what-we-do-index .inner-container {
+  .section.what-we-do .inner-container,
+  .section.what-we-do-index .inner-container {
     .card-list ul li {
       flex-basis: 0;
       flex-direction: column;
@@ -1066,7 +1069,7 @@ img {
   .section .inner-container,
   .section.about-vision,
   .section.about-mission,
-  .section.about-goals  {
+  .section.about-goals {
     padding: 1.5rem 0;
   }
 
@@ -1088,7 +1091,8 @@ img {
     padding: 3.75rem 0;
   }
 
-  .section.latest-news .inner-container, .section.latest-updates-index .inner-container {
+  .section.latest-news .inner-container,
+  .section.latest-updates-index .inner-container {
     flex-direction: column;
 
     .left {
@@ -1096,19 +1100,21 @@ img {
     }
   }
 
-  .section.latest-updates, .section.latest-updates-index {
+  .section.latest-updates,
+  .section.latest-updates-index {
     .inner-container .card-list ul {
       gap: 3rem;
     }
 
-    .inner-container .card-list ul li, .section.latest-updates-index .inner-container .card-list ul li {
+    .inner-container .card-list ul li,
+    .section.latest-updates-index .inner-container .card-list ul li {
       flex-basis: content;
       flex-grow: 1;
       flex-direction: column;
     }
   }
 
-   .section.about-hero .hero-image-small {
+  .section.about-hero .hero-image-small {
     width: 100%;
   }
 
