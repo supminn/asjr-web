@@ -486,18 +486,235 @@ img {
   }
 }
 
+/* About Page Styles */
+
+/* About - Hero Section */
+.section.about-hero {
+  padding: 7.5rem 0;
+}
+
+.section.about-hero .inner-container {
+  padding: 0;
+  gap: 2.5rem;
+}
+
+.section.about-hero .section-title {
+  gap: 2rem;
+}
+
+.section.about-hero h1 {
+  font-size: 4.5rem;
+  font-weight: 800;
+  line-height: 5.3125rem;
+  text-transform: capitalize;
+}
+
+.section.about-hero .hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 2rem;
+}
+
+.section.about-hero .hero-images {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+}
+
+.section.about-hero .hero-image-large {
+  flex: 1;
+}
+
+.section.about-hero .hero-image-small {
+  width: 387px;
+  flex-shrink: 0;
+}
+
+.section.about-hero .hero-images img {
+  width: 100%;
+  height: 100%;
+  border-radius: 1.25rem;
+  object-fit: cover;
+}
+
+/* About - Story/Video Section */
+.section.about-story {
+  padding: 7.5rem 0;
+}
+
+.section.about-story .inner-container {
+  padding: 0;
+  gap: 2.5rem;
+}
+
+.section.about-story .section-title.centered {
+  text-align: center;
+  align-items: center;
+}
+
+.section.about-story .story-description {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-top: 0.75rem;
+}
+
+.section.about-story .video-container {
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section.about-story .video-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+/* About - Vision & Mission Sections */
+.section.about-vision,
+.section.about-mission {
+  padding: 7.5rem 0;
+}
+
+.section.about-vision .inner-container,
+.section.about-mission .inner-container {
+  padding: 0;
+}
+
+.section.about-vision .section-content,
+.section.about-mission .section-content {
+  display: flex;
+  gap: 2rem;
+  align-items: start;
+}
+
+.section.about-vision .section-text,
+.section.about-mission .section-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 272px;
+}
+
+.section.about-vision .section-text h2,
+.section.about-mission .section-text h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 3.25rem;
+}
+
+.section.about-vision .section-text p,
+.section.about-mission .section-text p {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.section.about-vision .section-image,
+.section.about-mission .section-image {
+  flex: 1;
+  min-width: 272px;
+}
+
+.section.about-vision .section-image img,
+.section.about-mission .section-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+/* About - Goals Section */
+.section.about-goals {
+  padding: 7.5rem 0;
+  background-color: var(--mds-color-theme-background-solid-tertiary-normal, #262626);
+}
+
+.section.about-goals .inner-container {
+  padding: 0;
+  gap: 2.5rem;
+}
+
+/* First Row: Header + 2 Cards */
+.section.about-goals .goals-row-1 {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  align-items: start;
+}
+
+.section.about-goals .goals-header {
+  flex: 0 1 auto;
+  width: calc(33.33% - 1.33rem);
+  min-width: 272px;
+}
+
+.section.about-goals .section-title {
+  gap: 0.75rem;
+}
+
+.section.about-goals .section-title h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 3.25rem;
+}
+
+.section.about-goals .goals-description {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.section.about-goals .goals-cards-row-1 {
+  flex: 1;
+  display: flex;
+  gap: 2rem;
+}
+
+.section.about-goals .goals-cards-row-1 ul {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+}
+
+.section.about-goals .goals-cards-row-1 ul li {
+  flex: 1;
+  min-width: 230px;
+  height: 252px;
+}
+
+/* Second Row: 3 Cards */
+.section.about-goals .goals-cards-row-2 ul {
+  display: flex;
+  gap: 2rem;
+}
+
+.section.about-goals .goals-cards-row-2 ul li {
+  flex: 1;
+  min-width: 230px;
+  height: 252px;
+}
+
 /* Desktop - 1024px to 1440px */
 @media (min-width: 1024px) and (max-width: 1440px) {  
   h1 {
     font-size: 3.25rem;
   }
 
-  .section.hero p {
+  .section.hero p, 
+  .section.about-hero p, 
+  .section.about-story .story-description,
+  .section.about-vision .section-text p,
+  .section.about-mission .section-text p,
+  .section.about-goals .goals-description,
+  .section.about-hero .hero-subtitle {
     font-size: 1.25rem;
   }
 
-  .section.hero h1 {
+  .section.hero h1, 
+  .section.about-hero h1 {
     font-size: 3.25rem;
+    line-height: 3.25rem;
   }
 
   .section.what-we-do .inner-container {    
@@ -527,15 +744,23 @@ img {
     gap: 1rem;
   }
 
-  .section.hero {
+  .section.hero,
+  .section.about-hero {
     padding-top: 3.75rem;
   }
 
-  .section.hero p {
+  .section.hero p,
+  .section.about-hero p, 
+  .section.about-story .story-description,
+  .section.about-vision .section-text p,
+  .section.about-mission .section-text p,
+  .section.about-goals .goals-description,
+  .section.about-hero .hero-subtitle {
     font-size: 1.25rem;
   }
 
-  .section.hero h1 {
+  .section.hero h1,
+  .section.about-hero h1 {
     font-size: 2.5rem;
   }
 
@@ -566,15 +791,23 @@ img {
     gap: 1rem;
   }
 
-  .section.hero {
+  .section.hero,
+  .section.about-hero {
     padding-top: 3rem;
   }
 
-  .section.hero p {
+  .section.hero p,
+  .section.about-hero p, 
+  .section.about-story .story-description,
+  .section.about-vision .section-text p,
+  .section.about-mission .section-text p,
+  .section.about-goals .goals-description,
+  .section.about-hero .hero-subtitle {
     font-size: 1.25rem;
   }
 
-  .section.hero h1 {
+  .section.hero h1,
+  .section.about-hero h1 {
     font-size: 2rem;
   }
 
@@ -609,15 +842,23 @@ img {
     gap: 1rem;
   }
 
-  .section.hero {
+  .section.hero,
+  .section.about-hero {
     padding-top: 3rem;
   }
 
-  .section.hero p {
+  .section.hero p,
+  .section.about-hero p, 
+  .section.about-story .story-description,
+  .section.about-vision .section-text p,
+  .section.about-mission .section-text p,
+  .section.about-goals .goals-description,
+  .section.about-hero .hero-subtitle {
     font-size: 1.25rem;
   }
 
-  .section.hero h1 {
+  .section.hero h1,
+  .section.about-hero h1  {
     font-size: 2rem;
   }
 
@@ -666,6 +907,60 @@ img {
   .section .inner-container {
     width: 92%;
   }
+
+  .section.about-hero .hero-images {
+    flex-direction: column;
+  }
+
+  .section.about-vision .section-content,
+  .section.about-mission .section-content {
+    flex-direction: column;
+  }
+
+  .section.about-vision .section-image {
+    order: 2;
+    width: 100%;
+  }
+
+  .section.about-vision .section-text {
+    order: 1;
+    width: 100%;
+  }
+
+  .section.about-mission .section-image {
+    order: 1;
+    width: 100%;
+  }
+
+  .section.about-mission .section-text {
+    order: 2;
+    width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  /* About - Goals Section Tablet Layout */
+  .section.about-goals .goals-row-1 {
+    flex-direction: column;
+  }
+
+  .section.about-goals .goals-header {
+    width: 100%;
+  }
+
+  .section.about-goals .goals-cards-row-1 {
+    width: 100%;
+  }
+
+  .section.about-goals .goals-cards-row-1 ul,
+  .section.about-goals .goals-cards-row-2 ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section.about-goals .goals-cards-row-2 ul li:last-child {
+    grid-column: 1 / -1;
+  }
 }
 
 @media (max-width: 768px) {
@@ -673,7 +968,10 @@ img {
     border-radius: 1rem;
   }
 
-  p {
+  p,
+  .section.about-vision .section-text p,
+  .section.about-mission .section-text p,
+  .section.about-goals .goals-description {
     font-size: 1rem;
   }
 
@@ -681,7 +979,10 @@ img {
     padding-bottom: 0;
   }
 
-  .section .inner-container {
+  .section .inner-container,
+  .section.about-vision,
+  .section.about-mission,
+  .section.about-goals  {
     padding: 1.5rem 0;
   }
 
@@ -721,6 +1022,20 @@ img {
       flex-grow: 1;
       flex-direction: column;
     }
+  }
+
+   .section.about-hero .hero-image-small {
+    width: 100%;
+  }
+
+  /* About - Goals Section Mobile Layout */
+  .section.about-goals .goals-cards-row-1 ul,
+  .section.about-goals .goals-cards-row-2 ul {
+    grid-template-columns: 1fr;
+  }
+
+  .section.about-goals .goals-cards-row-2 ul li:last-child {
+    grid-column: 1;
   }
 }
 
