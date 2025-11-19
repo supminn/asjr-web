@@ -1,167 +1,185 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
+import { Image } from "astro:assets";
+import Hero01 from "../assets/images/about/hero-01.png";
+import Hero02 from "../assets/images/about/hero-02.png";
+import VideoPlaceholder from "../assets/images/about/video-placeholder.png";
+import VisionImage from "../assets/images/about/vision.png";
+import MissionImage from "../assets/images/about/mission.png";
+
+//Phosphor icons
+import GraduationCap from "phosphor-astro/GraduationCap.astro";
+import ChatsTeardrop from "phosphor-astro/ChatsTeardrop.astro";
+import SpeakerHigh from "phosphor-astro/SpeakerHigh.astro";
+import Handshake from "phosphor-astro/Handshake.astro";
+import SealCheck from "phosphor-astro/SealCheck.astro";
+
+import { t, type Lang } from "../i18n/get";
+
 const baseUrl = import.meta.env.BASE_URL;
+
+// Detect current language from URL
+const currentPath = Astro.url.pathname;
+
+// Remove baseUrl to get relative path for language detection
+const relativePath = currentPath.startsWith(baseUrl)
+  ? currentPath.slice(baseUrl.length)
+  : currentPath;
+
+const lang: Lang =
+  relativePath.startsWith("es/") || relativePath.startsWith("es") ? "es" : "en";
 ---
 
-<Layout title="About Us - ASJR">
-  <div class="page-container">
-    <section class="hero">
-      <mdc-text type="heading-xlarge-bold" tagname="h1">
-        About Advocates for Social Justice Reform
-      </mdc-text>
-      <mdc-text type="body-large-regular" tagname="p" class="hero-subtext">
-        Learn about our mission, values, and the people working to transform the criminal legal system in Travis County.
-      </mdc-text>
-    </section>
+<script>
+  import "@momentum-design/components/dist/components/button/index.js";
+  import "@momentum-design/components/dist/components/buttonlink/index.js";
+  import "@momentum-design/components/dist/components/card/index.js";
+  import "@momentum-design/components/dist/components/icon/index.js";
+  import "@momentum-design/components/dist/components/text/index.js";
+</script>
 
-    <section class="content">
-      <div class="mission-section">
-        <div class="mission-text">
-          <mdc-text type="heading-large-medium" tagname="h2">
-            Our Mission
-          </mdc-text>
-          <mdc-text type="body-large-regular" tagname="p">
-            We are dedicated to creating a more just and equitable criminal legal system that prioritizes rehabilitation, community healing, and human dignity over punishment and incarceration.
-          </mdc-text>
-        </div>
-        <img
-          src={`${baseUrl}images/about/about-1.jpg`}
-          alt="Community members working together"
-          class="mission-image"
-        />
+<Layout title={t(lang, "about.hero.title") + " - ASJR"}>
+  <!-- Hero Section -->
+  <section class="section about-hero">
+    <div class="inner-container">
+      <div class="section-title">
+        <h1>{t(lang, "about.hero.title")}</h1>
+        <p class="hero-subtitle">
+          {t(lang, "about.hero.subtitle")}
+        </p>
       </div>
 
-      <div class="vision-section">
-        <img
-          src={`${baseUrl}images/about/about-2.jpg`}
-          alt="Advocates for justice"
-          class="vision-image"
-        />
-        <div class="vision-text">
-          <mdc-text type="heading-large-medium" tagname="h2">
-            Our Vision
-          </mdc-text>
-          <mdc-text type="body-large-regular" tagname="p">
-            We envision a Travis County where the criminal legal system treats all people with dignity, provides genuine pathways to rehabilitation, and focuses on healing rather than punishment.
-          </mdc-text>
+      <div class="hero-images">
+        <div class="hero-image-large">
+          <Image src={Hero01} alt={t(lang, "about.hero.imageAlt1")} />
+        </div>
+        <div class="hero-image-small">
+          <Image src={Hero02} alt={t(lang, "about.hero.imageAlt2")} />
         </div>
       </div>
+    </div>
+  </section>
 
-      <mdc-text type="heading-large-medium" tagname="h2">
-        Our Values
-      </mdc-text>
-      <div class="values-grid">
-        <mdc-card card-title="Justice">
-          <mdc-text slot="body" type="body-midsize-regular" tagname="p">
-            We believe in equal treatment under the law and fair processes for all individuals.
-          </mdc-text>
-        </mdc-card>
-        <mdc-card card-title="Compassion">
-          <mdc-text slot="body" type="body-midsize-regular" tagname="p">
-            We approach our work with empathy and understanding for all those affected by the criminal legal system.
-          </mdc-text>
-        </mdc-card>
-        <mdc-card card-title="Reform">
-          <mdc-text slot="body" type="body-midsize-regular" tagname="p">
-            We advocate for systemic changes that address root causes rather than symptoms.
-          </mdc-text>
-        </mdc-card>
+  <!-- Our Story (Video Section) -->
+  <section class="section secondary about-story">
+    <div class="inner-container">
+      <div class="section-title centered">
+        <h2 class="sub-header">
+          {t(lang, "about.story.heading")}
+        </h2>
+        <p class="story-description">
+          {t(lang, "about.story.description")}
+        </p>
       </div>
-    </section>
-  </div>
+
+      <div class="video-container">
+        <Image src={VideoPlaceholder} alt={t(lang, "about.story.videoAlt")} />
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Vision -->
+  <section class="section about-vision">
+    <div class="inner-container">
+      <div class="section-content">
+        <div class="section-text">
+          <h2>{t(lang, "about.vision.heading")}</h2>
+          <p>
+            {t(lang, "about.vision.description")}
+          </p>
+        </div>
+        <div class="section-image">
+          <Image src={VisionImage} alt={t(lang, "about.vision.imageAlt")} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Mission -->
+  <section class="section secondary about-mission">
+    <div class="inner-container">
+      <div class="section-content">
+        <div class="section-image">
+          <Image src={MissionImage} alt={t(lang, "about.mission.imageAlt")} />
+        </div>
+        <div class="section-text">
+          <h2>{t(lang, "about.mission.heading")}</h2>
+          <p>
+            {t(lang, "about.mission.description")}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Goals -->
+  <section class="section tertiary about-goals">
+    <div class="inner-container">
+      <!-- First Row: Header + 2 Cards -->
+      <div class="goals-row-1">
+        <div class="goals-header">
+          <div class="section-title">
+            <h2>{t(lang, "about.goals.heading")}</h2>
+            <p class="goals-description">
+              {t(lang, "about.goals.description")}
+            </p>
+          </div>
+        </div>
+
+        <div class="card-list goals-cards-row-1">
+          <ul>
+            <li>
+              <div class="card-icon"><GraduationCap class="icon" /></div>
+              <label>{t(lang, "about.goals.education.title")}</label>
+              <p>
+                {t(lang, "about.goals.education.description")}
+              </p>
+            </li>
+            <li>
+              <div class="card-icon"><ChatsTeardrop class="icon" /></div>
+              <label>{t(lang, "about.goals.communication.title")}</label>
+              <p>
+                {t(lang, "about.goals.communication.description")}
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Second Row: 3 Cards -->
+      <div class="card-list goals-cards-row-2">
+        <ul>
+          <li>
+            <div class="card-icon"><SpeakerHigh class="icon" /></div>
+            <label>{t(lang, "about.goals.advocacy.title")}</label>
+            <p>
+              {t(lang, "about.goals.advocacy.description")}
+            </p>
+          </li>
+          <li>
+            <div class="card-icon"><Handshake class="icon" /></div>
+            <label>{t(lang, "about.goals.collaboration.title")}</label>
+            <p>
+              {t(lang, "about.goals.collaboration.description")}
+            </p>
+          </li>
+          <li>
+            <div class="card-icon"><SealCheck class="icon" /></div>
+            <label>{t(lang, "about.goals.accountability.title")}</label>
+            <p>
+              {t(lang, "about.goals.accountability.description")}
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
 </Layout>
 
-<style>
-  .page-container {
-    max-width: 72rem;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-  }
-
-  .hero {
-    text-align: center;
-    padding: 4rem 0;
-    border-bottom: 1px solid var(--mds-color-neutral-200);
-    margin-bottom: 4rem;
-  }
-
-  .hero-subtext {
-    margin-top: 1.5rem;
-    max-width: 48rem;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .content {
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
-  }
-
-  .mission-section,
-  .vision-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
-  }
-
-  .vision-section {
-    direction: ltr;
-  }
-
-  .mission-image,
-  .vision-image {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    object-fit: cover;
-    max-height: 400px;
-  }
-
-  .mission-text,
-  .vision-text {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  @media (max-width: 768px) {
-    .mission-section,
-    .vision-section {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-
-    .vision-section {
-      direction: ltr;
-    }
-
-    .vision-section .vision-image {
-      order: -1;
-    }
-  }
-
-  .values-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-
-  mdc-text[type="heading-xlarge-bold"] {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    line-height: 1.1;
-  }
-
-  mdc-text[type="heading-large-medium"] {
-    font-size: clamp(1.75rem, 3vw, 2.25rem);
-    line-height: 1.25;
-  }
-</style>
-
 <script>
-  import '@momentum-design/components/dist/components/text/index.js';
-  import '@momentum-design/components/dist/components/card/index.js';
+  // Import the components we need
+  import "@momentum-design/components/dist/components/text/index.js";
+  import "@momentum-design/components/dist/components/button/index.js";
+  import "@momentum-design/components/dist/components/card/index.js";
 </script>

@@ -2,6 +2,8 @@ import enHeader from './en/header.json';
 import esHeader from './es/header.json';
 import enIndex from './en/index.json';
 import esIndex from './es/index.json';
+import enAbout from './en/about.json';
+import esAbout from './es/about.json';
 import enWhatWeDo from './en/what-we-do.json';
 import esWhatWeDo from './es/what-we-do.json';
 import enLatestUpdates from './en/latest-updates.json';
