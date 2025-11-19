@@ -8,7 +8,7 @@ import { Image } from 'astro:assets';
 import Chat from 'phosphor-astro/Chat.astro';
 import SpeakerHigh from 'phosphor-astro/SpeakerHigh.astro';
 import Hand from 'phosphor-astro/Hand.astro';
-import ContactImage from '../../../assets/images/get-involved/getInvolved.jpg';
+import ContactImage from '../../../assets/images/contact/getInvolved.jpg';
 
 export interface Props {
   class?: string;
@@ -18,34 +18,17 @@ export interface Props {
 const { class: className = '', lang = 'en' } = Astro.props as Props;
 const url = Astro.url.href;
 const urlSuffix = url.split('/').pop();
-console.log('Turbo 🚀  ~ urlSuffix:', urlSuffix);
 ---
 
 <div class="flex-container">
-  <div class={`get-involved-form ${className}`}>
+  <div class={`contact-form ${className}`}>
     <div class="form-header">
       <mdc-text type="body-large-regular" tagname="p" class="form-subtitle">
         {t(lang, 'form.subtitle')}
       </mdc-text>
     </div>
 
-    <div class="get-involved-list">
-      <ul>
-        <li>
-          <div class="get-invovled-icon"><Hand /></div>
-          <p>{t(lang, 'form.volunteer')}</p>
-        </li>
-        <li>
-          <div class="get-invovled-icon"><SpeakerHigh /></div>
-          <p>{t(lang, 'form.advocate')}</p>
-        </li>
-        <li>
-          <div class="get-invovled-icon"><Chat /></div>
-          <p>{t(lang, 'form.stories')}</p>
-        </li>
-      </ul>
-    </div>
-    <div class="get-involved-list">
+    <div class="contact-list">
       <ul>
         <li>
           <div class="get-invovled-icon"><Hand /></div>
@@ -113,7 +96,7 @@ console.log('Turbo 🚀  ~ urlSuffix:', urlSuffix);
     </form>
   </div>
   {
-    urlSuffix === 'get-involved' && (
+    urlSuffix === 'contact' && (
       <Image class="image" src={ContactImage} alt={t(lang, 'form.imageAlt')} />
     )
   }
@@ -128,7 +111,7 @@ console.log('Turbo 🚀  ~ urlSuffix:', urlSuffix);
     padding: var(--vertical-padding) var(--horizontal-padding);
   }
 
-  .get-involved-form {
+  .contact-form {
     flex-grow: 1;
   }
   .image {

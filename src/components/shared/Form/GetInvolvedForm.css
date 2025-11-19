@@ -1,13 +1,13 @@
 /* GetInvolvedForm.css */
 
-.get-involved-form {
+.contact-form {
   display: flex;
   flex-direction: column;
   gap: 2rem;
   width: 100%;
 }
 
-.get-involved-list {
+.contact-list {
   display: flex;
   flex-direction: column;
 
@@ -125,7 +125,7 @@
     flex-direction: column;
   }
 
-  .get-involved-form {
+  .contact-form {
     padding: 0;
   }
 

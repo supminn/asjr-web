@@ -47,8 +47,8 @@ const navItems = [
     href: `${baseUrl}${langPrefix}latest-updates`,
   },
   {
-    label: t(lang, 'nav.getInvolved'),
-    href: `${baseUrl}${langPrefix}get-involved`,
+    label: t(lang, 'nav.contact'),
+    href: `${baseUrl}${langPrefix}contact`,
   },
 ];
 
@@ -71,7 +71,12 @@ const seekHelpLink = `${baseUrl}${langPrefix}resources`;
               alt="Advocates for Social Justice Reform logo"
             />
           </a>
-          <a href="#" class="logo-knowbility">
+          <a
+            href="https://knowbility.org/"
+            class="logo-knowbility"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Image src={LogoKnowbility} alt="Knowability logo" />
           </a>
         </div>
