@@ -35,6 +35,10 @@ const relativePath = currentPath.startsWith(baseUrl)
 
 const lang: Lang =
   relativePath.startsWith('es/') || relativePath.startsWith('es') ? 'es' : 'en';
+
+const aboutUs = `${baseUrl}${lang === 'es' ? 'es/' : ''}about`;
+const whatWeDo = `${baseUrl}${lang === 'es' ? 'es/' : ''}what-we-do`;
+const latestUpdates = `${baseUrl}${lang === 'es' ? 'es/' : ''}latest-updates`;
 ---
 
 <script>
@@ -54,7 +58,7 @@ const lang: Lang =
       <p>
         {t(lang, 'hero.subtitle')}
 
-        <mdc-buttonlink size="40" href="" rel="noopener noreferrer">
+        <mdc-buttonlink size="40" href={aboutUs} rel="noopener noreferrer">
           {t(lang, 'hero.cta')}
         </mdc-buttonlink>
       </p>
@@ -80,7 +84,7 @@ const lang: Lang =
         <p>
           {t(lang, 'whoWeAre.description2')}
 
-          <mdc-buttonlink size="40" href="" rel="noopener noreferrer">
+          <mdc-buttonlink size="40" href={whatWeDo} rel="noopener noreferrer">
             {t(lang, 'whoWeAre.cta')}
           </mdc-buttonlink>
         </p>
@@ -214,7 +218,11 @@ const lang: Lang =
         <p>
           {t(lang, 'news.description2')}
 
-          <mdc-buttonlink size="40" href="#" rel="noopener noreferrer">
+          <mdc-buttonlink
+            size="40"
+            href={latestUpdates}
+            rel="noopener noreferrer"
+          >
             {t(lang, 'news.cta')}
           </mdc-buttonlink>
         </p>
