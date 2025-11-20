@@ -3,8 +3,9 @@ import Layout from '../../layouts/Layout.astro';
 
 //Images
 import { Image } from 'astro:assets';
-import WhatWeDo01 from '../../assets/images/what-we-do/what-we-do-01.png';
 import KindnessRally from '../../assets/images/latest-updates/article20251112/kindness-rally.png';
+import CoreMembers from '../../assets/images/latest-updates/article20251022/coreteam.png';
+import CourtRoom from '../../assets/images/latest-updates/article20251017/courtroom.png';
 
 import { t, type Lang } from '../../i18n/get';
 
@@ -23,66 +24,62 @@ const lang: Lang =
 
 const articleBaseUrl = baseUrl + lang + relativePath;
 
-function getArticleUrl(articleName) {
-    return baseUrl + relativePath + '/' + articleName;
+function getArticleUrl(articleName: string): string {
+  return baseUrl + relativePath + '/' + articleName;
 }
 
+const articles = ['20251112', '20251022', '20251017'] as const;
+const images: Record<string, any> = {
+  '20251112': KindnessRally,
+  '20251022': CoreMembers,
+  '20251017': CourtRoom,
+};
 ---
 
 <Layout title={t(lang, 'latestUpdates.pageTitle')}>
-    <section class="section latest-updates-index">
-        <div class="inner-container">
-            <h1>{t(lang, 'latestUpdates.title')}</h1>
-            <p>
-                {t(lang, 'latestUpdates.description')}
-            </p>
+  <section class="section latest-updates-index">
+    <div class="inner-container">
+      <h1>{t(lang, 'latestUpdates.title')}</h1>
+      <p>
+        {t(lang, 'latestUpdates.description')}
+      </p>
 
-            <!-- Card List -->
-            <div class="card-list">
-                <ul>
-                    <li>
-                        <Image src={KindnessRally} alt={t(lang, 'latestUpdates.article20251112.thumbnailImageAlt')} />
-                        <div class="card-list-content">
-                            <div class="card-list-content-title">
-                                <label>{t(lang, 'latestUpdates.article20251112.title')}</label>
-                                <p>{t(lang, 'latestUpdates.article20251112.date')}</p>
-                            </div>
-                            <p>{t(lang, 'latestUpdates.article20251112.summary')}</p>
-                            <mdc-buttonlink size="40" href={getArticleUrl(20251112)} rel="noopener noreferrer">
-                                {t(lang, 'latestUpdates.article20251112.link')}
-                            </mdc-buttonlink>
-                        </div>
-                    </li>
-                    <li>
-                        <Image src={KindnessRally} alt={t(lang, 'latestUpdates.article20251112.thumbnailImageAlt')} />
-                        <div class="card-list-content">
-                            <div class="card-list-content-title">
-                                <label>{t(lang, 'latestUpdates.article20251112.title')}</label>
-                                <p>{t(lang, 'latestUpdates.article20251112.date')}</p>
-                            </div>
-                            <p>{t(lang, 'latestUpdates.article20251112.summary')}</p>
-                            <mdc-buttonlink size="40" href={getArticleUrl(20251112)} rel="noopener noreferrer">
-                                {t(lang, 'latestUpdates.article20251112.link')}
-                            </mdc-buttonlink>
-                        </div>
-                    </li>
-                    <li>
-                        <Image src={KindnessRally} alt={t(lang, 'latestUpdates.article20251112.thumbnailImageAlt')} />
-                        <div class="card-list-content">
-                            <div class="card-list-content-title">
-                                <label>{t(lang, 'latestUpdates.article20251112.title')}</label>
-                                <p>{t(lang, 'latestUpdates.article20251112.date')}</p>
-                            </div>
-                            <p>{t(lang, 'latestUpdates.article20251112.summary')}</p>
-                            <mdc-buttonlink size="40" href={getArticleUrl(20251112)} rel="noopener noreferrer">
-                                {t(lang, 'latestUpdates.article20251112.link')}
-                            </mdc-buttonlink>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
+      <!-- Card List -->
+      <div class="card-list">
+        <ul>
+          {
+            articles.map((article) => (
+              <li>
+                <Image
+                  class="card-image"
+                  src={images[article]}
+                  alt={t(
+                    lang,
+                    `latestUpdates.article${article}.thumbnailImageAlt`
+                  )}
+                />
+                <div class="card-list-content">
+                  <div class="card-list-content-title">
+                    <h2>{t(lang, `latestUpdates.article${article}.title`)}</h2>
+                    <p>{t(lang, `latestUpdates.article${article}.date`)}</p>
+                  </div>
+                  <p>{t(lang, `latestUpdates.article${article}.summary`)}</p>
+                  <mdc-buttonlink
+                    class="read-more"
+                    size="40"
+                    href={getArticleUrl(`${article}`)}
+                    rel="noopener noreferrer"
+                  >
+                    {t(lang, 'latestUpdates.article.link')}
+                  </mdc-buttonlink>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
 </Layout>
 
 <script>

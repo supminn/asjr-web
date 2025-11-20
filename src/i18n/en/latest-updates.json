@@ -1,24 +1,32 @@
 {
-    "latestUpdates.pageTitle": "ASJR - Latest updates",
-    "latestUpdates.title": "Latest updates",
-    "latestUpdates.description": "View our latest updates at ASJR.",
+  "latestUpdates.pageTitle": "ASJR - Latest updates",
+  "latestUpdates.title": "Latest updates",
+  "latestUpdates.description": "View our latest updates at ASJR.",
 
-    "latestUpdates.article.backButton": "← Back to latest updates",
+  "latestUpdates.article.backButton": "← Back to latest updates",
+  "latestUpdates.article.link": "Read news →",
 
-    "latestUpdates.article20251112.title": "Article 1 Title",
-    "latestUpdates.article20251112.subtitle": "Article 1 Subtitle",
-    "latestUpdates.article20251112.author": "Author Name",
-    "latestUpdates.article20251112.authorRole": "Role",
-    "latestUpdates.article20251112.authorImageAlt": "Headshot of the author",
-    "latestUpdates.article20251112.date": "November 12, 2025",
-    "latestUpdates.article20251112.summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus imperdiet felis, tincidunt iaculis orci. Phasellus sed porttitor elit. Cras vehicula, eros sed vehicula scelerisque, massa tellus maximus justo, vitae imperdiet ante sem eu mauris. Nam congue libero in ultricies volutpat. Suspendisse dapibus eu massa a convallis.",
-    "latestUpdates.article20251112.thumbnailImageAlt": "Article 1 image",
-    "latestUpdates.article20251112.link": "Read article →",
+  "latestUpdates.article20251112.title": "Five Years Forward, Challenges Ahead",
+  "latestUpdates.article20251112.subtitle": "Insights from Chief Adeola on staffing gains, resource gaps, and the urgent need for stronger support for defenders.",
+  "latestUpdates.article20251112.date": "November 12, 2025",
+  "latestUpdates.article20251112.summary": "Adeola, the Chief of the Public Defender's Office, discussed significant progress made over five years, including staff increases and the importance of in-person first appearances for clients. The group then focused on challenges within the criminal justice system, including funding issues, caseload management, and the need for better support and resources for public defenders in Travis County.",
+  "latestUpdates.article20251112.thumbnailImageAlt": "A crowd of people holding signs at a Kindness Rally in Austin, Texas.",
+  "latestUpdates.article20251112.details.paragraph1": "Adeola, the Chief of the Public Defender's Office, discussed significant progress made over five years, including staff increases and the importance of in-person first appearances for clients. The group then focused on challenges within the criminal justice system, including funding issues, caseload management, and the need for better support and resources for public defenders in Travis County.",
+  "latestUpdates.article20251112.details.imageAlt1": "A crowd of people holding signs at a Kindness Rally in Austin, Texas",
 
-    "latestUpdates.article20251112.details.paragraph1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus imperdiet felis, tincidunt iaculis orci. Phasellus sed porttitor elit. Cras vehicula, eros sed vehicula scelerisque, massa tellus maximus justo, vitae imperdiet ante sem eu mauris. Nam congue libero in ultricies volutpat. Suspendisse dapibus eu massa a convallis. Sed gravida tortor ac risus consectetur euismod. In congue viverra est sed laoreet. Fusce eu lorem a sem ultrices eleifend. Nullam eleifend, neque a facilisis hendrerit, nisl turpis euismod neque, eget finibus tortor magna ut sem. Sed volutpat purus vel urna convallis, vel gravida odio interdum. Donec at nisl a sapien tincidunt interdum. Aenean eu nisi dui.",
-    "latestUpdates.article20251112.details.paragraph2": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse blandit, sapien ut maximus elementum, justo libero venenatis mi, consectetur pretium dui tortor et odio. Fusce a nunc ac est faucibus laoreet. Praesent ex turpis, facilisis a ligula sit amet, ullamcorper mollis turpis. Vestibulum tempus mi eu sodales gravida. Vivamus egestas sollicitudin lectus. Nulla non ante eu orci tincidunt semper ac id justo. Vestibulum mi metus, pellentesque eget laoreet sagittis, ultrices non nunc. Nam suscipit felis a ex dictum sodales. Ut ultricies convallis nisl. Morbi finibus ligula quis lectus cursus, eget eleifend magna porta. Nullam gravida metus nec auctor tempus.",
-    "latestUpdates.article20251112.details.imageAlt1": "A crowd of people holding signs at a Kindness Rally in Austin, Texas",
-    "latestUpdates.article20251112.details.imageAlt2": "ASJR speakers discuss social justice in front of an audience."
+  "latestUpdates.article20251022.title": "Diversion Center Project Updates and Planning Discussion",
+  "latestUpdates.article20251022.subtitle": "Core members discuss progress and next steps for the diversion center pilot program.",
+  "latestUpdates.article20251022.date": "October 22, 2025",
+  "latestUpdates.article20251022.summary": "The group discussed attendance issues and various personal matters including health updates and recent events before transitioning to their main agenda items. They explored several topics related to a diversion center project, including service provider involvement, program design considerations, and survey development for evaluating the pilot program. The conversation ended with discussions about future meeting formats, plans for a Community Advisory Committee, and coordination of upcoming events and meetings.",
+  "latestUpdates.article20251022.thumbnailImageAlt": "ASJR core member smiling outdoors.",
+  "latestUpdates.article20251022.details.paragraph1": "The group discussed attendance issues and various personal matters including health updates and recent events before transitioning to their main agenda items. They explored several topics related to a diversion center project, including service provider involvement, program design considerations, and survey development for evaluating the pilot program. The conversation ended with discussions about future meeting formats, plans for a Community Advisory Committee, and coordination of upcoming events and meetings. Key stakeholders emphasized the importance of community engagement and transparency throughout the implementation process. Participants also reviewed timeline expectations and identified potential challenges that may arise during the initial phases of the project. The team agreed to establish regular check-ins to monitor progress and address any emerging concerns.",
+  "latestUpdates.article20251022.details.imageAlt1": "ASJR core member smiling outdoors.",
 
-
+  "latestUpdates.article20251017.title": "Public Defender’s Office Progress and Ongoing System Challenges",
+  "latestUpdates.article20251017.subtitle": "Five-year gains meet persistent challenges in funding, resources, and sustainable caseload management.",
+  "latestUpdates.article20251017.date": "October 17, 2025",
+  "latestUpdates.article20251017.summary": "They explored mental health service improvements through collaboration between various organizations and discussed concerns about police treatment of mental health and homelessness issues, leading to plans for meetings with police leadership. The group also covered website development progress, nonprofit status considerations, and budget discussions regarding PDO and CAPSDS services, while planning future meetings to address outstanding questions about diversion programs and service delivery.",
+  "latestUpdates.article20251017.thumbnailImageAlt": "A courtroom with wooden benches and an American flag along with people.",
+  "latestUpdates.article20251017.details.paragraph1": "They explored mental health service improvements through collaboration between various organizations and discussed concerns about police treatment of mental health and homelessness issues, leading to plans for meetings with police leadership. The group also covered website development progress, nonprofit status considerations, and budget discussions regarding PDO and CAPSDS services, while planning future meetings to address outstanding questions about diversion programs and service delivery.",
+  "latestUpdates.article20251017.details.imageAlt1": "A courtroom with wooden benches and an American flag along with people."
 }

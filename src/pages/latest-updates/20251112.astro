@@ -41,8 +41,7 @@ const latestUpdatesUrl = baseUrl + langUrl + 'latest-updates';
               <h1>{t(lang, 'latestUpdates.article20251112.title')}</h1>
               <p>
                 <time class="article-date">{t(lang, 'latestUpdates.article20251112.date')}</time>
-                <address>{t(lang, 'latestUpdates.article20251112.author')}</address>
-                <span>{t(lang, 'latestUpdates.article20251112.authorRole')}</span>
+                <div>{t(lang, 'latestUpdates.article20251112.subtitle')}</div>
               </p>
             </div>
             
@@ -50,12 +49,6 @@ const latestUpdatesUrl = baseUrl + langUrl + 'latest-updates';
 
             <p>
                 {t(lang, 'latestUpdates.article20251112.details.paragraph1')}
-            </p>
-
-            <Image src={ConferenceSpeaker} alt={t(lang, 'latestUpdates.article20251112.details.imageAlt2')} />
-
-            <p>
-                {t(lang, 'latestUpdates.article20251112.details.paragraph2')}
             </p>
 
             <mdc-buttonlink size="40" href={latestUpdatesUrl} rel="noopener noreferrer">

@@ -3,7 +3,7 @@
 import './Header.css';
 
 import { Image } from 'astro:assets';
-import LogoASJR from '../../assets/images/header/logo-asjr.png';
+import LogoASJR from '../../assets/images/header/logo-desktop.svg';
 import { t, type Lang } from '../../i18n/get';
 
 export interface Props {
@@ -116,7 +116,7 @@ function isCurrentPage(href: string): boolean {
         ></mdc-toggle>
       </div>
 
-      <button class="menu-icon" aria-label="Open menu" aria-expanded="false">
+      <button class="menu-icon" aria-label="{t(lang, 'nav.openMenu')}" data-open-label={t(lang, 'nav.openMenu')} data-close-label={t(lang, 'nav.closeMenu')} aria-expanded="false">
         <div class="list-icon">
           <span></span>
           <span></span>
@@ -151,7 +151,6 @@ function isCurrentPage(href: string): boolean {
           size="32"
           href={seekHelpLink}
           rel="noopener noreferrer"
-          inverted
         >
           {t(lang, 'banner.cta')}
         </mdc-buttonlink>
@@ -230,7 +229,7 @@ function isCurrentPage(href: string): boolean {
       }
       menuIcon.setAttribute(
         'aria-label',
-        !isExpanded ? 'Close menu' : 'Open menu'
+        !isExpanded ? menuIcon.dataset.closeLabel : menuIcon.dataset.openLabel
       );
     });
 
@@ -242,7 +241,7 @@ function isCurrentPage(href: string): boolean {
         navMenu.style.display = '';
         listIcon.style.display = 'flex';
         xIcon.style.display = 'none';
-        menuIcon.setAttribute('aria-label', 'Open menu');
+        menuIcon.setAttribute('aria-label', menuIcon.dataset.openLabel);
       });
     });
 
@@ -255,7 +254,7 @@ function isCurrentPage(href: string): boolean {
         navMenu.style.display = '';
         listIcon.style.display = 'flex';
         xIcon.style.display = 'none';
-        menuIcon.setAttribute('aria-label', 'Open menu');
+        menuIcon.setAttribute('aria-label', menuIcon.dataset.openLabel);
       }
     });
   })();

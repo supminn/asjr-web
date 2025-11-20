@@ -7,9 +7,11 @@ import Step2Image from '../assets/images/resources/step2.png';
 import Step4Image from '../assets/images/resources/step4.png';
 import Step5Image from '../assets/images/resources/step5.jpg';
 
-import CheckCircle from 'phosphor-astro/CheckCircle.astro';
-import SpeakerSimpleSlash from 'phosphor-astro/SpeakerSimpleSlash.astro';
 import Keyhole from 'phosphor-astro/Keyhole.astro';
+import UserSound from 'phosphor-astro/UserSound.astro';
+import Gavel from 'phosphor-astro/Gavel.astro';
+import UsersFour from 'phosphor-astro/UsersFour.astro';
+import DownloadSimple from 'phosphor-astro/DownloadSimple.astro';
 
 const baseUrl = import.meta.env.BASE_URL;
 
@@ -55,6 +57,13 @@ const lang: Lang =
               <li>{t(lang, 'resources.step2.detail4')}</li>
             </ul>
             <Image src={Step2Image} alt={t(lang, 'resources.step2.imageAlt')} />
+            <mdc-button
+              class="download-button"
+              variant="secondary"
+              size="32"
+              onclick="downloadImage('step2')"
+              >{t(lang, 'resources.downloadButton')}</mdc-button
+            >
           </div>
         </div>
 
@@ -88,6 +97,13 @@ const lang: Lang =
               <li>{t(lang, 'resources.step4.detail2')}</li>
             </ul>
             <Image src={Step4Image} alt={t(lang, 'resources.step4.imageAlt')} />
+            <mdc-button
+              class="download-button"
+              variant="secondary"
+              size="32"
+              onclick="downloadImage('step4')"
+              >{t(lang, 'resources.downloadButton')}</mdc-button
+            >
           </div>
         </div>
 
@@ -105,6 +121,13 @@ const lang: Lang =
               <li>{t(lang, 'resources.step5.detail6')}</li>
             </ul>
             <Image src={Step5Image} alt={t(lang, 'resources.step5.imageAlt')} />
+            <mdc-button
+              class="download-button"
+              variant="secondary"
+              size="32"
+              onclick="downloadImage('step5')"
+              >{t(lang, 'resources.downloadButton')}</mdc-button
+            >
           </div>
         </div>
       </div>
@@ -118,14 +141,14 @@ const lang: Lang =
         <div class="card-list">
           <ul>
             <li>
-              <div class="card-icon"><CheckCircle class="icon" /></div>
+              <div class="card-icon"><UsersFour class="icon" /></div>
               <label>{t(lang, 'resources.checklist.point1.title')}</label>
               <p>
                 {t(lang, 'resources.checklist.point1.detail')}
               </p>
             </li>
             <li>
-              <div class="card-icon"><SpeakerSimpleSlash class="icon" /></div>
+              <div class="card-icon"><Gavel class="icon" /></div>
               <label>{t(lang, 'resources.checklist.point2.title')}</label>
               <p>
                 {t(lang, 'resources.checklist.point2.detail')}
@@ -139,7 +162,7 @@ const lang: Lang =
               </p>
             </li>
             <li>
-              <div class="card-icon"><CheckCircle class="icon" /></div>
+              <div class="card-icon"><UserSound class="icon" /></div>
               <label>{t(lang, 'resources.checklist.point4.title')}</label>
               <p>
                 {t(lang, 'resources.checklist.point4.detail')}
@@ -204,7 +227,7 @@ const lang: Lang =
     padding: var(--vertical-padding) var(--horizontal-padding);
     gap: 2.5rem;
   }
-  .rights-checklist{
+  .rights-checklist {
     margin: 0 auto;
   }
   .resources-content {
@@ -229,6 +252,10 @@ const lang: Lang =
   .rights-checklist {
     align-items: start;
   }
+
+  .download-button {
+    margin: 1rem auto 0 auto;
+  }
   .icon {
     fill: var(--color-theme-text-accent-normal, #0353a8);
   }
@@ -244,4 +271,42 @@ const lang: Lang =
   import '@momentum-design/components/dist/components/text/index.js';
   import '@momentum-design/components/dist/components/card/index.js';
   import '@momentum-design/components/dist/components/button/index.js';
+
+  // Function to download images
+  function downloadImage(step: string) {
+    const imageMap: Record<string, { src: string; filename: string }> = {
+      step2: {
+        src: new URL('../assets/images/resources/step2.png', import.meta.url)
+          .href,
+        filename: 'step2.png',
+      },
+      step4: {
+        src: new URL('../assets/images/resources/step4.png', import.meta.url)
+          .href,
+        filename: 'step4.png',
+      },
+      step5: {
+        src: new URL('../assets/images/resources/step5.jpg', import.meta.url)
+          .href,
+        filename: 'step5.jpg',
+      },
+    };
+
+    const image = imageMap[step];
+    if (!image) {
+      console.error(`Image for ${step} not found`);
+      return;
+    }
+
+    // Create a temporary anchor element to trigger download
+    const link = document.createElement('a');
+    link.href = image.src;
+    link.download = image.filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
+  // Make function available globally
+  (window as any).downloadImage = downloadImage;
 </script>

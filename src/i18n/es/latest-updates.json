@@ -1,20 +1,32 @@
 {
-    "latestUpdates.pageTitle": "ASJR - Últimas noticias",
-    "latestUpdates.title": "Últimas noticias",
-    "latestUpdates.description": "Ver nuestras últimas noticias en ASJR.",
+  "latestUpdates.pageTitle": "ASJR - Últimas actualizaciones",
+  "latestUpdates.title": "Últimas actualizaciones",
+  "latestUpdates.description": "Vea nuestras últimas actualizaciones en ASJR.",
 
-    "latestUpdates.article.backButton": "← Volver a las últimas noticias",
+  "latestUpdates.article.backButton": "← Volver a últimas actualizaciones",
+  "latestUpdates.article.link": "Leer noticia →",
 
-    "latestUpdates.article20251112.title": "Título del artículo 1",
-    "latestUpdates.article20251112.subtitle": "Subtítulo del artículo 1",
-    "latestUpdates.article20251112.author": "Nombre del autor",
-    "latestUpdates.article20251112.date": "Noviembre 12, 2025",
-    "latestUpdates.article20251112.summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus imperdiet felis, tincidunt iaculis orci. Phasellus sed porttitor elit. Cras vehicula, eros sed vehicula scelerisque, massa tellus maximus justo, vitae imperdiet ante sem eu mauris. Nam congue libero in ultricies volutpat. Suspendisse dapibus eu massa a convallis.",
-    "latestUpdates.article20251112.thumbnailImageAlt": "Imagen del artículo 1",
-    "latestUpdates.article20251112.link": "Leer artículo →",
+  "latestUpdates.article20251112.title": "Cinco años adelante, desafíos por delante",
+  "latestUpdates.article20251112.subtitle": "Perspectivas de la Jefa Adeola sobre aumentos de personal, brechas de recursos y la necesidad urgente de un mayor apoyo para los defensores.",
+  "latestUpdates.article20251112.date": "12 de noviembre de 2025",
+  "latestUpdates.article20251112.summary": "Adeola, la Jefa de la Oficina del Defensor Público, discutió el progreso significativo logrado en cinco años, incluidos los aumentos de personal y la importancia de las comparecencias iniciales en persona para los clientes. El grupo luego se centró en los desafíos dentro del sistema de justicia penal, incluidos problemas de financiamiento, gestión de carga de casos y la necesidad de un mejor apoyo y recursos para los defensores públicos en el Condado de Travis.",
+  "latestUpdates.article20251112.thumbnailImageAlt": "Una multitud de personas sosteniendo carteles en un Mitin de Amabilidad en Austin, Texas.",
+  "latestUpdates.article20251112.details.paragraph1": "Adeola, la Jefa de la Oficina del Defensor Público, discutió el progreso significativo logrado en cinco años, incluidos los aumentos de personal y la importancia de las comparecencias iniciales en persona para los clientes. El grupo luego se centró en los desafíos dentro del sistema de justicia penal, incluidos problemas de financiamiento, gestión de carga de casos y la necesidad de un mejor apoyo y recursos para los defensores públicos en el Condado de Travis.",
+  "latestUpdates.article20251112.details.imageAlt1": "Una multitud de personas sosteniendo carteles en un Mitin de Amabilidad en Austin, Texas",
 
-    "latestUpdates.article20251112.details.paragraph1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus imperdiet felis, tincidunt iaculis orci. Phasellus sed porttitor elit. Cras vehicula, eros sed vehicula scelerisque, massa tellus maximus justo, vitae imperdiet ante sem eu mauris. Nam congue libero in ultricies volutpat. Suspendisse dapibus eu massa a convallis. Sed gravida tortor ac risus consectetur euismod. In congue viverra est sed laoreet. Fusce eu lorem a sem ultrices eleifend. Nullam eleifend, neque a facilisis hendrerit, nisl turpis euismod neque, eget finibus tortor magna ut sem. Sed volutpat purus vel urna convallis, vel gravida odio interdum. Donec at nisl a sapien tincidunt interdum. Aenean eu nisi dui.",
-    "latestUpdates.article20251112.details.paragraph2": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse blandit, sapien ut maximus elementum, justo libero venenatis mi, consectetur pretium dui tortor et odio. Fusce a nunc ac est faucibus laoreet. Praesent ex turpis, facilisis a ligula sit amet, ullamcorper mollis turpis. Vestibulum tempus mi eu sodales gravida. Vivamus egestas sollicitudin lectus. Nulla non ante eu orci tincidunt semper ac id justo. Vestibulum mi metus, pellentesque eget laoreet sagittis, ultrices non nunc. Nam suscipit felis a ex dictum sodales. Ut ultricies convallis nisl. Morbi finibus ligula quis lectus cursus, eget eleifend magna porta. Nullam gravida metus nec auctor tempus.",
-    "latestUpdates.article20251112.details.imageAlt1": "Un grupo de personas sosteniendo carteles en una manifestación de la justicia social en Austin, Texas",
-    "latestUpdates.article20251112.details.imageAlt2": "Los oradores de ASJR hablan sobre la justicia social en frente a un público."
+  "latestUpdates.article20251022.title": "Actualizaciones del proyecto del Centro de Diversión y discusión de planificación",
+  "latestUpdates.article20251022.subtitle": "Los miembros principales discuten el progreso y los próximos pasos para el programa piloto del centro de diversión.",
+  "latestUpdates.article20251022.date": "22 de octubre de 2025",
+  "latestUpdates.article20251022.summary": "El grupo discutió problemas de asistencia y varios asuntos personales, incluidas actualizaciones de salud y eventos recientes, antes de pasar a sus temas principales de agenda. Exploraron varios temas relacionados con un proyecto de centro de diversión, incluida la participación de proveedores de servicios, consideraciones de diseño del programa y desarrollo de encuestas para evaluar el programa piloto. La conversación terminó con discusiones sobre formatos de reuniones futuras, planes para un Comité Asesor Comunitario y coordinación de próximos eventos y reuniones.",
+  "latestUpdates.article20251022.thumbnailImageAlt": "Miembro principal de ASJR sonriendo al aire libre.",
+  "latestUpdates.article20251022.details.paragraph1": "El grupo discutió problemas de asistencia y varios asuntos personales, incluidas actualizaciones de salud y eventos recientes, antes de pasar a sus temas principales de agenda. Exploraron varios temas relacionados con un proyecto de centro de diversión, incluida la participación de proveedores de servicios, consideraciones de diseño del programa y desarrollo de encuestas para evaluar el programa piloto. La conversación terminó con discusiones sobre formatos de reuniones futuras, planes para un Comité Asesor Comunitario y coordinación de próximos eventos y reuniones. Los actores clave enfatizaron la importancia del compromiso comunitario y la transparencia durante todo el proceso de implementación. Los participantes también revisaron las expectativas del cronograma e identificaron posibles desafíos que pueden surgir durante las fases iniciales del proyecto. El equipo acordó establecer controles regulares para monitorear el progreso y abordar cualquier inquietud emergente.",
+  "latestUpdates.article20251022.details.imageAlt1": "Miembro principal de ASJR sonriendo al aire libre.",
+
+  "latestUpdates.article20251017.title": "Progreso de la Oficina del Defensor Público y desafíos continuos del sistema",
+  "latestUpdates.article20251017.subtitle": "Ganancias de cinco años frente a desafíos persistentes en financiamiento, recursos y gestión sostenible de la carga de casos.",
+  "latestUpdates.article20251017.date": "17 de octubre de 2025",
+  "latestUpdates.article20251017.summary": "Exploraron mejoras en los servicios de salud mental a través de la colaboración entre varias organizaciones y discutieron preocupaciones sobre el trato policial de los problemas de salud mental y falta de vivienda, lo que llevó a planes para reuniones con el liderazgo policial. El grupo también cubrió el progreso del desarrollo del sitio web, consideraciones sobre el estado sin fines de lucro y discusiones presupuestarias sobre los servicios de PDO y CAPSDS, mientras planificaban reuniones futuras para abordar preguntas pendientes sobre programas de diversión y prestación de servicios.",
+  "latestUpdates.article20251017.thumbnailImageAlt": "",
+  "latestUpdates.article20251017.details.paragraph1": "Exploraron mejoras en los servicios de salud mental a través de la colaboración entre varias organizaciones y discutieron preocupaciones sobre el trato policial de los problemas de salud mental y falta de vivienda, lo que llevó a planes para reuniones con el liderazgo policial. El grupo también cubrió el progreso del desarrollo del sitio web, consideraciones sobre el estado sin fines de lucro y discusiones presupuestarias sobre los servicios de PDO y CAPSDS, mientras planificaban reuniones futuras para abordar preguntas pendientes sobre programas de diversión y prestación de servicios.",
+  "latestUpdates.article20251017.details.imageAlt1": "Una sala de tribunal con bancos de madera y una bandera estadounidense junto con personas."
 }
