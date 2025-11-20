@@ -45,53 +45,52 @@ const urlSuffix = url.split('/').pop();
       </ul>
     </div>
 
-    <form class="newsletter-form">
+    <form
+      class="newsletter-form"
+      onsubmit="return submitYourMessage(event)"
+      novalidate
+    >
       <fieldset>
         <legend class="sr-only">{t(lang, 'form.newsletterSignup')}</legend>
-        <form class="newsletter-form">
-          <fieldset>
-            <legend class="sr-only">{t(lang, 'form.newsletterSignup')}</legend>
 
-            <div class="form-row">
-              <mdc-input
-                id="first-name"
-                name="firstName"
-                label={t(lang, 'form.firstName')}
-                placeholder={t(lang, 'form.firstNamePlaceholder')}
-                required></mdc-input>
+        <div class="form-row">
+          <mdc-input
+            id="first-name"
+            name="firstName"
+            label={t(lang, 'form.firstName')}
+            placeholder={t(lang, 'form.firstNamePlaceholder')}
+            required></mdc-input>
 
-              <mdc-input
-                id="last-name"
-                name="lastName"
-                label={t(lang, 'form.lastName')}
-                placeholder={t(lang, 'form.lastNamePlaceholder')}
-                required></mdc-input>
-            </div>
+          <mdc-input
+            id="last-name"
+            name="lastName"
+            label={t(lang, 'form.lastName')}
+            placeholder={t(lang, 'form.lastNamePlaceholder')}
+            required></mdc-input>
+        </div>
 
-            <mdc-input
-              id="email"
-              name="email"
-              type="email"
-              label={t(lang, 'form.emailAddress')}
-              placeholder={t(lang, 'form.emailPlaceholder')}
-              required></mdc-input>
+        <mdc-input
+          id="email"
+          name="email"
+          type="email"
+          label={t(lang, 'form.emailAddress')}
+          placeholder={t(lang, 'form.emailPlaceholder')}
+          required></mdc-input>
 
-            <mdc-textarea
-              id="message"
-              name="message"
-              label={t(lang, 'form.message')}
-              placeholder={t(lang, 'form.messagePlaceholder')}
-              wrap="soft"
-              cols="170"
-              required
-              autocapitalize="off"
-              autocomplete="off"></mdc-textarea>
+        <mdc-textarea
+          id="message"
+          name="message"
+          label={t(lang, 'form.message')}
+          placeholder={t(lang, 'form.messagePlaceholder')}
+          wrap="soft"
+          cols="170"
+          required
+          autocapitalize="off"
+          autocomplete="off"></mdc-textarea>
 
-            <mdc-button type="submit" variant="primary" size="40">
-              {t(lang, 'form.submit')}
-            </mdc-button>
-          </fieldset>
-        </form>
+        <mdc-button type="submit" variant="primary" size="40">
+          {t(lang, 'form.submit')}
+        </mdc-button>
       </fieldset>
     </form>
   </div>
@@ -134,4 +133,84 @@ const urlSuffix = url.split('/').pop();
   import('@momentum-design/components/dist/components/icon/index.js');
   import('@momentum-design/components/dist/components/text/index.js');
   import('@momentum-design/components/dist/components/textarea/index.js');
+
+  function submitYourMessage(event: Event) {
+    event.preventDefault();
+
+    let isValid = true;
+
+    // Get form elements
+    const firstNameInput = document.getElementById('first-name') as any;
+    const lastNameInput = document.getElementById('last-name') as any;
+    const emailInput = document.getElementById('email') as any;
+    const messageTextarea = document.getElementById('message') as any;
+
+    // Reset error states
+    [firstNameInput, lastNameInput, emailInput, messageTextarea].forEach(
+      (element) => {
+        if (element) {
+          element.removeAttribute('help-text');
+          element.removeAttribute('help-text-type');
+        }
+      }
+    );
+
+    // Validate first name
+    if (!firstNameInput?.value || firstNameInput.value.trim() === '') {
+      firstNameInput.setAttribute('help-text', 'First name is required');
+      firstNameInput.setAttribute('help-text-type', 'error');
+      isValid = false;
+    }
+
+    // Validate last name
+    if (!lastNameInput?.value || lastNameInput.value.trim() === '') {
+      lastNameInput.setAttribute('help-text', 'Last name is required');
+      lastNameInput.setAttribute('help-text-type', 'error');
+      isValid = false;
+    }
+
+    // Validate email
+    if (!emailInput?.value || emailInput.value.trim() === '') {
+      emailInput.setAttribute('help-text', 'Email address is required');
+      emailInput.setAttribute('help-text-type', 'error');
+      isValid = false;
+    } else {
+      // Validate email format
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(emailInput.value.trim())) {
+        emailInput.setAttribute(
+          'help-text',
+          'Please enter a valid email address'
+        );
+        emailInput.setAttribute('help-text-type', 'error');
+        isValid = false;
+      }
+    }
+
+    // Validate message
+    if (!messageTextarea?.value || messageTextarea.value.trim() === '') {
+      messageTextarea.setAttribute('help-text', 'Message is required');
+      messageTextarea.setAttribute('help-text-type', 'error');
+      isValid = false;
+    }
+
+    // If all validations pass, submit the form
+    if (isValid) {
+      // TODO: Add your form submission logic here
+      const formData = JSON.stringify({
+        firstName: firstNameInput.value,
+        lastName: lastNameInput.value,
+        email: emailInput.value,
+        message: messageTextarea.value,
+      });
+
+      // Reset the form after successful submission
+      (event.target as HTMLFormElement).reset();
+    }
+
+    return false;
+  }
+
+  // Make function available globally
+  (window as any).submitYourMessage = submitYourMessage;
 </script>
