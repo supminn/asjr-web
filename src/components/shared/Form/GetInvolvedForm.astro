@@ -20,85 +20,106 @@ const url = Astro.url.href;
 const urlSuffix = url.split('/').pop();
 ---
 
-<div class="flex-container">
-  <div class={`contact-form ${className}`}>
-    <div class="form-header">
-      <mdc-text type="body-large-regular" tagname="p" class="form-subtitle">
-        {t(lang, 'form.subtitle')}
-      </mdc-text>
+<div class="get-involved-container">
+  <!-- Success Banner -->
+  <div id="success-banner" class="banner banner-success" style="display: none;">
+    <div class="banner-icon">✓</div>
+    <div class="banner-content">
+      <span class="banner-text">{t(lang, 'form.successMessage')}</span>
     </div>
-
-    <div class="contact-list">
-      <ul>
-        <li>
-          <div class="get-invovled-icon"><Hand /></div>
-          <p>{t(lang, 'form.volunteer')}</p>
-        </li>
-        <li>
-          <div class="get-invovled-icon"><SpeakerHigh /></div>
-          <p>{t(lang, 'form.advocate')}</p>
-        </li>
-        <li>
-          <div class="get-invovled-icon"><Chat /></div>
-          <p>{t(lang, 'form.stories')}</p>
-        </li>
-      </ul>
-    </div>
-
-    <form
-      class="newsletter-form"
-      onsubmit="return submitYourMessage(event)"
-      novalidate
-    >
-      <fieldset>
-        <legend class="sr-only">{t(lang, 'form.newsletterSignup')}</legend>
-
-        <div class="form-row">
-          <mdc-input
-            id="first-name"
-            name="firstName"
-            label={t(lang, 'form.firstName')}
-            placeholder={t(lang, 'form.firstNamePlaceholder')}
-            required></mdc-input>
-
-          <mdc-input
-            id="last-name"
-            name="lastName"
-            label={t(lang, 'form.lastName')}
-            placeholder={t(lang, 'form.lastNamePlaceholder')}
-            required></mdc-input>
-        </div>
-
-        <mdc-input
-          id="email"
-          name="email"
-          type="email"
-          label={t(lang, 'form.emailAddress')}
-          placeholder={t(lang, 'form.emailPlaceholder')}
-          required></mdc-input>
-
-        <mdc-textarea
-          id="message"
-          name="message"
-          label={t(lang, 'form.message')}
-          placeholder={t(lang, 'form.messagePlaceholder')}
-          wrap="soft"
-          cols="170"
-          required
-          autocapitalize="off"
-          autocomplete="off"></mdc-textarea>
-
-        <mdc-button type="submit" variant="primary" size="40">
-          {t(lang, 'form.submit')}
-        </mdc-button>
-      </fieldset>
-    </form>
   </div>
-  {
-    urlSuffix === 'contact' && (
-      <Image class="image" src={ContactImage} alt={t(lang, 'form.imageAlt')} />
-    )
-  }
+
+  <!-- Error Banner -->
+  <div id="error-banner" class="banner banner-error" style="display: none;">
+    <div class="banner-icon">✕</div>
+    <div class="banner-content">
+      <span class="banner-text" id="error-message">{t(lang, 'form.errorMessage')}</span>
+    </div>
+  </div>
+
+  <!-- Form and Image -->
+  <div class="flex-container">
+    <div class={`contact-form ${className}`}>
+      
+
+      <div class="form-header">
+        <mdc-text type="body-large-regular" tagname="p" class="form-subtitle">
+          {t(lang, 'form.subtitle')}
+        </mdc-text>
+      </div>
+
+      <div class="contact-list">
+        <ul>
+          <li>
+            <div class="get-invovled-icon"><Hand /></div>
+            <p>{t(lang, 'form.volunteer')}</p>
+          </li>
+          <li>
+            <div class="get-invovled-icon"><SpeakerHigh /></div>
+            <p>{t(lang, 'form.advocate')}</p>
+          </li>
+          <li>
+            <div class="get-invovled-icon"><Chat /></div>
+            <p>{t(lang, 'form.stories')}</p>
+          </li>
+        </ul>
+      </div>
+
+      <form
+        class="newsletter-form"
+        onsubmit="return submitYourMessage(event)"
+        novalidate
+      >
+        <fieldset>
+          <legend class="sr-only">{t(lang, 'form.newsletterSignup')}</legend>
+
+          <div class="form-row">
+            <mdc-input
+              id="first-name"
+              name="firstName"
+              label={t(lang, 'form.firstName')}
+              placeholder={t(lang, 'form.firstNamePlaceholder')}
+              required></mdc-input>
+
+            <mdc-input
+              id="last-name"
+              name="lastName"
+              label={t(lang, 'form.lastName')}
+              placeholder={t(lang, 'form.lastNamePlaceholder')}
+              required></mdc-input>
+          </div>
+
+          <mdc-input
+            id="email"
+            name="email"
+            type="email"
+            label={t(lang, 'form.emailAddress')}
+            placeholder={t(lang, 'form.emailPlaceholder')}
+            required></mdc-input>
+
+          <mdc-textarea
+            id="message"
+            name="message"
+            label={t(lang, 'form.message')}
+            placeholder={t(lang, 'form.messagePlaceholder')}
+            wrap="soft"
+            cols="170"
+            required
+            autocapitalize="off"
+            autocomplete="off"></mdc-textarea>
+
+          <mdc-button type="submit" variant="primary" size="40">
+            {t(lang, 'form.submit')}
+          </mdc-button>
+        </fieldset>
+      </form>
+    </div>
+    {
+      urlSuffix === 'contact' && (
+        <Image class="image" src={ContactImage} alt={t(lang, 'form.imageAlt')} />
+      )
+    }
+  </div>
 </div>
 
 <style>
@@ -107,7 +128,7 @@ const urlSuffix = url.split('/').pop();
     gap: 2rem;
     align-items: flex-start;
     justify-content: center;
-    padding: var(--vertical-padding) var(--horizontal-padding);
+    padding: 0;
   }
 
   .contact-form {
@@ -115,6 +136,71 @@ const urlSuffix = url.split('/').pop();
   }
   .image {
     width: 50%;
+  }
+
+  /* Banner Styles */
+  .banner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid;
+    font-size: 1rem;
+    line-height: 1.5;
+    animation: slideDown 0.3s ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .banner-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  .banner-content {
+    flex: 1;
+  }
+
+  .banner-text {
+    display: block;
+    font-weight: 500;
+  }
+
+  .banner-success {
+    background-color: var(--mds-color-theme-background-success-normal, #d4edda);
+    border-color: var(--mds-color-theme-outline-success-normal, #28a745);
+    color: var(--mds-color-theme-text-success-normal, #155724);
+  }
+
+  .banner-success .banner-icon {
+    color: var(--mds-color-theme-text-success-normal, #155724);
+  }
+
+  .banner-error {
+    background-color: var(--mds-color-theme-background-error-normal, #f8d7da);
+    border-color: var(--mds-color-theme-outline-error-normal, #dc3545);
+    color: var(--mds-color-theme-text-error-normal, #721c24);
+  }
+
+  .banner-error .banner-icon {
+    color: var(--mds-color-theme-text-error-normal, #721c24);
   }
 
   @media screen and (max-width: 576px) {
@@ -125,6 +211,17 @@ const urlSuffix = url.split('/').pop();
     .image {
       width: 100%;
     }
+
+    .banner {
+      padding: 0.875rem 1rem;
+      font-size: 0.9375rem;
+    }
+
+    .banner-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      font-size: 1rem;
+    }
   }
 </style>
 <script>
@@ -134,7 +231,7 @@ const urlSuffix = url.split('/').pop();
   import('@momentum-design/components/dist/components/text/index.js');
   import('@momentum-design/components/dist/components/textarea/index.js');
 
-  function submitYourMessage(event: Event) {
+  async function submitYourMessage(event: Event) {
     event.preventDefault();
 
     let isValid = true;
@@ -144,6 +241,13 @@ const urlSuffix = url.split('/').pop();
     const lastNameInput = document.getElementById('last-name') as any;
     const emailInput = document.getElementById('email') as any;
     const messageTextarea = document.getElementById('message') as any;
+    const successBanner = document.getElementById('success-banner') as any;
+    const errorBanner = document.getElementById('error-banner') as any;
+    const errorMessage = document.getElementById('error-message') as any;
+
+    // Hide banners at the start
+    if (successBanner) successBanner.style.display = 'none';
+    if (errorBanner) errorBanner.style.display = 'none';
 
     // Reset error states
     [firstNameInput, lastNameInput, emailInput, messageTextarea].forEach(
@@ -196,16 +300,77 @@ const urlSuffix = url.split('/').pop();
 
     // If all validations pass, submit the form
     if (isValid) {
-      // TODO: Add your form submission logic here
-      const formData = JSON.stringify({
-        firstName: firstNameInput.value,
-        lastName: lastNameInput.value,
-        email: emailInput.value,
-        message: messageTextarea.value,
-      });
+      const submitButton = (event.target as HTMLFormElement).querySelector(
+        'mdc-button[type="submit"]'
+      ) as any;
 
-      // Reset the form after successful submission
-      (event.target as HTMLFormElement).reset();
+      // Disable the submit button and show loading state
+      if (submitButton) {
+        submitButton.setAttribute('disabled', 'true');
+        const originalText = submitButton.textContent;
+        submitButton.textContent = 'Sending...';
+
+        try {
+          console.log('Submitting form to API...');
+
+          // Send form data to API endpoint
+          const response = await fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              firstName: firstNameInput.value,
+              lastName: lastNameInput.value,
+              email: emailInput.value,
+              message: messageTextarea.value
+            })
+          });
+
+          const result = await response.json();
+
+          if (result.success) {
+            console.log('Email sent successfully!', result);
+            
+            // Show success banner
+            if (successBanner) {
+              successBanner.style.display = 'flex';
+              // Scroll to banner
+              successBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            
+            // Reset the form after successful submission
+            (event.target as HTMLFormElement).reset();
+          } else {
+            console.error('Failed to send email:', result);
+            
+            // Show error banner
+            if (errorBanner && errorMessage) {
+              errorMessage.textContent = result.message || 'Failed to send message. Please try again.';
+              errorBanner.style.display = 'flex';
+              // Scroll to banner
+              errorBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+          }
+        } catch (error) {
+          console.error('Error submitting form:', error);
+          
+          // Show error banner
+          if (errorBanner && errorMessage) {
+            const errorMsg = error instanceof Error ? error.message : 'An error occurred. Please try again later.';
+            errorMessage.textContent = errorMsg;
+            errorBanner.style.display = 'flex';
+            // Scroll to banner
+            errorBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        } finally {
+          // Re-enable the submit button
+          if (submitButton) {
+            submitButton.removeAttribute('disabled');
+            submitButton.textContent = originalText;
+          }
+        }
+      }
     }
 
     return false;

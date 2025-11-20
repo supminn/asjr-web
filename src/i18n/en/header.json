@@ -31,6 +31,8 @@
   "form.messagePlaceholder": "Enter your message",
   "form.submit": "Submit",
   "form.newsletterSignup": "Newsletter Signup",
+  "form.successMessage": "Thank you! Your message has been sent successfully.",
+  "form.errorMessage": "Oops! Something went wrong and the form could not be submitted. Please try again.",
   "footer.aboutUs": "About us",
   "footer.whoWeAre": "Who we are",
   "footer.missionGoal": "Our mission and goal",

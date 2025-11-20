@@ -16,10 +16,12 @@
     "@phosphor-icons/react": "^2.1.10",
     "astro": "^5.15.8",
     "astro-navbar": "^2.4.0",
+    "nodemailer": "^7.0.10",
     "phosphor-astro": "^2.1.0"
   },
   "packageManager": "yarn@4.10.3",
   "devDependencies": {
+    "@types/nodemailer": "^7",
     "rollup-plugin-copy": "^3.5.0"
   }
 }

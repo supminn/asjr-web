@@ -31,6 +31,8 @@
   "form.messagePlaceholder": "Introduce tu mensaje",
   "form.submit": "Enviar",
   "form.newsletterSignup": "Suscripción al boletín",
+  "form.successMessage": "¡Gracias! Tu mensaje ha sido enviado exitosamente.",
+  "form.errorMessage": "¡Ups! Algo salió mal y el formulario no pudo ser enviado. Por favor, inténtalo de nuevo.",
   "footer.aboutUs": "Sobre nosotros",
   "footer.whoWeAre": "Quiénes somos",
   "footer.missionGoal": "Nuestra misión y objetivo",
