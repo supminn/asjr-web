@@ -2,7 +2,7 @@
 import './Footer.css';
 
 import { Image } from 'astro:assets';
-import LogoASJR from '../../assets/images/header/logo-asjr.png';
+import LogoASJR from '../../assets/images/header/logo-desktop.svg';
 import LogoKnowbility from '../../assets/images/footer/logo-knowbility.png';
 import { t, type Lang } from '../../i18n/get';
 
@@ -68,16 +68,16 @@ const seekHelpLink = `${baseUrl}${langPrefix}resources`;
           <a href={baseUrl} class="logo-asjr">
             <Image
               src={LogoASJR}
-              alt="Advocates for Social Justice Reform logo"
+              alt={t(lang, 'logo.altText')}
             />
           </a>
           <a
-            href="https://knowbility.org/"
+            href="https://knowbility.org/programs/air"
             class="logo-knowbility"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Image src={LogoKnowbility} alt="Knowability logo" />
+            <Image src={LogoKnowbility} alt="Knowbility" />
           </a>
         </div>
 
@@ -97,7 +97,7 @@ const seekHelpLink = `${baseUrl}${langPrefix}resources`;
       </div>
 
       <div class="footer-copyright">
-        {t(lang, 'footer.copyright')}
+        © {currentYear} {t(lang, 'footer.copyright')}
       </div>
     </div>
   </div>
