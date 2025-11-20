@@ -223,7 +223,7 @@ img {
 }
 
 .breadcrumb .level.active {
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .section,
@@ -1082,6 +1082,21 @@ img {
 }
 
 @media (max-width: 768px) {
+
+  .breadcrumb {
+    justify-content: start;
+    align-items: center;
+    gap: 0.5rem;
+
+    .level.active {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 300px;
+    }
+  }
+
+
   .section.hero img {
     border-radius: 1rem;
   }
