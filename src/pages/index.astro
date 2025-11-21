@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import GetInvolvedForm from '../components/shared/Form/GetInvolvedForm.astro';
+import GetInvolvedFormEmailJS from '../components/shared/Form/GetInvolvedForm2.astro';
 
 import { Image } from 'astro:assets';
 import HomeHero from '../assets/images/home/home-hero.png';
@@ -239,7 +240,7 @@ const latestUpdates = `${baseUrl}${lang === 'es' ? 'es/' : ''}latest-updates`;
     <div class="inner-container">
       <div class="contact-home">
         <h2>{t(lang, 'form.title')}</h2>
-        <GetInvolvedForm lang={lang} />
+        <GetInvolvedFormEmailJS lang={lang} />
       </div>
     </div>
   </section>

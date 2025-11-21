@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { t, type Lang } from '../i18n/get';
 import GetInvolvedForm from '../components/shared/Form/GetInvolvedForm.astro';
-import GetInvolvedForm2 from '../components/shared/FOrm/GetInvolvedForm2.astro';
+import GetInvolvedFormEmailJS from '../components/shared/FOrm/GetInvolvedForm2.astro';
 
 const baseUrl = import.meta.env.BASE_URL;
 
@@ -23,7 +23,7 @@ const lang: Lang =
     <div class="inner-container">
       <h1>{t(lang, 'form.title')}</h1>
 
-      <GetInvolvedForm2 lang={lang} />
+      <GetInvolvedFormEmailJS lang={lang} />
     </div>
   </section>
 </Layout>
