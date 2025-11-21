@@ -1,44 +1,33 @@
 import nodemailer from 'nodemailer';
 
-export const prerender = true;
+export default async function handler(req, res) {
+  // Only allow POST requests
+  if (req.method !== 'POST') {
+    return res.status(405).json({
+      success: false,
+      message: 'Method not allowed',
+    });
+  }
 
-export async function POST({ request }) {
   try {
-    // Parse request body (JSON)
-    const body = await request.json();
-    const { firstName, lastName, email, message } = body;
+    const { firstName, lastName, email, message } = req.body;
 
     // Validate required fields
     if (!firstName || !lastName || !email || !message) {
-      return new Response(
-        JSON.stringify({
-          success: false,
-          message: 'All fields are required',
-        }),
-        {
-          status: 400,
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
+      return res.status(400).json({
+        success: false,
+        message: 'All fields are required',
+      });
     }
 
     // Gmail SMTP Configuration from environment variables
     const smtpConfig = {
-      //host: import.meta.env.SMTP_HOST || 'smtp.gmail.com',
-      //port: parseInt(import.meta.env.SMTP_PORT || '465'),
-      //secure: import.meta.env.SMTP_SECURE === 'true' || true,
-      //user: import.meta.env.GMAIL_USER,
-      //recipient: import.meta.env.GMAIL_RECIPIENT || import.meta.env.GMAIL_USER
-
-      //TODO: Get ENV variables to work and replace with them here
-      host: 'smtp.gmail.com',
-      port: '465',
-      secure: 'true',
-      user: 'asjraustindev@gmail.com',
-      recipient: 'asjraustindev@gmail.com',
-      password: 'iqhtaqhhjkcbxlpv',
+      host: process.env.SMTP_HOST || 'smtp.gmail.com',
+      port: parseInt(process.env.SMTP_PORT || '465'),
+      secure: process.env.SMTP_SECURE === 'true' || true,
+      user: process.env.GMAIL_USER,
+      recipient: process.env.GMAIL_RECIPIENT || process.env.GMAIL_USER,
+      password: process.env.GMAIL_APP_PASSWORD,
     };
 
     // Create nodemailer transporter
@@ -89,35 +78,19 @@ ${message}
     console.log('Response:', info.response);
 
     // Return success response
-    return new Response(
-      JSON.stringify({
-        success: true,
-        message: 'Email sent successfully!',
-        messageId: info.messageId,
-      }),
-      {
-        status: 200,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
-    );
+    return res.status(200).json({
+      success: true,
+      message: 'Email sent successfully!',
+      messageId: info.messageId,
+    });
   } catch (error) {
     console.error('Error sending email:', error);
     console.error('Error details:', error.message);
 
-    return new Response(
-      JSON.stringify({
-        success: false,
-        message: 'Failed to send email. Please try again later.',
-        error: error.message,
-      }),
-      {
-        status: 500,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
-    );
+    return res.status(500).json({
+      success: false,
+      message: 'Failed to send email. Please try again later.',
+      error: error.message,
+    });
   }
 }

@@ -33,15 +33,15 @@ const urlSuffix = url.split('/').pop();
   <div id="error-banner" class="banner banner-error" style="display: none;">
     <div class="banner-icon">✕</div>
     <div class="banner-content">
-      <span class="banner-text" id="error-message">{t(lang, 'form.errorMessage')}</span>
+      <span class="banner-text" id="error-message"
+        >{t(lang, 'form.errorMessage')}</span
+      >
     </div>
   </div>
 
   <!-- Form and Image -->
   <div class="flex-container">
     <div class={`contact-form ${className}`}>
-      
-
       <div class="form-header">
         <mdc-text type="body-large-regular" tagname="p" class="form-subtitle">
           {t(lang, 'form.subtitle')}
@@ -67,49 +67,49 @@ const urlSuffix = url.split('/').pop();
 
       <form
         class="newsletter-form"
-        onsubmit="return submitYourMessage(event)"
+        onsubmit="submitYourMessage(event)"
         novalidate
       >
         <fieldset>
           <legend class="sr-only">{t(lang, 'form.newsletterSignup')}</legend>
 
-           <div class="form-row">
-             <mdc-input
-               id="first-name"
-               name="firstName"
-               label={t(lang, 'form.firstName')}
-               placeholder={t(lang, 'form.firstNamePlaceholder')}
-               autocomplete="given-name"
-               required></mdc-input>
+          <div class="form-row">
+            <mdc-input
+              id="first-name"
+              name="firstName"
+              label={t(lang, 'form.firstName')}
+              placeholder={t(lang, 'form.firstNamePlaceholder')}
+              autocomplete="given-name"
+              required></mdc-input>
 
-             <mdc-input
-               id="last-name"
-               name="lastName"
-               label={t(lang, 'form.lastName')}
-               placeholder={t(lang, 'form.lastNamePlaceholder')}
-               autocomplete="family-name"
-               required></mdc-input>
-           </div>
+            <mdc-input
+              id="last-name"
+              name="lastName"
+              label={t(lang, 'form.lastName')}
+              placeholder={t(lang, 'form.lastNamePlaceholder')}
+              autocomplete="family-name"
+              required></mdc-input>
+          </div>
 
-           <mdc-input
-             id="email"
-             name="email"
-             type="email"
-             label={t(lang, 'form.emailAddress')}
-             placeholder={t(lang, 'form.emailPlaceholder')}
-             autocomplete="email"
-             required></mdc-input>
+          <mdc-input
+            id="email"
+            name="email"
+            type="email"
+            label={t(lang, 'form.emailAddress')}
+            placeholder={t(lang, 'form.emailPlaceholder')}
+            autocomplete="email"
+            required></mdc-input>
 
-           <mdc-textarea
-             id="message"
-             name="message"
-             label={t(lang, 'form.message')}
-             placeholder={t(lang, 'form.messagePlaceholder')}
-             wrap="soft"
-             cols="170"
-             required
-             autocapitalize="off"
-             autocomplete="off"></mdc-textarea>
+          <mdc-textarea
+            id="message"
+            name="message"
+            label={t(lang, 'form.message')}
+            placeholder={t(lang, 'form.messagePlaceholder')}
+            wrap="soft"
+            cols="170"
+            required
+            autocapitalize="off"
+            autocomplete="off"></mdc-textarea>
 
           <mdc-button type="submit" variant="primary" size="40">
             {t(lang, 'form.submit')}
@@ -119,7 +119,11 @@ const urlSuffix = url.split('/').pop();
     </div>
     {
       urlSuffix === 'contact' && (
-        <Image class="image" src={ContactImage} alt={t(lang, 'form.imageAlt')} />
+        <Image
+          class="image"
+          src={ContactImage}
+          alt={t(lang, 'form.imageAlt')}
+        />
       )
     }
   </div>
@@ -240,13 +244,23 @@ const urlSuffix = url.split('/').pop();
     let isValid = true;
 
     // Get form elements
-    const firstNameInput = document.getElementById('first-name') as any;
-    const lastNameInput = document.getElementById('last-name') as any;
-    const emailInput = document.getElementById('email') as any;
-    const messageTextarea = document.getElementById('message') as any;
-    const successBanner = document.getElementById('success-banner') as any;
-    const errorBanner = document.getElementById('error-banner') as any;
-    const errorMessage = document.getElementById('error-message') as any;
+    const firstNameInput = document.getElementById(
+      'first-name'
+    ) as HTMLInputElement;
+    const lastNameInput = document.getElementById(
+      'last-name'
+    ) as HTMLInputElement;
+    const emailInput = document.getElementById('email') as HTMLInputElement;
+    const messageTextarea = document.getElementById(
+      'message'
+    ) as HTMLInputElement;
+    const successBanner = document.getElementById(
+      'success-banner'
+    ) as HTMLElement;
+    const errorBanner = document.getElementById('error-banner') as HTMLElement;
+    const errorMessage = document.getElementById(
+      'error-message'
+    ) as HTMLElement;
 
     // Hide banners at the start
     if (successBanner) successBanner.style.display = 'none';
@@ -305,7 +319,7 @@ const urlSuffix = url.split('/').pop();
     if (isValid) {
       const submitButton = (event.target as HTMLFormElement).querySelector(
         'mdc-button[type="submit"]'
-      ) as any;
+      ) as HTMLButtonElement;
 
       // Disable the submit button and show loading state
       if (submitButton) {
@@ -314,53 +328,63 @@ const urlSuffix = url.split('/').pop();
         submitButton.textContent = 'Sending...';
 
         try {
-          console.log('Submitting form to API...');
-
           // Send form data to API endpoint
-          const response = await fetch('/api/contact', {
+          // Use environment variable for API URL (Vercel deployment)
+          const apiUrl =
+            import.meta.env.PUBLIC_API_URL ||
+            'https://your-project.vercel.app/api/contact';
+          const response = await fetch(apiUrl, {
             method: 'POST',
             headers: {
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/json',
             },
             body: JSON.stringify({
               firstName: firstNameInput.value,
               lastName: lastNameInput.value,
               email: emailInput.value,
-              message: messageTextarea.value
-            })
+              message: messageTextarea.value,
+            }),
           });
 
           const result = await response.json();
 
           if (result.success) {
-            console.log('Email sent successfully!', result);
-            
             // Show success banner
             if (successBanner) {
               successBanner.style.display = 'flex';
               // Scroll to banner
-              successBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              successBanner.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center',
+              });
             }
-            
+
             // Reset the form after successful submission
             (event.target as HTMLFormElement).reset();
           } else {
             console.error('Failed to send email:', result);
-            
+
             // Show error banner
             if (errorBanner && errorMessage) {
-              errorMessage.textContent = result.message || 'Failed to send message. Please try again.';
+              errorMessage.textContent =
+                result.message || 'Failed to send message. Please try again.';
               errorBanner.style.display = 'flex';
               // Scroll to banner
-              errorBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              errorBanner.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center',
+              });
             }
           }
         } catch (error) {
           console.error('Error submitting form:', error);
-          
+
           // Show error banner
           if (errorBanner && errorMessage) {
-            const errorMsg = error instanceof Error ? error.message : 'An error occurred. Please try again later.';
+            const errorMsg =
+              error instanceof Error
+                ? error.message
+                : 'An error occurred. Please try again later.';
             errorMessage.textContent = errorMsg;
             errorBanner.style.display = 'flex';
             // Scroll to banner
