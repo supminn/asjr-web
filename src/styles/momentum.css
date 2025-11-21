@@ -1201,6 +1201,11 @@ img {
   .section.resources .inner-container {
     padding: 3.75rem 0;
   }
+
+  /* Contact */
+  .section.contact-index .inner-container {
+    padding: 3.75rem 0;
+  }
 }
 
 /* --------------- OG ------------------*/
