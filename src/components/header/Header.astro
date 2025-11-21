@@ -66,6 +66,7 @@ const navItems = [
 ];
 
 const seekHelpLink = `${baseUrl}${isSpanish ? 'es/' : ''}resources`;
+const homePageLink = `${baseUrl}${isSpanish ? 'es/' : ''}`;
 
 // Helper function to check if a nav item is the current page
 function isCurrentPage(href: string): boolean {
@@ -99,7 +100,7 @@ function isCurrentPage(href: string): boolean {
 
 <header data-base-url={baseUrl}>
   <nav class="nav-container">
-    <a href={baseUrl} class="nav-logo">
+    <a href={homePageLink} class="nav-logo">
       <Image src={LogoASJR} alt={t(lang, 'logo.altText')} />
     </a>
 

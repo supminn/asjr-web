@@ -42,12 +42,17 @@ const {
     <title>{title}</title>
   </head>
   <body class="mds-typography mds-effect mds-theme-stable-lightWebex">
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">
+      {t(lang, 'nav.skipToMainContent')}
+    </a>
+
     <MomentumProviders>
       <div class="asjr-main">
         <div class="section">
           <Header lang={lang} />
         </div>
-        <main class="main-content">
+        <main class="main-content" id="main-content" tabindex="-1">
           <slot />
         </main>
         <div class="section">
@@ -55,5 +60,37 @@ const {
         </div>
       </div>
     </MomentumProviders>
+
+    <style>
+      .skip-link {
+        position: absolute;
+        top: -50px;
+        left: 0;
+        background: var(--mds-color-theme-background-accent-normal, #0353a8);
+        color: var(--mds-color-theme-inverted-text-primary-normal, #ffffff);
+        padding: 0.75rem 1.5rem;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        z-index: 9999;
+        transition: top 0.2s ease-in-out;
+        border-radius: 0 0 0.25rem 0.25rem;
+      }
+
+      .skip-link:focus {
+        top: 0;
+        outline: 2px solid var(--mds-color-theme-focus-default-1, #ffffff);
+        outline-offset: 2px;
+      }
+
+      .skip-link:hover {
+        background: var(--mds-color-theme-background-accent-hover, #024a8f);
+      }
+
+      /* Ensure main content can receive focus */
+      main:focus {
+        outline: none;
+      }
+    </style>
   </body>
 </html>
