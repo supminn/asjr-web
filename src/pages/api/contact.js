@@ -35,8 +35,8 @@ export async function POST({ request }) {
 
       //TODO: Get ENV variables to work and replace with them here
       host: 'smtp.gmail.com',
-      port: '465',
-      secure: 'true',
+      port: 465,
+      secure: true,
       user: 'asjraustindev@gmail.com',
       recipient: 'asjraustindev@gmail.com',
       password: 'iqhtaqhhjkcbxlpv'
