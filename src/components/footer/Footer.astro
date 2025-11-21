@@ -31,6 +31,8 @@ const { class: className = '', lang = inferredLang } = Astro.props;
 const isSpanish = lang === 'es';
 const langPrefix = isSpanish ? 'es/' : '';
 
+const homePageLink = `${baseUrl}${isSpanish ? 'es/' : ''}`;
+
 // Navigation items with proper base path handling
 const navItems = [
   { label: t(lang, 'nav.about'), href: `${baseUrl}${langPrefix}about` },
@@ -65,7 +67,7 @@ const seekHelpLink = `${baseUrl}${langPrefix}resources`;
     <div class="inner-container">
       <div class="footer-content">
         <div class="footer-brand">
-          <a href={baseUrl} class="logo-asjr">
+          <a href={homePageLink} class="logo-asjr">
             <Image
               src={LogoASJR}
               alt={t(lang, 'logo.altText')}
