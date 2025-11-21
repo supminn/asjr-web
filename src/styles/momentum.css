@@ -677,6 +677,10 @@ img {
 }
 
 /* About - Vision & Mission Sections */
+.section.about-hero {
+  padding-top: 3.75rem;
+}
+
 .section.about-vision,
 .section.about-mission {
   padding: 7.5rem 0;
@@ -1174,11 +1178,28 @@ img {
     grid-column: 1;
   }
 
+  .section.about-hero {
+    padding-top: 2.5rem;
+  }
+
+  .section.about-story {
+    padding: 3.75rem 0;
+
+    .video-container {
+      padding: 0;
+    }
+  }
+
   /* Our Work */
   .section.what-we-do-index {
     .inner-container {
       padding-top: 3.75rem;
     }
+  }
+
+  /* Resources */
+  .section.resources .inner-container {
+    padding: 3.75rem 0;
   }
 }
 
