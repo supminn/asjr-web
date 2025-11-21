@@ -73,40 +73,43 @@ const urlSuffix = url.split('/').pop();
         <fieldset>
           <legend class="sr-only">{t(lang, 'form.newsletterSignup')}</legend>
 
-          <div class="form-row">
-            <mdc-input
-              id="first-name"
-              name="firstName"
-              label={t(lang, 'form.firstName')}
-              placeholder={t(lang, 'form.firstNamePlaceholder')}
-              required></mdc-input>
+           <div class="form-row">
+             <mdc-input
+               id="first-name"
+               name="firstName"
+               label={t(lang, 'form.firstName')}
+               placeholder={t(lang, 'form.firstNamePlaceholder')}
+               autocomplete="given-name"
+               required></mdc-input>
 
-            <mdc-input
-              id="last-name"
-              name="lastName"
-              label={t(lang, 'form.lastName')}
-              placeholder={t(lang, 'form.lastNamePlaceholder')}
-              required></mdc-input>
-          </div>
+             <mdc-input
+               id="last-name"
+               name="lastName"
+               label={t(lang, 'form.lastName')}
+               placeholder={t(lang, 'form.lastNamePlaceholder')}
+               autocomplete="family-name"
+               required></mdc-input>
+           </div>
 
-          <mdc-input
-            id="email"
-            name="email"
-            type="email"
-            label={t(lang, 'form.emailAddress')}
-            placeholder={t(lang, 'form.emailPlaceholder')}
-            required></mdc-input>
+           <mdc-input
+             id="email"
+             name="email"
+             type="email"
+             label={t(lang, 'form.emailAddress')}
+             placeholder={t(lang, 'form.emailPlaceholder')}
+             autocomplete="email"
+             required></mdc-input>
 
-          <mdc-textarea
-            id="message"
-            name="message"
-            label={t(lang, 'form.message')}
-            placeholder={t(lang, 'form.messagePlaceholder')}
-            wrap="soft"
-            cols="170"
-            required
-            autocapitalize="off"
-            autocomplete="off"></mdc-textarea>
+           <mdc-textarea
+             id="message"
+             name="message"
+             label={t(lang, 'form.message')}
+             placeholder={t(lang, 'form.messagePlaceholder')}
+             wrap="soft"
+             cols="170"
+             required
+             autocapitalize="off"
+             autocomplete="off"></mdc-textarea>
 
           <mdc-button type="submit" variant="primary" size="40">
             {t(lang, 'form.submit')}
