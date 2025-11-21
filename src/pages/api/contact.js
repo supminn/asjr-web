@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer';
 
-export const prerender = false;
+export const prerender = true;
 
 export async function POST({ request }) {
   try {
