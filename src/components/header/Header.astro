@@ -106,15 +106,14 @@ function isCurrentPage(href: string): boolean {
 
     <div class="nav-container-right">
       <div class="nav-localization-toggle">
-        <mdc-toggle
-          name="lang-toggle"
-          value={lang}
-          label={isSpanish
-            ? t('es', 'toggle.toEnglish')
-            : t('en', 'toggle.toSpanish')}
-          checked={isSpanish ? true : undefined}
-          aria-label={isSpanish ? 'Switch to English' : 'Cambiar a Español'}
-        ></mdc-toggle>
+        <div role="switch" aria-checked="false" tabindex="0">          
+          <span class="switch">
+            <span></span>
+          </span>
+          <span class="on" aria-hidden="true">{t(lang, 'toggle.on')}</span>
+          <span class="off" aria-hidden="true">{t(lang, 'toggle.off')}</span>
+          <span class="label">{t('en', 'toggle.toSpanish')}</span>
+        </div>
       </div>
 
       <button class="menu-icon" aria-label="{t(lang, 'nav.openMenu')}" data-open-label={t(lang, 'nav.openMenu')} data-close-label={t(lang, 'nav.closeMenu')} aria-expanded="false">
@@ -191,6 +190,7 @@ function isCurrentPage(href: string): boolean {
       }
 
       langToggle.addEventListener('click', () => {
+        console.log('Toggle Click');
         // Check current state before navigation
         const curr = window.location.pathname;
         const relPath = curr.startsWith(baseUrl)
@@ -215,6 +215,7 @@ function isCurrentPage(href: string): boolean {
 
     if (!menuIcon || !listIcon || !xIcon || !navMenu) return;
 
+    //Mobile Resonsive Menu
     menuIcon.addEventListener('click', () => {
       const isExpanded = menuIcon.getAttribute('aria-expanded') === 'true';
       menuIcon.setAttribute('aria-expanded', (!isExpanded).toString());
@@ -259,4 +260,93 @@ function isCurrentPage(href: string): boolean {
       }
     });
   })();
+
+  /*
+ *   This content is licensed according to the W3C Software License at
+ *   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
+ *
+ *   File:  switch.js
+ *
+ *   Desc:  Switch widget that implements ARIA Authoring Practices
+ */
+
+'use strict';
+
+class Switch {
+  constructor(domNode) {
+    this.switchNode = domNode;
+    this.switchNode.addEventListener('click', () => this.toggleStatus());
+    this.switchNode.addEventListener('keydown', (event) =>
+      this.handleKeydown(event)
+    );
+    
+    // Set initial state based on current language
+    this.initializeState();
+  }
+  
+  initializeState() {
+    const header = document.querySelector('header');
+    const baseUrl = header?.getAttribute('data-base-url') || '/';
+    const current = window.location.pathname;
+    const relativePath = current.startsWith(baseUrl)
+      ? current.slice(baseUrl.length)
+      : current;
+    const isSpanish =
+      relativePath.startsWith('es/') || relativePath.startsWith('es');
+
+    // Set checked state to match current language
+    this.switchNode.setAttribute('aria-checked', isSpanish ? 'true' : 'false');
+  }
+
+  handleKeydown(event) {
+    // Only do something when space or return is pressed
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      this.toggleStatus();
+    }
+  }
+
+  // Switch state of a switch
+  toggleStatus() {
+    const currentState =
+      this.switchNode.getAttribute('aria-checked') === 'true';
+    const newState = String(!currentState);
+
+    this.switchNode.setAttribute('aria-checked', newState);
+
+    // Get base URL from header
+    const header = document.querySelector('header');
+    const baseUrl = header?.getAttribute('data-base-url') || '/';
+    
+    // Check current state before navigation
+    const curr = window.location.pathname;
+    const relPath = curr.startsWith(baseUrl)
+      ? curr.slice(baseUrl.length)
+      : curr;
+    const isEs = relPath.startsWith('es/') || relPath.startsWith('es');
+
+    let newPath;
+    if (currentState) {
+      // Switch is currently ON (Spanish), turning OFF to go to English
+      // Remove 'es/' prefix
+      newPath = relPath.replace(/^es\/?/, '') || '';
+    } else {
+      // Switch is currently OFF (English), turning ON to go to Spanish
+      // Add 'es/' prefix
+      newPath = relPath ? `es/${relPath}` : 'es/';
+    }
+
+    // Construct final URL with baseUrl
+    const target = `${baseUrl}${newPath}`;
+    window.location.href = target;
+  }
+}
+
+// Initialize switches
+window.addEventListener('load', function () {
+  // Initialize the Switch component on all matching DOM nodes
+  Array.from(document.querySelectorAll('[role^=switch]')).forEach(
+    (element) => new Switch(element)
+  );
+});
 </script>
